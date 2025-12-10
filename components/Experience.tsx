@@ -59,7 +59,8 @@ const Experience: React.FC = () => {
           className="mb-24 text-center relative z-10"
         >
           <h2 className="font-serif text-4xl md:text-5xl text-white mb-6">Professional Journey</h2>
-          <p className="text-gray-400">The path that led to systems thinking.</p>
+          {/* OPTIMIZATION: Updated Contrast */}
+          <p className="text-gray-300">The path that led to systems thinking.</p>
         </motion.div>
 
         <div className="relative">
@@ -94,8 +95,8 @@ const Experience: React.FC = () => {
                   />
                 </div>
 
-                {/* Content Card */}
-                <div className="md:w-1/2 pl-8 md:pl-0">
+                {/* Content Card - OPTIMIZATION: Increased mobile padding (pl-12) */}
+                <div className="md:w-1/2 pl-12 md:pl-0">
                   <div className={`
                     relative p-8 rounded-3xl border border-white/5 bg-surface/80 backdrop-blur-sm bg-noise
                     hover:border-indigo-500/30 hover:bg-white/[0.02] transition-all duration-500 group
@@ -120,7 +121,8 @@ const Experience: React.FC = () => {
                        <span className="text-gray-500">{exp.highlight}</span>
                     </div>
 
-                    <p className="text-gray-400 text-base leading-relaxed font-light group-hover:text-gray-300 transition-colors">
+                    {/* OPTIMIZATION: Updated Contrast */}
+                    <p className="text-gray-300 text-base leading-relaxed font-light group-hover:text-gray-200 transition-colors">
                       {exp.description}
                     </p>
                   </div>

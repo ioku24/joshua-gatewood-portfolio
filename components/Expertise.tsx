@@ -49,7 +49,8 @@ const Expertise: React.FC = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-gray-400 max-w-sm text-sm md:text-base font-light"
+            // OPTIMIZATION: Updated Contrast
+            className="text-gray-300 max-w-sm text-sm md:text-base font-light"
           >
             Moving beyond simple tasks to build scalable, automated infrastructure.
           </motion.p>
@@ -79,7 +80,8 @@ const Expertise: React.FC = () => {
                   <Compass size={24} />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-3">System Architecture</h3>
-                <p className="text-gray-400 text-base leading-relaxed font-light max-w-md">
+                {/* OPTIMIZATION: Updated Contrast */}
+                <p className="text-gray-300 text-base leading-relaxed font-light max-w-md">
                   Blueprinting the 'central nervous system' of your marketing operations. I audit tech stacks and map processes to eliminate redundancy.
                 </p>
               </div>
@@ -113,7 +115,8 @@ const Expertise: React.FC = () => {
               </div>
               
               <h3 className="text-xl font-bold text-white mb-3">Workflow Automation</h3>
-              <p className="text-gray-400 text-sm leading-relaxed font-light mb-6">
+              {/* OPTIMIZATION: Updated Contrast */}
+              <p className="text-gray-300 text-sm leading-relaxed font-light mb-6">
                 Removing manual bottlenecks with intelligent, automated triggers via Zapier or Make.
               </p>
 
@@ -139,7 +142,8 @@ const Expertise: React.FC = () => {
               </div>
               
               <h3 className="text-xl font-bold text-white mb-3">Marketing Ops</h3>
-              <p className="text-gray-400 text-sm leading-relaxed font-light mb-6">
+              {/* OPTIMIZATION: Updated Contrast */}
+              <p className="text-gray-300 text-sm leading-relaxed font-light mb-6">
                 Managing the tools and data that power your growth campaigns. Clean data = clear decisions.
               </p>
 
@@ -168,7 +172,8 @@ const Expertise: React.FC = () => {
                     <BarChart3 size={24} />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-3">Scalable Reporting</h3>
-                  <p className="text-gray-400 text-base leading-relaxed font-light">
+                  {/* OPTIMIZATION: Updated Contrast */}
+                  <p className="text-gray-300 text-base leading-relaxed font-light">
                     Turning raw data into actionable insights. I build custom dashboards and attribution models so leadership knows exactly what's working.
                   </p>
                </div>

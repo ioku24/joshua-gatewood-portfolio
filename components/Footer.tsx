@@ -3,7 +3,7 @@ import { Linkedin, Twitter, Instagram, Mail, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2026;
 
   return (
     <footer id="contact" className="bg-surface pt-40 pb-16 border-t border-white/5 scroll-mt-32">

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ArrowUpRight, X, ExternalLink, ChevronRight, AlertCircle, CheckCircle2, TrendingUp, Info, Maximize2, ZoomIn, ZoomOut } from 'lucide-react';
+import { ArrowUpRight, X, ExternalLink, ChevronRight, AlertCircle, CheckCircle2, TrendingUp, Info, Maximize2 } from 'lucide-react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Project } from '../types';
 
@@ -165,6 +165,7 @@ const Lightbox: React.FC<{ src: string; onClose: () => void }> = ({ src, onClose
 // --- Scanning Animation Component ---
 const CyberneticScanner: React.FC = () => {
     return (
+        // OPTIMIZATION: Removed 'hidden md:block' to enable scanner on mobile as requested
         <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden rounded-t-[2rem]">
             {/* The Scanning Beam */}
             <motion.div
@@ -321,7 +322,8 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void; isMobile?: 
              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">
               {project.title}
              </h3>
-             <p className="text-gray-400 leading-relaxed text-sm md:text-base font-light">
+             {/* OPTIMIZATION: Updated Contrast */}
+             <p className="text-gray-300 leading-relaxed text-sm md:text-base font-light">
               {project.description}
              </p>
           </div>
@@ -337,6 +339,22 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void; isMobile?: 
 const Work: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [activeMobileIndex, setActiveMobileIndex] = useState(0);
+
+  const handleMobileScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const container = e.currentTarget;
+    // Calculate which card is mostly in view
+    // Card width is 85vw. 
+    // A simple approximate way to find the index:
+    const cardWidth = container.offsetWidth * 0.85; 
+    const index = Math.round(container.scrollLeft / cardWidth);
+    
+    // Ensure index stays within bounds
+    const safeIndex = Math.min(Math.max(index, 0), projects.length - 1);
+    if (safeIndex !== activeMobileIndex) {
+        setActiveMobileIndex(safeIndex);
+    }
+  };
 
   return (
     <section id="work" className="py-24 bg-surface relative scroll-mt-32">
@@ -348,7 +366,8 @@ const Work: React.FC = () => {
              viewport={{ once: true }}
           >
             <h2 className="font-serif text-4xl md:text-6xl text-white mb-4">Selected Work</h2>
-            <p className="text-gray-400 text-lg">Click on a project to view the detailed assets.</p>
+            {/* OPTIMIZATION: Updated Contrast */}
+            <p className="text-gray-300 text-lg">Click on a project to view the detailed assets.</p>
           </motion.div>
         </div>
 
@@ -366,17 +385,36 @@ const Work: React.FC = () => {
         </div>
 
         {/* Mobile Layout (Horizontal Swipe) */}
-        <div className="md:hidden flex overflow-x-auto gap-4 pb-8 snap-x snap-mandatory -mx-6 px-6 no-scrollbar">
-          {projects.map((project, index) => (
-            <ProjectCard 
-                key={project.id} 
-                project={project} 
-                id={`project-mobile-${project.id}`} // Separate ID for mobile
-                isMobile={true} 
-                onClick={() => setSelectedProject(project)}
-            />
-          ))}
+        <div className="md:hidden flex flex-col gap-6">
+            <div 
+              className="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory -mx-6 px-6 no-scrollbar relative z-10"
+              onScroll={handleMobileScroll}
+            >
+                {projects.map((project, index) => (
+                <ProjectCard 
+                    key={project.id} 
+                    project={project} 
+                    id={`project-mobile-${project.id}`} // Separate ID for mobile
+                    isMobile={true} 
+                    onClick={() => setSelectedProject(project)}
+                />
+                ))}
+            </div>
+
+            {/* OPTIMIZATION: Pagination Dots Indicator */}
+            <div className="flex justify-center gap-2">
+                {projects.map((_, index) => (
+                    <div 
+                        key={index}
+                        className={`
+                            h-1.5 rounded-full transition-all duration-300
+                            ${activeMobileIndex === index ? 'w-6 bg-indigo-500' : 'w-1.5 bg-white/20'}
+                        `}
+                    />
+                ))}
+            </div>
         </div>
+
       </div>
 
       {/* Lightbox Modal */}
