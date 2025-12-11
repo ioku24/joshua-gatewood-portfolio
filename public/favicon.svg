@@ -1,11 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Dark background -->
-  <rect width="64" height="64" fill="#0f172a"/>
+  <!-- Deep Dark Background -->
+  <rect width="64" height="64" fill="#000000"/>
   
-  <!-- JG text in light blue -->
-  <text x="6" y="48" font-family="Georgia, serif" font-size="42" font-weight="600" fill="#67e8f9">JG</text>
-  
-  <!-- Purple dot -->
-  <circle cx="54" cy="44" r="5" fill="#818cf8"/>
+  <!-- "JG" Text - Clean White Serif -->
+  <!-- Using a font stack that mimics Playfair Display: Times New Roman, Georgia -->
+  <text x="50%" y="54%" 
+        dominant-baseline="middle" text-anchor="middle" 
+        font-family="'Playfair Display', 'Times New Roman', serif" 
+        font-size="38" 
+        font-weight="bold" 
+        fill="#ffffff"
+        letter-spacing="-2">JG<tspan fill="#6366f1">.</tspan></text>
 </svg>
-
