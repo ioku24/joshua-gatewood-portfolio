@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Dark background -->
+  <rect width="64" height="64" fill="#0f172a"/>
+  
+  <!-- JG text in light blue -->
+  <text x="6" y="48" font-family="Georgia, serif" font-size="42" font-weight="600" fill="#67e8f9">JG</text>
+  
+  <!-- Purple dot -->
+  <circle cx="54" cy="44" r="5" fill="#818cf8"/>
+</svg>
+
