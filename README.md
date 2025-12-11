@@ -49,6 +49,38 @@ npm run dev
 npm run build
 ```
 
+## 🔄 Development Workflow (AI-Assisted)
+
+When working with the AI assistant on this project, follow this process:
+
+### Step 1: Make Changes
+- Request code changes or edits in Cursor
+- AI will modify files as needed
+- **No changes are deployed yet**
+
+### Step 2: Preview Locally (Optional)
+```bash
+npm run dev
+```
+- Test changes at `http://localhost:5173`
+- See live updates as you edit
+- Verify everything works as expected
+
+### Step 3: Deploy (Requires Explicit Confirmation)
+**Only when you're ready**, tell the AI:
+- "Ready to deploy"
+- "Push to GitHub"
+- "Deploy this"
+
+Then the AI will:
+1. Run build verification (`npm run build`)
+2. Commit changes (`git add` + `git commit`)
+3. Push to GitHub (`git push origin main`)
+4. Vercel auto-deploys (~60-90 seconds)
+
+### ⚠️ Important Rule
+**The AI will NEVER push to GitHub or deploy without your explicit confirmation.** This ensures you always review and approve changes before they go live.
+
 ## 📂 Project Structure
 ```bash
 /

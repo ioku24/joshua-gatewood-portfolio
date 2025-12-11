@@ -56,6 +56,9 @@ const Hero: React.FC = () => {
   return (
     <section className="relative min-h-[95vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-12 bg-background">
       
+      {/* SEO: Primary H1 - Visually hidden but accessible to search engines */}
+      <h1 className="sr-only">Joshua Gatewood - Marketing Operations Specialist</h1>
+
       {/* Background Gradients */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-[10%] left-[10%] w-[35rem] h-[35rem] bg-indigo-500/10 rounded-full blur-[150px] mix-blend-screen" />
@@ -64,20 +67,21 @@ const Hero: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 w-full relative flex flex-col items-center">
         
-        {/* Animated Headline */}
-        <motion.h1 
+        {/* Animated Headline (Decorative - SEO H1 is above) */}
+        <motion.p 
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           style={{ opacity }} 
           className="font-serif text-6xl md:text-8xl text-white mb-8 relative z-20 text-center"
+          aria-hidden="true"
         >
           {sentence.split("").map((char, index) => (
             <motion.span key={index} variants={letterVariants} className="inline-block">
               {char}
             </motion.span>
           ))}
-        </motion.h1>
+        </motion.p>
 
         {/* Profile Image Container - UPDATED SIZE */}
         <motion.div 
