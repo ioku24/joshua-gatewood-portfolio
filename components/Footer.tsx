@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Twitter, Instagram, Youtube } from 'lucide-react';
+import { Linkedin, Twitter, Instagram, Youtube, Mail, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
