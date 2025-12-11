@@ -175,19 +175,31 @@ const Hero: React.FC = () => {
           {/* 1. CTA Button (Stays visible on load) */}
           <motion.div 
             style={{ opacity }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
+            initial={{ opacity: 0, y: 20, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 1.4, type: "spring", stiffness: 200 }}
             className="mb-8"
           >
-            <a 
+            <motion.a 
               href="#work"
               onClick={(e) => handleScrollTo(e, 'work')}
-              className="group flex items-center gap-2 px-8 py-3 bg-white text-black rounded-full font-semibold transition-all hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)]"
+              className="group flex items-center gap-3 px-10 py-4 bg-white text-black rounded-full font-semibold text-lg transition-all hover:scale-105 shadow-[0_0_50px_rgba(255,255,255,0.35)] hover:shadow-[0_0_70px_rgba(255,255,255,0.6)]"
+              animate={{ 
+                boxShadow: [
+                  "0 0 50px rgba(255,255,255,0.35)",
+                  "0 0 65px rgba(255,255,255,0.5)",
+                  "0 0 50px rgba(255,255,255,0.35)"
+                ]
+              }}
+              transition={{ 
+                duration: 2.5, 
+                repeat: Infinity, 
+                ease: "easeInOut"
+              }}
             >
               View Work
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+              <ArrowRight size={20} className="group-hover:translate-x-1.5 transition-transform" />
+            </motion.a>
           </motion.div>
 
           {/* 2. Hero Sentence - CHANGED: Controlled by scroll opacity now */}
