@@ -2,7 +2,7 @@ import { LucideIcon } from 'lucide-react';
 
 export interface ProjectAsset {
   title: string;
-  type: 'image' | 'video' | 'comparison';
+  type: 'image' | 'video' | 'comparison' | 'embed';
   url?: string; // Optional now, used for image/video types
   poster?: string; // Optional thumbnail/poster for video assets
   caption?: string; // Optional caption for visual evidence

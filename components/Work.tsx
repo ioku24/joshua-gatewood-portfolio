@@ -23,9 +23,8 @@ const projects: Project[] = [
     assets: [
       {
         title: 'Gauntlet Acquisition System – Challenger & Hiring Partner Funnel Redesign',
-        type: 'video',
-        url: 'https://ik.imagekit.io/kqcgf084pn/Overiview%20Aquisition.mp4',
-        poster: 'https://ik.imagekit.io/kqcgf084pn/Gauntlet%20Acquisition%20System.png',
+        type: 'embed',
+        url: 'https://share.descript.com/embed/zibGionZg6K',
         caption: 'Gauntlet Acquisition System Overview: High-level Miro snapshot of the original flow on top and the redesigned Challenger / Hiring Partner funnels on the bottom.',
         challenge: 'At Gauntlet, almost all of our traffic came from the founder’s X profile and it all landed on the same homepage. The flow looked roughly like this: Traffic → homepage → Long opt-in form → calendar/application → booked call → sales. That homepage tried to do everything at once. We had multiple offers crammed into one experience, the copy was unfocused, and there wasn’t a clear path for different visitors like students vs hiring partners. On the backend, tracking and nurture were weak, so a lot of people showed interest but fell through the cracks. Net result: scattered attention, leaky funnels, and no clean way to tell which offer or path was actually working.',
         solution: 'I audited the old acquisition system end-to-end, then rebuilt it as a simple, offer-driven model inside Miro. I simplified everything around a clear rule: 2 core offers = 2 focused funnels. I designed separate flows: A "Hiring Partner funnel" (VSL-style page → calendar) and a "Challenger funnel" (2-step flow built around a clear VSL-style page). Each audience starts on a page that speaks directly to them and one specific offer. Organic and paid traffic is now routed into the right funnel instead of being dumped on a catch-all homepage.',
@@ -595,7 +594,16 @@ const Work: React.FC = () => {
                                   
                                   {/* Content */}
                                   <div className="w-full bg-black relative">
-                                    {asset.type === 'video' ? (
+                                    {asset.type === 'embed' ? (
+                                        <div className="aspect-video w-full">
+                                          <iframe 
+                                            src={asset.url} 
+                                            className="w-full h-full"
+                                            frameBorder="0" 
+                                            allowFullScreen
+                                          />
+                                        </div>
+                                    ) : asset.type === 'video' ? (
                                         <video 
                                           src={asset.url}
                                           poster={asset.poster}
