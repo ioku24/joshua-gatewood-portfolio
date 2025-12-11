@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Twitter, Instagram, Mail, ArrowRight } from 'lucide-react';
+import { Linkedin, Twitter, Instagram, Youtube } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
@@ -34,7 +34,8 @@ const Footer: React.FC = () => {
           {[
             { icon: Linkedin, href: "https://www.linkedin.com/in/joshuangatewood", label: "LinkedIn" },
             { icon: Twitter, href: "https://x.com/joshhustles", label: "X (Twitter)" },
-            { icon: Instagram, href: "https://www.instagram.com/joshhustle/", label: "Instagram" }
+            { icon: Instagram, href: "https://www.instagram.com/joshhustle/", label: "Instagram" },
+            { icon: Youtube, href: "https://www.youtube.com/@joshuagatewood", label: "YouTube" }
           ].map((Social, index) => (
             <a 
               key={index}
