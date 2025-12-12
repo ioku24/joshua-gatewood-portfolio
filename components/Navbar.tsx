@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ResumeModal from './ResumeModal';
@@ -7,6 +8,10 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,20 +22,36 @@ const Navbar: React.FC = () => {
   }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('#')) {
+    // If it's a hash link and we're on the homepage, scroll to section
+    if (href.startsWith('#') && isHomePage) {
       e.preventDefault();
       setMobileMenuOpen(false);
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
+    } 
+    // If it's a hash link but we're not on homepage, navigate to homepage first then scroll
+    else if (href.startsWith('#') && !isHomePage) {
+      e.preventDefault();
+      setMobileMenuOpen(false);
+      navigate('/' + href);
     }
   };
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isHomePage) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    // If not on homepage, the Link will navigate to /
+  };
+
+  // Navigation links - Work now links to /work page
   const navLinks = [
-    { name: 'Work', href: '#work' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Work', href: '/work', isRoute: true },
+    { name: 'About', href: '#about', isRoute: false },
+    { name: 'Contact', href: '#contact', isRoute: false },
   ];
 
   return (
@@ -49,24 +70,35 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-2 md:gap-8">
             
             {/* Logo */}
-            <a href="#" onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }} className="pl-4 pr-2 font-serif text-xl font-bold tracking-tight text-white hover:text-indigo-400 transition-colors">
+            <Link 
+              to="/" 
+              onClick={handleLogoClick} 
+              className="pl-4 pr-2 font-serif text-xl font-bold tracking-tight text-white hover:text-indigo-400 transition-colors"
+            >
               JG<span className="text-indigo-500">.</span>
-            </a>
+            </Link>
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-1 bg-white/5 rounded-full px-1.5 py-1.5 border border-white/5">
               {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-all"
-                >
-                  {link.name}
-                </a>
+                link.isRoute ? (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                  >
+                    {link.name}
+                  </a>
+                )
               ))}
             </div>
 
@@ -103,14 +135,25 @@ const Navbar: React.FC = () => {
           >
              <div className="flex flex-col items-center space-y-8">
               {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="font-serif text-4xl text-gray-300 hover:text-white transition-colors"
-                >
-                  {link.name}
-                </a>
+                link.isRoute ? (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="font-serif text-4xl text-gray-300 hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="font-serif text-4xl text-gray-300 hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                )
               ))}
               <button 
                 onClick={() => {

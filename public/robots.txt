@@ -7,3 +7,5 @@ Allow: /
 # Sitemap location
 Sitemap: https://www.joshuangatewood.com/sitemap.xml
 
+
+
