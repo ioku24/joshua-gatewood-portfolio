@@ -28,7 +28,7 @@ export const projects: ProjectWithSlug[] = [
         type: 'embed',
         url: 'https://share.descript.com/embed/zibGionZg6K',
         caption: 'Gauntlet Acquisition System Overview: High-level Miro snapshot of the original flow on top and the redesigned Challenger / Hiring Partner funnels on the bottom.',
-        challenge: "• All traffic landed on one generic homepage with no clear path\n• Multiple offers crammed into one experience with unfocused copy\n• No segmentation between students vs. hiring partners\n• Weak tracking and nurture—leads fell through the cracks\n• No way to measure which offer or funnel was actually working",
+        challenge: "• All traffic landed on one generic homepage with no clear path\n• Multiple offers crammed into one experience with unfocused copy\n• No segmentation between students vs. hiring partners\n• Weak tracking and nurture led to dropped leads\n• No way to measure which offer or funnel was actually working",
         solution: "• Audited the full acquisition system end-to-end\n• Established a clear rule: 2 offers = 2 focused funnels\n• Built a \"Hiring Partner\" funnel (VSL → calendar)\n• Built a \"Challenger\" funnel (2-step VSL flow)\n• Routed all traffic into the right funnel based on audience",
         outcome: "Transformed a scattered, one-size-fits-all homepage into focused funnels that are easier to track, automate, and optimize."
       },
@@ -89,8 +89,8 @@ export const projects: ProjectWithSlug[] = [
         title: 'Master Alumni Database',
         type: 'image',
         url: '/assets/alumni-database.png',
-        caption: 'Built a single source of truth for 184 Gauntlet AI alumni—transforming scattered records into a living community database in under one week.',
-        challenge: "• No central database—contact info scattered across Crossover exports, email lists, and random spreadsheets\n• LinkedIn URLs and verified emails were the hardest to find\n• Team constantly asking \"does anyone have X's email?\"—pure manual chaos\n• No way to track where alumni landed or build lasting community",
+        caption: 'Built a single source of truth for 184 Gauntlet AI alumni, transforming scattered records into a living community database in under one week.',
+        challenge: "• No central database; contact info scattered across Crossover exports, email lists, and random spreadsheets\n• LinkedIn URLs and verified emails were the hardest to find\n• Team constantly asking \"does anyone have X's email?\" created pure manual chaos\n• No way to track where alumni landed or build lasting community",
         solution: "• Audit (few hours): Got raw data from company, inventoried all records, identified gaps\n• Merge (hardest phase): Resolved conflicts, handled same-name duplicates, standardized formats\n• Enrich (AI-powered): Fed missing records to Claude/Perplexity, searched \"Gauntlet AI + [name]\" on Twitter, cross-referenced and verified\n• Maintain (ongoing): Weekly check-ins, self-service update form, AI-trained for future lookups",
         outcome: '184 alumni tracked at 95% completeness (name, email, X handle verified). Reduced manual work from 10+ hrs/week to ~1 hr/quarter. Unlocked re-engagement campaigns, job outcome tracking, and a network of future AI leaders.'
       }
