@@ -6,6 +6,38 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { getProjectBySlug } from '../data/projects';
 
+// Helper to render text with markdown links
+const renderWithLinks = (text: string) => {
+  const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const parts: (string | JSX.Element)[] = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = linkRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    parts.push(
+      <a
+        key={match.index}
+        href={match[2]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 transition-colors"
+      >
+        {match[1]}
+      </a>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+};
+
 // Lightbox Component
 const Lightbox: React.FC<{ src: string; onClose: () => void }> = ({ src, onClose }) => {
   return (
@@ -191,12 +223,12 @@ const ProjectPage: React.FC = () => {
                           <TrendingUp size={20} />
                         </div>
                         <div className="flex-1">
-                          <span className="text-xs text-indigo-300 uppercase tracking-wider font-bold block mb-1">Outcome</span>
-                          <p className="text-white font-medium text-lg">{asset.outcome}</p>
+<span className="text-xs text-indigo-300 uppercase tracking-wider font-bold block mb-1">Outcome</span>
+                          <p className="text-white font-medium text-lg">{renderWithLinks(asset.outcome)}</p>
                         </div>
                       </div>
                     </div>
-                    
+
                     {index !== project.assets.length - 1 && (
                       <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent w-full mt-8" />
                     )}
@@ -329,7 +361,7 @@ const ProjectPage: React.FC = () => {
                     </div>
                     <div className="flex-1">
                       <span className="text-xs text-indigo-300 uppercase tracking-wider font-bold block mb-1">Outcome</span>
-                      <p className="text-white font-medium text-lg">{asset.outcome}</p>
+                      <p className="text-white font-medium text-lg">{renderWithLinks(asset.outcome)}</p>
                     </div>
                   </div>
 

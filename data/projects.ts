@@ -57,11 +57,11 @@ export const projects: ProjectWithSlug[] = [
   {
     id: 2,
     slug: 'content-system',
-    title: 'Content Repurposing System',
+    title: 'Content System',
     category: 'Content Strategy',
-    description: 'Scalable system transforming long-form video into multi-platform social assets.',
+    description: 'Scalable systems for content creation, automation, and multi-platform distribution.',
     stats: '3x Output',
-    tags: ['System Building', 'Notion API', 'Content'],
+    tags: ['System Building', 'ManyChat', 'Automation'],
     link: '#',
     assets: [
       {
@@ -72,6 +72,26 @@ export const projects: ProjectWithSlug[] = [
         challenge: "• Manual, reactive content creation with no system\n• Ideas, livestreams, and posts existed as \"one-off\" work\n• Clips scattered in random folders, recordings posted once and forgotten\n• No clear CTAs or funnel integration on most posts\n• Every new piece required starting from scratch",
         solution: "• Built a Written Content OS: inputs → long-form → short-form → distribution\n• Each asset tied to a specific CTA (VSL, lead magnet, key page)\n• Created a Video Repurposing Framework for platform-ready clips\n• Tagged clips by funnel stage (TOFU, MOFU, BOFU)\n• One 60-min session now produces 8–12 clips",
         outcome: 'One strong idea now becomes 2–4 weeks of scheduled content, each piece mapped to a clear CTA and funnel path.'
+      },
+      {
+        title: 'ManyChat Marketing Automation System',
+        type: 'embed',
+        url: 'https://www.youtube.com/embed/m-pXrykrEQE',
+        caption: 'Built 10 DM automation bots to drive traffic and boost sales on autopilot. These are the exact automation strategies top creators use to grow their businesses on Instagram.',
+        visualDescription: 'Full walkthrough of the Client Acquisition System: Top of Funnel (paid ads, content, DM outreach) → ManyChat automation sequences → Lead qualification and booking.',
+        challenge: "• Manual lead qualification and follow-up eating hours daily\n• Every DM required personal attention with no way to scale\n• Leads went cold waiting for responses\n• No system to nurture, qualify, or book automatically",
+        solution: "• Built 10 core ManyChat automation templates:\n• Call Booking Funnel: Automates appointment booking with qualified leads\n• Email Collection: Grows email list via free resource exchange\n• Product Sales Funnel: Follows up and offers alternatives\n• Lead Qualification Bot: 3-5 questions to qualify/disqualify\n• Webinar Registration: Drives signups with reminders\n• Service Consulting: Qualifies and guides to booking\n• Q&A Bot: Handles common inquiries automatically\n• Support Bot: Quick answers for new leads and clients\n• Visit Card: Digital business card alternative\n• Value Bot: Re-engages and nurtures warm leads",
+        outcome: 'Automated 80%+ of initial conversations. Response time dropped from hours to seconds. Scalable system that generates leads and books calls 24/7.'
+      },
+      {
+        title: 'Instagram Client Acquisition System',
+        type: 'embed',
+        url: 'https://www.youtube.com/embed/z0770omcCho',
+        caption: 'My exact formula for landing clients on Instagram without paid ads. A systematic outreach process that sends 500+ targeted DMs per day.',
+        visualDescription: 'Step-by-step walkthrough: Niche targeting → Automated DM sequences → Response frameworks → Qualification criteria → Booking system integration.',
+        challenge: "• Relying on referrals and word-of-mouth with no predictable pipeline\n• Manual outreach limited to 20-30 DMs/day before burnout\n• No system for targeting, messaging, or follow-up\n• Leads slipping through the cracks with inconsistent follow-up\n• Hours spent on prospects who were never qualified",
+        solution: "• Built a 5-step Instagram acquisition system:\n• Niche Identification: Define ideal client avatar and where they hang out\n• Automated DM Sequences: Scale to 500+ personalized DMs per day\n• Response Frameworks: Templates for every reply scenario\n• Qualification Criteria: Filter tire-kickers in the first 3 messages\n• Booking Integration: Qualified leads go straight to calendar",
+        outcome: 'Consistent client pipeline without paid ads. Scaled from 20 to 500+ daily touchpoints. Predictable discovery calls every week. [See the full DM automation walkthrough →](https://youtu.be/-Wg1Qk8Iins)'
       }
     ]
   },
