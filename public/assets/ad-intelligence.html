@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Competitive Ad Intelligence System</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: white;
+    }
+
+    .dashboard {
+      width: 1400px;
+      height: 800px;
+      background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+      border-radius: 16px;
+      padding: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header-left h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+
+    .header-left p {
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .scale-badge {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* Main Grid */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr 300px;
+      gap: 20px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* Column */
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 0;
+    }
+
+    .column-header {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .problem-header { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%); color: white; }
+    .system-header { background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%); color: white; }
+    .solution-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+
+    .column-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* Sticky Notes */
+    .sticky-note {
+      background: #fff9c4;
+      padding: 12px;
+      border-radius: 4px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .sticky-note.pink { background: #f8bbd9; }
+    .sticky-note.orange { background: #ffe0b2; }
+
+    .sticky-note h3 {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .sticky-note ul {
+      margin-left: 14px;
+    }
+
+    .sticky-note li {
+      font-size: 10px;
+      color: #444;
+      margin-bottom: 3px;
+      line-height: 1.4;
+    }
+
+    /* Quote */
+    .quote-box {
+      background: white;
+      border-left: 3px solid #667eea;
+      padding: 10px 12px;
+      border-radius: 0 6px 6px 0;
+      margin-top: auto;
+    }
+
+    .quote-box p {
+      font-size: 11px;
+      color: #333;
+      font-style: italic;
+    }
+
+    .quote-box .author {
+      font-size: 9px;
+      color: #666;
+      margin-top: 4px;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* Phase Flow */
+    .phase-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .phase-box {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .phase-number {
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .phase-content {
+      flex: 1;
+    }
+
+    .phase-content h4 {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 2px;
+    }
+
+    .phase-content p {
+      font-size: 9px;
+      color: #666;
+      line-height: 1.3;
+    }
+
+    .phase-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 8px;
+      color: #555;
+    }
+
+    .ai-tag {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 8px;
+      font-weight: 600;
+    }
+
+    .flow-arrow {
+      text-align: center;
+      color: #ccc;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    /* Solution Column */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .metric-card {
+      background: white;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .metric-card .value {
+      font-size: 24px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .metric-card .label {
+      font-size: 8px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    .output-card {
+      background: white;
+      border-radius: 6px;
+      padding: 10px 12px;
+      border-left: 3px solid #667eea;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+
+    .output-card h5 {
+      font-size: 10px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 2px;
+    }
+
+    .output-card p {
+      font-size: 9px;
+      color: #666;
+    }
+
+    .pattern-box {
+      background: linear-gradient(135deg, #fff9c4 0%, #ffecb3 100%);
+      border: 2px solid #ffc107;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: auto;
+    }
+
+    .pattern-box h4 {
+      font-size: 10px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    .pattern-box h4::before {
+      content: "💡 ";
+    }
+
+    .pattern-box p {
+      font-size: 9px;
+      color: #555;
+      line-height: 1.4;
+      font-style: italic;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .footer-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: #1a1a2e;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-item {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 9px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-left">
+        <h1>Competitive Ad Intelligence System</h1>
+        <p>From guesswork to data-driven creative briefs</p>
+      </div>
+      <div class="scale-badge">75-150 Ads Analyzed Per Cycle</div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="main-grid">
+      <!-- PROBLEM Column -->
+      <div class="column">
+        <div class="column-header problem-header">Problem</div>
+        <div class="column-content">
+          <div class="sticky-note pink">
+            <h3>❌ Blind Creative Guessing</h3>
+            <ul>
+              <li>No data on what's actually working</li>
+              <li>"Throw money and hope it sticks"</li>
+              <li>Testing ads without market validation</li>
+            </ul>
+          </div>
+
+          <div class="sticky-note orange">
+            <h3>💸 Wasted Ad Spend</h3>
+            <ul>
+              <li>Failed tests eating budget</li>
+              <li>No framework for creative decisions</li>
+              <li>Weeks of back-and-forth on concepts</li>
+            </ul>
+          </div>
+
+          <div class="sticky-note pink">
+            <h3>🚫 Creative Pushback</h3>
+            <ul>
+              <li>Team unsure what to produce</li>
+              <li>No proof to back recommendations</li>
+              <li>Campaigns delayed by indecision</li>
+            </ul>
+          </div>
+
+          <div class="quote-box">
+            <p>"Good artists copy, great artists steal."</p>
+            <div class="author">Steve Jobs (attr. Picasso)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SYSTEM Column -->
+      <div class="column">
+        <div class="column-header system-header">System</div>
+        <div class="column-content">
+          <div class="phase-flow">
+            <div class="phase-box">
+              <div class="phase-number">1</div>
+              <div class="phase-content">
+                <h4>Identify Competitors</h4>
+                <p>Map 10-15 key competitors across direct and adjacent markets</p>
+                <div class="phase-tags">
+                  <span class="tag">Meta Ad Library</span>
+                  <span class="tag">LinkedIn Ads</span>
+                  <span class="tag">TikTok Library</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="phase-box">
+              <div class="phase-number">2</div>
+              <div class="phase-content">
+                <h4>Collect Winning Ads</h4>
+                <p>AI Agent identifies top performers by longevity, spend, engagement</p>
+                <div class="phase-tags">
+                  <span class="tag">AdSpy</span>
+                  <span class="tag">5-10 ads/company</span>
+                  <span class="ai-tag">🤖 AI Agent</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="phase-box">
+              <div class="phase-number">3</div>
+              <div class="phase-content">
+                <h4>Transcribe & Dissect</h4>
+                <p>Extract hooks, CTAs, copy structure, visual patterns</p>
+                <div class="phase-tags">
+                  <span class="tag">Transcription</span>
+                  <span class="tag">Google Sheets</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="phase-box">
+              <div class="phase-number">4</div>
+              <div class="phase-content">
+                <h4>AI Pattern Analysis</h4>
+                <p>Identify patterns, frameworks, and why it works</p>
+                <div class="phase-tags">
+                  <span class="tag">ChatGPT</span>
+                  <span class="ai-tag">🤖 AI Analysis</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="phase-box">
+              <div class="phase-number">5</div>
+              <div class="phase-content">
+                <h4>Output Campaign Briefs</h4>
+                <p>Actionable briefs, swipe files, framework docs</p>
+                <div class="phase-tags">
+                  <span class="tag">Creative Briefs</span>
+                  <span class="tag">Swipe File</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOLUTION Column -->
+      <div class="column">
+        <div class="column-header solution-header">Solution</div>
+        <div class="column-content">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="value">5-7</div>
+              <div class="label">Days to Campaign-Ready</div>
+            </div>
+            <div class="metric-card">
+              <div class="value">100+</div>
+              <div class="label">Ads Analyzed</div>
+            </div>
+            <div class="metric-card">
+              <div class="value">3</div>
+              <div class="label">Platforms Covered</div>
+            </div>
+            <div class="metric-card">
+              <div class="value">15</div>
+              <div class="label">Competitors Tracked</div>
+            </div>
+          </div>
+
+          <div class="output-card">
+            <h5>📋 Creative Briefs</h5>
+            <p>Direct, actionable briefs for production team</p>
+          </div>
+
+          <div class="output-card">
+            <h5>📁 Swipe File</h5>
+            <p>Organized library of winning ad references</p>
+          </div>
+
+          <div class="output-card">
+            <h5>📊 Framework Docs</h5>
+            <p>Reusable patterns for B2B and B2C campaigns</p>
+          </div>
+
+          <div class="pattern-box">
+            <h4>Pattern Discovered</h4>
+            <p>"Timer-based demos and UGC-style ads outperform polished studio content. Adapted for student demos and alumni testimonials."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span class="footer-title">What This Unlocked:</span>
+      <span class="footer-item">Data-Backed Decisions</span>
+      <span class="footer-item">Faster Creative Cycles</span>
+      <span class="footer-item">Reusable Frameworks</span>
+      <span class="footer-item">Zero Guesswork</span>
+    </div>
+  </div>
+</body>
+</html>

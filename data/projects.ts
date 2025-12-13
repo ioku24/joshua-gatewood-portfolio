@@ -100,11 +100,21 @@ export const projects: ProjectWithSlug[] = [
     slug: 'data-optimization',
     title: 'Data-Driven Optimization',
     category: 'Analytics',
-    description: 'Optimized email campaigns via A/B testing and advanced audience analytics.',
+    description: 'Research-driven systems for competitive intelligence and audience analytics.',
     stats: '+40% Engagement',
-    tags: ['A/B Testing', 'Looker Studio', 'Growth'],
+    tags: ['Competitive Intel', 'AI Analysis', 'Growth'],
     link: '#',
     assets: [
+      {
+        title: 'Competitive Ad Intelligence System',
+        type: 'image',
+        url: '/assets/ad-intelligence.png',
+        caption: 'Built a repeatable research system that produces campaign-ready briefs in days, not weeks. Analyzed 100+ competitor ads across 3 platforms.',
+        visualDescription: 'Visual breakdown of the 5-phase process: Identify Competitors → Collect Winning Ads (AI Agent) → Transcribe & Dissect → AI Pattern Analysis → Output Campaign Briefs.',
+        challenge: "• Team was guessing at ad creative without real data\n• 'Throw money and hope it sticks' approach wasting budget\n• No framework for creative decisions or market validation\n• Weeks of back-and-forth on concepts with no proof to back recommendations\n• Campaigns delayed by indecision and creative pushback",
+        solution: "• Phase 1: Map 10-15 key competitors across Meta, LinkedIn, TikTok Ad Libraries\n• Phase 2: AI Agent identifies winning ads by longevity, spend, and engagement (5-10 ads per company)\n• Phase 3: Transcribe and dissect each ad for hooks, CTAs, copy structure, visual patterns\n• Phase 4: Feed dataset to ChatGPT to identify patterns and frameworks\n• Phase 5: Output actionable creative briefs, swipe files, and reusable framework docs",
+        outcome: 'Campaign-ready briefs in 5-7 days vs. weeks of guessing. 100+ ads analyzed across 15 competitors. Discovered that timer-based demos and UGC-style ads outperform polished studio content.'
+      },
       {
         title: 'Master Alumni Database',
         type: 'image',
