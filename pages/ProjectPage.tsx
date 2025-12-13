@@ -214,11 +214,21 @@ const ProjectPage: React.FC = () => {
                   className="flex flex-col gap-8 group"
                 >
                   {/* Asset Header */}
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center font-mono text-gray-500 text-sm">
-                      0{index + 1}
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center font-mono text-gray-500 text-sm">
+                        0{index + 1}
+                      </div>
+                      <h4 className="text-2xl md:text-3xl font-serif text-white">{asset.title}</h4>
                     </div>
-                    <h4 className="text-2xl md:text-3xl font-serif text-white">{asset.title}</h4>
+                    
+                    {asset.caption && (
+                      <div className="pl-14">
+                        <p className="text-gray-300 font-light leading-relaxed text-base md:text-lg">
+                          {asset.caption}
+                        </p>
+                      </div>
+                    )}
                   </div>
 
                   {/* Visual Media Container */}
@@ -272,15 +282,15 @@ const ProjectPage: React.FC = () => {
                       )}
                     </div>
                     
-                    {/* Caption Section */}
-                    {asset.caption && (
+                    {/* Visual Description Section (under the image) */}
+                    {(asset.visualDescription || asset.caption) && (
                       <div className="px-5 py-4 border-t border-white/5 bg-[#141414]">
                         <div className="flex gap-3">
                           <div className="mt-0.5 text-indigo-400">
                             <Info size={16} />
                           </div>
                           <p className="text-sm text-gray-400 font-light italic leading-relaxed">
-                            {asset.caption}
+                            {asset.visualDescription || asset.caption}
                           </p>
                         </div>
                       </div>

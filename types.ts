@@ -6,6 +6,7 @@ export interface ProjectAsset {
   url?: string; // Optional now, used for image/video types
   poster?: string; // Optional thumbnail/poster for video assets
   caption?: string; // Optional caption for visual evidence
+  visualDescription?: string; // Optional description shown under the image/video
   
   // New Comparison Fields
   beforeImage?: string;
