@@ -89,10 +89,10 @@ export const projects: ProjectWithSlug[] = [
         title: 'Master Alumni Database',
         type: 'image',
         url: '/assets/alumni-database.png',
-        caption: 'Consolidated 5+ scattered data sources into a single source of truth for 184 Gauntlet AI alumni—completed in under 1 week.',
-        challenge: "• Data scattered across 5+ sources with no single source of truth\n• Only ~40% completeness with duplicates and conflicts\n• 10+ hours/week wasted on manual lookups\n• No way to track alumni outcomes or build community",
-        solution: "• Audit: Inventoried all records and identified gaps\n• Merge: Resolved conflicts, deduplicated, standardized formats\n• Enrich: AI-powered research (Claude/Perplexity) to fill missing fields\n• Maintain: Self-service update form + quarterly maintenance cycle",
-        outcome: '184 alumni tracked at 95% completeness. Weekly hours reduced from 10+ to ~1/quarter. Enabled re-engagement campaigns, job tracking, and community building.'
+        caption: 'Built a single source of truth for 184 Gauntlet AI alumni—transforming scattered records into a living community database in under one week.',
+        challenge: "• No central database—contact info scattered across Crossover exports, email lists, and random spreadsheets\n• LinkedIn URLs and verified emails were the hardest to find\n• Team constantly asking \"does anyone have X's email?\"—pure manual chaos\n• No way to track where alumni landed or build lasting community",
+        solution: "• Audit (few hours): Got raw data from company, inventoried all records, identified gaps\n• Merge (hardest phase): Resolved conflicts, handled same-name duplicates, standardized formats\n• Enrich (AI-powered): Fed missing records to Claude/Perplexity, searched \"Gauntlet AI + [name]\" on Twitter, cross-referenced and verified\n• Maintain (ongoing): Weekly check-ins, self-service update form, AI-trained for future lookups",
+        outcome: '184 alumni tracked at 95% completeness (name, email, X handle verified). Reduced manual work from 10+ hrs/week to ~1 hr/quarter. Unlocked re-engagement campaigns, job outcome tracking, and a network of future AI leaders.'
       }
     ]
   }

@@ -477,3 +477,4 @@ shade to improve readability."
 ---
 
 *This SOP was created to standardize the process of designing portfolio dashboards. Follow these guidelines for consistent, professional results.*
+
