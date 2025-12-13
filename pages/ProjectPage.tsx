@@ -114,7 +114,7 @@ const ProjectPage: React.FC = () => {
                       
                       <div className="pl-14">
                         <p className="text-xs text-indigo-400 uppercase tracking-wider font-bold mb-2">Bucket: {project.title}</p>
-                        <p className="text-gray-300 font-light leading-relaxed text-base md:text-lg">
+                        <p className="text-gray-300 font-light leading-relaxed text-base md:text-lg whitespace-pre-line">
                           {asset.challenge}
                         </p>
                       </div>
@@ -288,7 +288,7 @@ const ProjectPage: React.FC = () => {
                         <AlertCircle size={18} />
                         <span className="font-bold text-xs uppercase tracking-wider">The Challenge</span>
                       </div>
-                      <p className="text-gray-300 font-light leading-relaxed text-sm">
+                      <p className="text-gray-300 font-light leading-relaxed text-sm whitespace-pre-line">
                         {asset.challenge}
                       </p>
                     </div>
@@ -299,7 +299,7 @@ const ProjectPage: React.FC = () => {
                         <CheckCircle2 size={18} />
                         <span className="font-bold text-xs uppercase tracking-wider">The Solution</span>
                       </div>
-                      <p className="text-gray-300 font-light leading-relaxed text-sm">
+                      <p className="text-gray-300 font-light leading-relaxed text-sm whitespace-pre-line">
                         {asset.solution}
                       </p>
                     </div>
