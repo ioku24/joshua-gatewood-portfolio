@@ -13,66 +13,104 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-      background: #f5f5f5;
-      overflow-x: hidden;
+      background: white;
     }
 
     .miro-board {
       background: white;
-      width: 1600px;
-      height: 1000px;
+      width: 1500px;
+      height: 880px;
       margin: 0 auto;
       position: relative;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 20px;
     }
 
     /* Title */
     .board-title {
-      position: absolute;
-      top: 25px;
-      left: 50%;
-      transform: translateX(-50%);
       text-align: center;
+      margin-bottom: 15px;
     }
 
     .board-title h1 {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 700;
       color: #1a1a1a;
       margin-bottom: 6px;
     }
 
     .board-title p {
-      font-size: 15px;
+      font-size: 13px;
       color: #666;
       font-weight: 500;
     }
 
     .timeline-badge {
       display: inline-block;
-      margin-top: 8px;
-      padding: 6px 16px;
+      margin-top: 6px;
+      padding: 5px 14px;
       background: #3b82f6;
       color: white;
       border-radius: 20px;
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 600;
+    }
+
+    /* Main Grid Layout */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 380px 440px 1fr;
+      gap: 25px;
+      height: calc(100% - 80px);
+    }
+
+    /* Column styles */
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Section Headers */
+    .section-header {
+      font-size: 16px;
+      font-weight: 800;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    .section-before { 
+      background: #fee2e2; 
+      color: #991b1b;
+      border: 2px solid #ef4444;
+    }
+
+    .section-process {
+      background: #dbeafe;
+      color: #1e40af;
+      border: 2px solid #3b82f6;
+    }
+
+    .section-after {
+      background: #d1fae5;
+      color: #065f46;
+      border: 2px solid #10b981;
     }
 
     /* Sticky Notes */
     .sticky-note {
-      position: absolute;
-      padding: 16px;
+      padding: 12px;
       border-radius: 4px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-      font-size: 13px;
-      line-height: 1.5;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      font-size: 11px;
+      line-height: 1.4;
     }
 
     .sticky-note h3 {
-      font-size: 16px;
+      font-size: 13px;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .sticky-note ul {
@@ -81,10 +119,10 @@
     }
 
     .sticky-note li {
-      margin-bottom: 5px;
+      margin-bottom: 3px;
       padding-left: 14px;
       position: relative;
-      font-size: 12px;
+      font-size: 10px;
     }
 
     .sticky-note li:before {
@@ -104,141 +142,147 @@
     .yellow { background: #fef3c7; border-left: 4px solid #fbbf24; }
     .orange { background: #fed7aa; border-left: 4px solid #fb923c; }
     .red { background: #fecaca; border-left: 4px solid #ef4444; }
-    .purple { background: #e9d5ff; border-left: 4px solid #a855f7; }
-    .blue { background: #dbeafe; border-left: 4px solid #3b82f6; }
     .green { background: #d1fae5; border-left: 4px solid #10b981; }
-    .pink { background: #fce7f3; border-left: 4px solid #ec4899; }
 
-    /* Section Headers */
-    .section-header {
-      position: absolute;
-      font-size: 20px;
-      font-weight: 800;
-      color: #1a1a1a;
-      padding: 10px 20px;
-      border-radius: 8px;
-      letter-spacing: 0.5px;
-    }
-
-    .section-before { 
-      background: #fee2e2; 
-      color: #991b1b;
-      top: 120px;
-      left: 60px;
-      border: 2px solid #ef4444;
-    }
-
-    .section-process {
-      background: #dbeafe;
-      color: #1e40af;
-      top: 120px;
-      left: 580px;
-      border: 2px solid #3b82f6;
-    }
-
-    .section-after {
-      background: #d1fae5;
-      color: #065f46;
-      top: 120px;
-      left: 1180px;
-      border: 2px solid #10b981;
-    }
-
-    /* AI Badge */
-    .ai-badge {
-      display: inline-block;
-      padding: 4px 10px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      border-radius: 12px;
-      font-size: 10px;
-      font-weight: 700;
-      margin-left: 8px;
-      letter-spacing: 0.5px;
+    /* Problems grid */
+    .problems-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
     }
 
     /* Phase boxes */
     .phase-box {
-      position: absolute;
-      width: 240px;
-      padding: 16px;
+      padding: 10px;
       background: white;
-      border: 3px solid #e5e7eb;
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
 
     .phase-box .phase-header {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
+      gap: 8px;
+      margin-bottom: 6px;
     }
 
     .phase-box .phase-number {
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
       background: #3b82f6;
       color: white;
-      border-radius: 8px;
+      border-radius: 6px;
       text-align: center;
-      line-height: 32px;
-      font-size: 16px;
+      line-height: 24px;
+      font-size: 12px;
       font-weight: 700;
       flex-shrink: 0;
     }
 
     .phase-box h4 {
-      font-size: 16px;
+      font-size: 13px;
       font-weight: 700;
       color: #1a1a1a;
-      flex: 1;
     }
 
     .phase-box .duration {
-      font-size: 11px;
+      font-size: 9px;
       color: #666;
       background: #f3f4f6;
-      padding: 3px 8px;
+      padding: 2px 6px;
       border-radius: 4px;
       display: inline-block;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .phase-box p {
-      font-size: 13px;
+      font-size: 10px;
       color: #374151;
-      line-height: 1.6;
-      margin-bottom: 8px;
+      line-height: 1.4;
     }
 
     .phase-box .method {
-      font-size: 12px;
+      font-size: 9px;
       color: #6b7280;
       font-style: italic;
-      margin-top: 8px;
-      padding-top: 8px;
+      margin-top: 6px;
+      padding-top: 6px;
       border-top: 1px solid #e5e7eb;
     }
 
-    /* Metric boxes */
+    /* AI Badge */
+    .ai-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 8px;
+      font-size: 8px;
+      font-weight: 700;
+      margin-left: 4px;
+    }
+
+    /* Phases grid for bottom */
+    .phases-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    /* Quote box */
+    .quote-box {
+      padding: 12px;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border-left: 4px solid #3b82f6;
+      border-radius: 6px;
+    }
+
+    .quote-box p {
+      font-size: 12px;
+      font-style: italic;
+      color: #1e3a8a;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .quote-box .author {
+      font-size: 10px;
+      color: #64748b;
+    }
+
+    .quote-box .author strong {
+      color: #1e3a8a;
+    }
+
+    .quote-box .context {
+      font-size: 9px;
+      color: #94a3b8;
+      margin-top: 3px;
+    }
+
+    /* Metrics row */
+    .metrics-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
     .metric-box {
-      position: absolute;
-      width: 160px;
-      padding: 14px;
+      padding: 8px 14px;
       background: white;
       border: 2px solid #e5e7eb;
       border-radius: 8px;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     .metric-box .label {
-      font-size: 11px;
+      font-size: 9px;
       color: #666;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
       font-weight: 600;
     }
 
@@ -246,123 +290,212 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      margin-bottom: 6px;
+      gap: 5px;
     }
 
     .metric-box .before-val {
-      font-size: 22px;
+      font-size: 16px;
       font-weight: 700;
       color: #ef4444;
     }
 
     .metric-box .arrow {
-      font-size: 18px;
+      font-size: 12px;
       color: #94a3b8;
     }
 
     .metric-box .after-val {
-      font-size: 26px;
+      font-size: 18px;
       font-weight: 700;
       color: #10b981;
     }
 
     .metric-box .improvement {
-      font-size: 11px;
+      font-size: 9px;
+      color: #10b981;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* Victory content */
+    .victory-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .result-card {
+      padding: 12px;
+      background: #d1fae5;
+      border-left: 4px solid #10b981;
+      border-radius: 4px;
+    }
+
+    .result-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #065f46;
+      margin-bottom: 6px;
+    }
+
+    .result-card .subtitle {
+      font-size: 10px;
+      color: #065f46;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .fields-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      font-size: 10px;
+      margin-bottom: 10px;
+    }
+
+    .fields-grid span {
+      color: #065f46;
+    }
+
+    .fields-grid span:before {
+      content: "✓ ";
       color: #10b981;
       font-weight: 700;
     }
 
-    /* Quote box */
-    .quote-box {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 700px;
-      padding: 24px;
-      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-      border-left: 5px solid #3b82f6;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    .big-stats {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      padding: 10px 0;
+      border-top: 2px solid #6ee7b7;
+      margin-top: 8px;
     }
 
-    .quote-box p {
-      font-size: 18px;
-      font-style: italic;
-      color: #1e3a8a;
-      margin-bottom: 14px;
-      font-weight: 500;
+    .big-stat {
+      text-align: center;
     }
 
-    .quote-box .author {
-      font-size: 14px;
-      color: #64748b;
-      font-style: normal;
-    }
-
-    .quote-box .author strong {
-      color: #1e3a8a;
+    .big-stat .number {
+      font-size: 28px;
       font-weight: 700;
+      color: #065f46;
     }
 
-    .quote-box .context {
-      font-size: 11px;
-      color: #94a3b8;
+    .big-stat .label {
+      font-size: 9px;
+      color: #6b7280;
+      font-weight: 600;
+    }
+
+    .update-system {
+      padding: 8px;
+      background: #ecfdf5;
+      border-radius: 4px;
+      border: 1px solid #6ee7b7;
       margin-top: 6px;
     }
 
-    /* Unlocked items */
-    .unlocked-container {
-      position: absolute;
-      bottom: 180px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1200px;
+    .update-system .title {
+      font-size: 9px;
+      color: #065f46;
+      font-weight: 700;
+      margin-bottom: 4px;
     }
 
-    .unlocked-title {
-      font-size: 16px;
+    .update-system .content {
+      font-size: 9px;
+      color: #374151;
+      line-height: 1.4;
+    }
+
+    .outcomes-card {
+      padding: 12px;
+      background: #d1fae5;
+      border-left: 4px solid #10b981;
+      border-radius: 4px;
+    }
+
+    .outcomes-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #065f46;
+      margin-bottom: 8px;
+    }
+
+    .outcomes-card ul {
+      list-style: none;
+      padding: 0;
+      font-size: 10px;
+    }
+
+    .outcomes-card li {
+      margin-bottom: 3px;
+      padding-left: 14px;
+      position: relative;
+      color: #065f46;
+    }
+
+    .outcomes-card li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: 700;
+    }
+
+    .real-win {
+      margin-top: 8px;
+      padding: 8px;
+      background: #ecfdf5;
+      border-radius: 4px;
+      border-left: 3px solid #10b981;
+    }
+
+    .real-win .title {
+      font-size: 10px;
+      font-weight: 700;
+      color: #065f46;
+      margin-bottom: 4px;
+    }
+
+    .real-win .content {
+      font-size: 9px;
+      color: #374151;
+      line-height: 1.4;
+    }
+
+    /* Unlocked section */
+    .unlocked-section {
+      margin-top: 15px;
+      text-align: center;
+      padding-top: 12px;
+      border-top: 2px solid #e5e7eb;
+    }
+
+    .unlocked-section .title {
+      font-size: 13px;
       font-weight: 700;
       color: #1a1a1a;
-      margin-bottom: 14px;
-      text-align: center;
+      margin-bottom: 10px;
     }
 
     .unlocked-items {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
     }
 
     .unlocked-item {
-      padding: 10px 18px;
+      padding: 6px 12px;
       background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
       border: 2px solid #a855f7;
-      border-radius: 24px;
-      font-size: 13px;
+      border-radius: 16px;
+      font-size: 10px;
       color: #6b21a8;
       font-weight: 600;
-    }
-
-    /* Connecting arrows */
-    .arrow-connector {
-      position: absolute;
-      height: 3px;
-      background: linear-gradient(90deg, #94a3b8 0%, #64748b 100%);
-    }
-
-    .arrow-connector:after {
-      content: '';
-      position: absolute;
-      right: -2px;
-      top: -5px;
-      width: 0;
-      height: 0;
-      border-left: 10px solid #64748b;
-      border-top: 6px solid transparent;
-      border-bottom: 6px solid transparent;
     }
   </style>
 </head>
@@ -370,193 +503,13 @@
   <div class="miro-board">
     <!-- Title -->
     <div class="board-title">
-      <h1>Master Alumni Database: From Chaos to Community</h1>
-      <div class="timeline-badge">⚡ Completed in <1 Week</div>
+      <h1>Master Alumni Database</h1>
+      <p>Built a single source of truth for 184 Gauntlet AI alumni in under a week. Cuts manual lookups and powers re-engagement plus job outcome tracking.</p>
+      <div class="timeline-badge">⚡ Completed in &lt;1 Week</div>
     </div>
 
-    <!-- Section Headers -->
-    <div class="section-header section-before">❌ THE CHAOS</div>
-    <div class="section-header section-process">⚙️ THE SYSTEM</div>
-    <div class="section-header section-after">✓ THE VICTORY</div>
-
-    <!-- BEFORE Section -->
-    <div class="sticky-note red" style="top: 180px; left: 60px; width: 180px;">
-      <h3>Crossover Records</h3>
-      <ul>
-        <li>Incomplete names</li>
-        <li>Outdated info</li>
-        <li>No standardization</li>
-      </ul>
-    </div>
-
-    <div class="sticky-note orange" style="top: 180px; left: 260px; width: 180px;">
-      <h3>Email Lists</h3>
-      <ul>
-        <li>Unverified addresses</li>
-        <li>High bounce rate</li>
-        <li>Missing fields</li>
-      </ul>
-    </div>
-
-    <div class="sticky-note red" style="top: 310px; left: 60px; width: 180px;">
-      <h3>Twitter/X Notes</h3>
-      <ul>
-        <li>Scattered handles</li>
-        <li>Not centralized</li>
-        <li>Many missing</li>
-      </ul>
-    </div>
-
-    <div class="sticky-note orange" style="top: 310px; left: 260px; width: 180px;">
-      <h3>LinkedIn Profiles</h3>
-      <ul style="color: #dc2626;">
-        <li style="font-weight: 700;">WORST SOURCE ⚠️</li>
-        <li>Most URLs missing</li>
-        <li>Hard to verify</li>
-      </ul>
-    </div>
-
-    <div class="sticky-note yellow" style="top: 440px; left: 60px; width: 380px;">
-      <h3>💥 The Pain Points</h3>
-      <ul>
-        <li>"Does anyone have X's email?"</li>
-        <li>10+ hours/week on manual lookups</li>
-        <li>No single source of truth</li>
-        <li>Can't track where alumni went</li>
-        <li>Impossible to build community</li>
-        <li>Every outreach = manual research</li>
-      </ul>
-    </div>
-
-    <!-- PROCESS Section -->
-    <div class="phase-box" style="top: 180px; left: 580px;">
-      <div class="phase-header">
-        <div class="phase-number">1</div>
-        <h4>AUDIT</h4>
-      </div>
-      <div class="duration">⏱️ Few hours</div>
-      <p>• Got data list from company<br>
-      • Identified what was missing<br>
-      • Created initial record inventory</p>
-      <div class="method">Tools: Google Sheets, Manual review</div>
-    </div>
-
-    <div class="phase-box" style="top: 340px; left: 580px;">
-      <div class="phase-header">
-        <div class="phase-number" style="background: #a855f7;">2</div>
-        <h4>MERGE</h4>
-      </div>
-      <div class="duration">⏱️ Hardest phase</div>
-      <p>• Decided which records were correct<br>
-      • Resolved conflicting data<br>
-      • Handled different name formats<br>
-      • Eliminated duplicates</p>
-      <div class="method">Challenge: People with same names!</div>
-    </div>
-
-    <div class="phase-box" style="top: 540px; left: 580px;">
-      <div class="phase-header">
-        <div class="phase-number" style="background: #6366f1;">3</div>
-        <h4>ENRICH</h4>
-        <span class="ai-badge">AI-POWERED</span>
-      </div>
-      <div class="duration">⏱️ Most meticulous</div>
-      <p><strong>The Hunt Process:</strong><br>
-      1. Feed missing records to Claude/Perplexity<br>
-      2. AI creates search roadmap<br>
-      3. Search Twitter: "Gauntlet AI + [name]"<br>
-      4. Cross-reference & verify<br>
-      5. Deep research with AI assistance</p>
-      <div class="method">Systematic, AI-assisted verification</div>
-    </div>
-
-    <div class="phase-box" style="top: 750px; left: 580px;">
-      <div class="phase-header">
-        <div class="phase-number" style="background: #8b5cf6;">4</div>
-        <h4>MAINTAIN</h4>
-      </div>
-      <div class="duration">⏱️ Ongoing</div>
-      <p>• Weekly check-ins<br>
-      • Monthly reviews<br>
-      • Self-service update form<br>
-      • AI model trained for updates</p>
-      <div class="method">Quarterly deep maintenance needed</div>
-    </div>
-
-    <!-- Connecting lines between phases -->
-    <div style="position: absolute; top: 235px; left: 560px; width: 2px; height: 550px; background: linear-gradient(180deg, #cbd5e1 0%, #94a3b8 100%);"></div>
-
-    <!-- Arrows from BEFORE to PROCESS -->
-    <div class="arrow-connector" style="top: 230px; left: 455px; width: 110px;"></div>
-    <div class="arrow-connector" style="top: 360px; left: 455px; width: 110px;"></div>
-
-    <!-- Arrows from PROCESS to AFTER -->
-    <div class="arrow-connector" style="top: 230px; left: 835px; width: 330px;"></div>
-    <div class="arrow-connector" style="top: 400px; left: 835px; width: 330px;"></div>
-
-    <!-- AFTER Section -->
-    <div class="sticky-note green" style="top: 180px; left: 1180px; width: 380px; min-height: 360px;">
-      <h3>✓ Master Alumni Database</h3>
-      <p style="font-size: 12px; margin-bottom: 12px; color: #065f46; font-weight: 600;">
-        Google Sheets | 184 Alumni | 95%+ Complete
-      </p>
-      
-      <div style="font-size: 13px; margin-top: 12px;">
-        <strong style="display: block; margin-bottom: 10px; color: #065f46; font-size: 14px;">Critical Fields (95%+ Complete):</strong>
-        <ul style="font-size: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
-          <li>✓ First Name</li>
-          <li>✓ Last Name</li>
-          <li>✓ Twitter/X Handle</li>
-          <li>✓ Email (verified)</li>
-          <li>✓ LinkedIn URL</li>
-          <li>✓ Scrapeable Email</li>
-          <li>✓ Notes/Context</li>
-        </ul>
-        
-        <div style="margin-top: 18px; padding-top: 14px; border-top: 3px solid #6ee7b7;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; text-align: center;">
-            <div>
-              <div style="font-size: 36px; font-weight: 700; color: #065f46;">184</div>
-              <div style="font-size: 11px; color: #6b7280; font-weight: 600;">ALUMNI TRACKED</div>
-            </div>
-            <div>
-              <div style="font-size: 36px; font-weight: 700; color: #065f46;">95%</div>
-              <div style="font-size: 11px; color: #6b7280; font-weight: 600;">COMPLETENESS</div>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top: 14px; padding: 10px; background: #ecfdf5; border-radius: 6px; border: 1px solid #6ee7b7;">
-          <div style="font-size: 11px; color: #065f46; font-weight: 700; margin-bottom: 6px;">UPDATE SYSTEM:</div>
-          <div style="font-size: 11px; color: #374151;">
-            • Self-service form for alumni<br>
-            • AI-trained for auto-updates<br>
-            • Quarterly maintenance cycle
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sticky-note green" style="top: 560px; left: 1180px; width: 380px;">
-      <h3>🎯 Real Outcomes</h3>
-      <ul style="font-size: 13px;">
-        <li>10+ hrs/week → ~1 hr/quarter</li>
-        <li>Manual lookups eliminated</li>
-        <li>Full community visibility</li>
-        <li>Re-engagement campaigns enabled</li>
-        <li>Job outcome tracking possible</li>
-        <li>Network of future AI leaders built</li>
-      </ul>
-      <div style="margin-top: 14px; padding: 12px; background: #ecfdf5; border-radius: 6px; border-left: 3px solid #10b981;">
-        <div style="font-size: 12px; font-weight: 700; color: #065f46; margin-bottom: 6px;">The Real Win:</div>
-        <div style="font-size: 12px; color: #374151; line-height: 1.6;">
-          "Building a community of AI leaders. Every quarter, new cohorts graduate into great jobs. Staying connected = priceless networking for everyone."
-        </div>
-      </div>
-    </div>
-
-    <!-- Metrics at Top -->
-    <div style="position: absolute; top: 75px; left: 50%; transform: translateX(-50%); display: flex; gap: 20px;">
+    <!-- Metrics Row -->
+    <div class="metrics-row">
       <div class="metric-box">
         <div class="label">Data Sources</div>
         <div class="values">
@@ -566,7 +519,6 @@
         </div>
         <div class="improvement">100% consolidation</div>
       </div>
-
       <div class="metric-box">
         <div class="label">Completeness</div>
         <div class="values">
@@ -576,17 +528,6 @@
         </div>
         <div class="improvement">+138% improvement</div>
       </div>
-
-      <div class="metric-box">
-        <div class="label">Alumni Tracked</div>
-        <div class="values">
-          <span class="before-val">?</span>
-          <span class="arrow">→</span>
-          <span class="after-val">184</span>
-        </div>
-        <div class="improvement">Full visibility</div>
-      </div>
-
       <div class="metric-box">
         <div class="label">Weekly Hours</div>
         <div class="values">
@@ -598,9 +539,184 @@
       </div>
     </div>
 
-    <!-- What This Unlocked -->
-    <div class="unlocked-container">
-      <div class="unlocked-title">🚀 What This Database Unlocked</div>
+    <!-- Main 3-Column Grid -->
+    <div class="main-grid">
+      <!-- CHAOS Column -->
+      <div class="column">
+        <div class="section-header section-before">❌ THE CHAOS</div>
+        
+        <div class="problems-grid">
+          <div class="sticky-note red">
+            <h3>Crossover Records</h3>
+            <ul>
+              <li>Incomplete names</li>
+              <li>Outdated info</li>
+              <li>No standardization</li>
+            </ul>
+          </div>
+          <div class="sticky-note orange">
+            <h3>Email Lists</h3>
+            <ul>
+              <li>Unverified addresses</li>
+              <li>High bounce rate</li>
+              <li>Missing fields</li>
+            </ul>
+          </div>
+          <div class="sticky-note red">
+            <h3>Twitter/X Notes</h3>
+            <ul>
+              <li>Scattered handles</li>
+              <li>Not centralized</li>
+              <li>Many missing</li>
+            </ul>
+          </div>
+          <div class="sticky-note orange">
+            <h3>LinkedIn Profiles</h3>
+            <ul>
+              <li style="font-weight: 700; color: #dc2626;">WORST SOURCE ⚠️</li>
+              <li>Most URLs missing</li>
+              <li>Hard to verify</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sticky-note yellow">
+          <h3>💥 The Pain Points</h3>
+          <ul>
+            <li>"Does anyone have X's email?"</li>
+            <li>10+ hours/week on manual lookups</li>
+            <li>No single source of truth</li>
+            <li>Can't track where alumni went</li>
+            <li>Impossible to build community</li>
+            <li>Every outreach = manual research</li>
+          </ul>
+        </div>
+
+        <div class="quote-box">
+          <p>"This will be the community database going forward"</p>
+          <div class="author"><strong>Tom Babb</strong>, Director of Marketing, Gauntlet AI</div>
+          <div class="context">Via Slack message after project review</div>
+        </div>
+      </div>
+
+      <!-- SYSTEM Column -->
+      <div class="column">
+        <div class="section-header section-process">⚙️ THE SYSTEM</div>
+        
+        <div class="phase-box">
+          <div class="phase-header">
+            <div class="phase-number">1</div>
+            <h4>AUDIT</h4>
+          </div>
+          <div class="duration">⏱️ Few hours</div>
+          <p>• Got data list from company<br>
+          • Identified what was missing<br>
+          • Created initial record inventory</p>
+          <div class="method">Tools: Google Sheets, Manual review</div>
+        </div>
+
+        <div class="phase-box">
+          <div class="phase-header">
+            <div class="phase-number" style="background: #a855f7;">2</div>
+            <h4>MERGE</h4>
+          </div>
+          <div class="duration">⏱️ Hardest phase</div>
+          <p>• Decided which records were correct<br>
+          • Resolved conflicting data<br>
+          • Handled different name formats<br>
+          • Eliminated duplicates</p>
+          <div class="method">Challenge: People with same names!</div>
+        </div>
+
+        <div class="phases-bottom">
+          <div class="phase-box">
+            <div class="phase-header">
+              <div class="phase-number" style="background: #6366f1;">3</div>
+              <h4>ENRICH</h4>
+              <span class="ai-badge">AI</span>
+            </div>
+            <div class="duration">⏱️ Most meticulous</div>
+            <p>• Feed records to Claude/Perplexity<br>
+            • AI creates search roadmap<br>
+            • Cross-reference & verify</p>
+          </div>
+
+          <div class="phase-box">
+            <div class="phase-header">
+              <div class="phase-number" style="background: #8b5cf6;">4</div>
+              <h4>MAINTAIN</h4>
+            </div>
+            <div class="duration">⏱️ Ongoing</div>
+            <p>• Weekly check-ins<br>
+            • Self-service update form<br>
+            • Quarterly deep maintenance</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VICTORY Column -->
+      <div class="column">
+        <div class="section-header section-after">✓ THE VICTORY</div>
+        
+        <div class="victory-content">
+          <div class="result-card">
+            <h3>✓ Master Alumni Database</h3>
+            <div class="subtitle">Google Sheets | 184 Alumni | 95%+ Complete</div>
+            
+            <div style="font-size: 11px; font-weight: 600; color: #065f46; margin-bottom: 6px;">Critical Fields (95%+ Complete):</div>
+            <div class="fields-grid">
+              <span>First Name</span>
+              <span>Last Name</span>
+              <span>Twitter/X Handle</span>
+              <span>Email (verified)</span>
+              <span>LinkedIn URL</span>
+              <span>Scrapeable Email</span>
+              <span>Notes/Context</span>
+            </div>
+
+            <div class="big-stats">
+              <div class="big-stat">
+                <div class="number">184</div>
+                <div class="label">ALUMNI TRACKED</div>
+              </div>
+              <div class="big-stat">
+                <div class="number">95%</div>
+                <div class="label">COMPLETENESS</div>
+              </div>
+            </div>
+
+            <div class="update-system">
+              <div class="title">UPDATE SYSTEM:</div>
+              <div class="content">
+                • Self-service form for alumni<br>
+                • AI-trained for auto-updates<br>
+                • Quarterly maintenance cycle
+              </div>
+            </div>
+          </div>
+
+          <div class="outcomes-card">
+            <h3>🎯 Real Outcomes</h3>
+            <ul>
+              <li>10+ hrs/week → ~1 hr/quarter</li>
+              <li>Manual lookups eliminated</li>
+              <li>Full community visibility</li>
+              <li>Re-engagement campaigns enabled</li>
+              <li>Job outcome tracking possible</li>
+              <li>Network of future AI leaders built</li>
+            </ul>
+            <div class="real-win">
+              <div class="title">The Real Win:</div>
+              <div class="content">"Building a community of AI leaders. Every quarter, new cohorts graduate into great jobs. Staying connected = priceless networking."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What This Unlocked - Bottom -->
+    <div class="unlocked-section">
+      <div class="title">🚀 What This Database Unlocked</div>
       <div class="unlocked-items">
         <div class="unlocked-item">✓ Re-engagement campaigns</div>
         <div class="unlocked-item">✓ Alumni job outcome tracking</div>
@@ -608,13 +724,6 @@
         <div class="unlocked-item">✓ Systematic campaign outreach</div>
         <div class="unlocked-item">✓ Future AI leaders network</div>
       </div>
-    </div>
-
-    <!-- Quote from Tom -->
-    <div class="quote-box">
-      <p>"This will be the community database going forward"</p>
-      <div class="author">— <strong>Tom Babb</strong>, Director of Marketing, Gauntlet AI</div>
-      <div class="context">Via Slack message after project review</div>
     </div>
   </div>
 </body>
