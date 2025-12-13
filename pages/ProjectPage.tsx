@@ -221,6 +221,12 @@ const ProjectPage: React.FC = () => {
                     <h4 className="text-2xl md:text-3xl font-serif text-white">{asset.title}</h4>
                   </div>
 
+                {project.slug === 'data-optimization' && asset.title === 'Master Alumni Database' && (
+                  <p className="text-gray-300 text-base md:text-lg pl-14">
+                    Built a single source of truth for 184 Gauntlet AI alumni in under a week. Cuts manual lookups and powers re-engagement and job outcome tracking.
+                  </p>
+                )}
+
                   {/* Visual Media Container */}
                   <div className="rounded-xl overflow-hidden border border-white/10 bg-[#121212] shadow-2xl relative group-hover:border-white/20 transition-colors">
                     {/* Fake Browser Toolbar */}
@@ -235,7 +241,7 @@ const ProjectPage: React.FC = () => {
                     {/* Content */}
                     <div className="w-full bg-black relative">
                       {asset.type === 'embed' ? (
-                        <div className={`w-full ${asset.url?.endsWith('.pdf') ? 'h-[800px]' : 'aspect-video'}`}>
+                        <div className="aspect-video w-full">
                           <iframe 
                             src={asset.url} 
                             className="w-full h-full"

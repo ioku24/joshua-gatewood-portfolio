@@ -20,8 +20,6 @@ We maintain a detailed "Design Engineering" approach. Please refer to the `docs/
     *   *Bento grids, deep glass textures, and the visual language of the future.*
 *   **[⚙️ Architecture & Stack (docs/architecture-and-stack.md)](docs/architecture-and-stack.md)**  
     *   *Why we chose React 19, Vite, and Framer Motion over other options.*
-*   **[🖼️ Miro Dashboard Design SOP (docs/miro-dashboard-design-sop.md)](docs/miro-dashboard-design-sop.md)**  
-    *   *Step-by-step guide for creating portfolio dashboards with AI assistance.*
 
 ## ✅ Current Status (The MVP)
 The application is currently a high-performance Single Page Application (SPA).

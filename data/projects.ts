@@ -28,7 +28,7 @@ export const projects: ProjectWithSlug[] = [
         type: 'embed',
         url: 'https://share.descript.com/embed/zibGionZg6K',
         caption: 'Gauntlet Acquisition System Overview: High-level Miro snapshot of the original flow on top and the redesigned Challenger / Hiring Partner funnels on the bottom.',
-        challenge: "• All traffic landed on one generic homepage with no clear path\n• Multiple offers crammed into one experience with unfocused copy\n• No segmentation between students vs. hiring partners\n• Weak tracking and nurture led to dropped leads\n• No way to measure which offer or funnel was actually working",
+        challenge: "• All traffic landed on one generic homepage with no clear path\n• Multiple offers crammed into one experience with unfocused copy\n• No segmentation between students vs. hiring partners\n• Weak tracking and nurture—leads fell through the cracks\n• No way to measure which offer or funnel was actually working",
         solution: "• Audited the full acquisition system end-to-end\n• Established a clear rule: 2 offers = 2 focused funnels\n• Built a \"Hiring Partner\" funnel (VSL → calendar)\n• Built a \"Challenger\" funnel (2-step VSL flow)\n• Routed all traffic into the right funnel based on audience",
         outcome: "Transformed a scattered, one-size-fits-all homepage into focused funnels that are easier to track, automate, and optimize."
       },
@@ -46,11 +46,19 @@ export const projects: ProjectWithSlug[] = [
       {
         title: 'Data Cleanup Map – HubSpot CRM',
         type: 'image',
-        url: '/assets/03 Data Cleanup Map /Data cleanup map.png',
+        url: 'https://ik.imagekit.io/kqcgf084pn/Data%20cleanup%20screenshot.png',
         caption: 'Data Cleanup Map: High-level Miro board that documents the full HubSpot cleanup plan, from initial audit to long-term maintenance.',
         challenge: "• Thousands of inconsistent and duplicated records\n• Unreliable lifecycle stages and polluted workflows\n• Bad data = bad reports and failed automations\n• No trustworthy view of the funnel or revenue",
         solution: "• Created a visual \"Data Cleanup Map\" in Miro\n• Three-phase process: Assessment → Action → Maintenance\n• Fixed permissions, archived unused properties, deduplicated records\n• Defined regular cleaning cadence and QA rules",
         outcome: 'Resolved 4,400+ data issues and established a permanent hygiene protocol.'
+      },
+      {
+        title: 'Unified Reporting Dashboard',
+        type: 'image',
+        url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+        challenge: "• Data siloed across three different platforms\n• No visibility into full-funnel performance",
+        solution: "• Built a consolidated dashboard pulling live data from all sources\n• Enabled real-time ROI calculation per channel",
+        outcome: 'Identified high-value campaigns previously thought to be underperforming.'
       }
     ]
   },
@@ -72,6 +80,22 @@ export const projects: ProjectWithSlug[] = [
         challenge: "• Manual, reactive content creation with no system\n• Ideas, livestreams, and posts existed as \"one-off\" work\n• Clips scattered in random folders, recordings posted once and forgotten\n• No clear CTAs or funnel integration on most posts\n• Every new piece required starting from scratch",
         solution: "• Built a Written Content OS: inputs → long-form → short-form → distribution\n• Each asset tied to a specific CTA (VSL, lead magnet, key page)\n• Created a Video Repurposing Framework for platform-ready clips\n• Tagged clips by funnel stage (TOFU, MOFU, BOFU)\n• One 60-min session now produces 8–12 clips",
         outcome: 'One strong idea now becomes 2–4 weeks of scheduled content, each piece mapped to a clear CTA and funnel path.'
+      },
+      {
+        title: 'Automated Production Kanban',
+        type: 'image',
+        url: 'https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=800',
+        challenge: "• Feedback buried in email threads and Slack\n• Editors lost track of assets, causing missed deadlines",
+        solution: "• Created a status-based Notion dashboard\n• Moving a card to \"Review\" auto-notifies stakeholders via Slack",
+        outcome: 'Eliminated production bottlenecks and streamlined approval process.'
+      },
+      {
+        title: 'Asset Library & Tagging',
+        type: 'image',
+        url: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800',
+        challenge: "• Team couldn't find old clips to repost during slow weeks\n• Valuable evergreen content going to waste",
+        solution: "• Built a tagged asset library in Notion\n• Filter by topic, format, and performance",
+        outcome: 'Revived 50+ evergreen assets, filling the calendar during content gaps.'
       }
     ]
   },
@@ -86,13 +110,20 @@ export const projects: ProjectWithSlug[] = [
     link: '#',
     assets: [
       {
-        title: 'Master Alumni Database',
+        title: 'Subject Line Multivariate Testing',
+        type: 'video',
+        url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
+        challenge: "• Open rates plateaued at 18%\n• Generic email blasts regardless of funnel stage",
+        solution: "• Implemented a 4-variant A/B testing framework\n• Tested subject lines and send times\n• Analyzed results via custom dashboard",
+        outcome: 'Increased average open rates to 28% in 60 days.'
+      },
+      {
+        title: 'Looker Studio Command Center',
         type: 'image',
-        url: '/assets/alumni-database.png',
-        caption: 'Built a single source of truth for 184 Gauntlet AI alumni, transforming scattered records into a living community database in under one week.',
-        challenge: "• No central database; contact info scattered across Crossover exports, email lists, and random spreadsheets\n• LinkedIn URLs and verified emails were the hardest to find\n• Team constantly asking \"does anyone have X's email?\" created pure manual chaos\n• No way to track where alumni landed or build lasting community",
-        solution: "• Audit (few hours): Got raw data from company, inventoried all records, identified gaps\n• Merge (hardest phase): Resolved conflicts, handled same-name duplicates, standardized formats\n• Enrich (AI-powered): Fed missing records to Claude/Perplexity, searched \"Gauntlet AI + [name]\" on Twitter, cross-referenced and verified\n• Maintain (ongoing): Weekly check-ins, self-service update form, AI-trained for future lookups",
-        outcome: '184 alumni tracked at 95% completeness (name, email, X handle verified). Reduced manual work from 10+ hrs/week to ~1 hr/quarter. Unlocked re-engagement campaigns, job outcome tracking, and a network of future AI leaders.'
+        url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+        challenge: "• 6 hours of manual Excel work every Monday\n• Data scattered across HubSpot and Google Analytics",
+        solution: "• Built a live Looker Studio dashboard\n• Connected directly to data sources via API",
+        outcome: 'Instant visibility into real-time CAC and LTV metrics.'
       }
     ]
   }
