@@ -256,11 +256,19 @@ const ProjectPage: React.FC = () => {
                           Your browser does not support the video tag.
                         </video>
                       ) : (
-                        <img 
-                          src={asset.url} 
-                          alt={asset.title}
-                          className="w-full h-auto block"
-                        />
+                        <div 
+                          className="relative group/image cursor-zoom-in"
+                          onClick={() => asset.url && setLightboxImage(asset.url)}
+                        >
+                          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center z-10">
+                            <Maximize2 className="text-white drop-shadow-lg" size={32} />
+                          </div>
+                          <img 
+                            src={asset.url} 
+                            alt={asset.title}
+                            className="w-full h-auto block"
+                          />
+                        </div>
                       )}
                     </div>
                     

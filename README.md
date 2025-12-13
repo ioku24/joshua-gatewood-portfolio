@@ -53,33 +53,63 @@ npm run build
 
 When working with the AI assistant on this project, follow this process:
 
-### Step 1: Make Changes
-- Request code changes or edits in Cursor
-- AI will modify files as needed
-- **No changes are deployed yet**
+---
 
-### Step 2: Preview Locally (Optional)
-```bash
-npm run dev
-```
-- Test changes at `http://localhost:5173`
-- See live updates as you edit
-- Verify everything works as expected
+### 📋 SOP: Review Changes Before Deploying
 
-### Step 3: Deploy (Requires Explicit Confirmation)
-**Only when you're ready**, tell the AI:
+#### Step 1: Request Changes
+- Tell the AI what you want changed
+- AI modifies files as needed
+- **Nothing is deployed yet** - changes only exist locally
+
+#### Step 2: Preview Your Changes Locally
+
+**Option A: Open in Browser (Recommended)**
+1. The AI will start the dev server for you (or ask it to: "start the dev server")
+2. Open your browser and go to the URL provided (usually `http://localhost:5173` or similar)
+3. Navigate around and review your changes
+
+**Option B: Use Cursor's Built-in Browser**
+1. Press `Cmd + Shift + P` (Command Palette)
+2. Type "Simple Browser: Show"
+3. Enter the localhost URL
+
+**Quick Test URLs:**
+| Page | URL |
+|------|-----|
+| Homepage | http://localhost:5173/ |
+| Portfolio Overview | http://localhost:5173/work |
+| Marketing Ops | http://localhost:5173/work/marketing-ops |
+| Content System | http://localhost:5173/work/content-system |
+| Data Optimization | http://localhost:5173/work/data-optimization |
+
+> **Note:** The port number may vary (5173, 5174, 5175, etc.) if other servers are running. The AI will tell you the correct port.
+
+#### Step 3: Request Fixes (If Needed)
+If something doesn't look right:
+- Tell the AI what needs to be fixed
+- AI makes the changes
+- **Refresh your browser** to see updates (dev server auto-refreshes)
+- Repeat until satisfied
+
+#### Step 4: Deploy (Only When Ready)
+**Only when you're happy with the changes**, tell the AI:
+- "Deploy" or "Push this"
 - "Ready to deploy"
-- "Push to GitHub"
-- "Deploy this"
+- "Looks good, push it"
 
-Then the AI will:
+The AI will then:
 1. Run build verification (`npm run build`)
-2. Commit changes (`git add` + `git commit`)
-3. Push to GitHub (`git push origin main`)
+2. Commit changes with a descriptive message
+3. Push to GitHub
 4. Vercel auto-deploys (~60-90 seconds)
 
-### ⚠️ Important Rule
-**The AI will NEVER push to GitHub or deploy without your explicit confirmation.** This ensures you always review and approve changes before they go live.
+---
+
+### ⚠️ Important Rules
+- **The AI will NEVER deploy without your explicit confirmation**
+- **Always preview locally before deploying** to catch issues early
+- **The dev server auto-refreshes** when code changes, so just refresh your browser
 
 ## 📂 Project Structure
 ```bash
