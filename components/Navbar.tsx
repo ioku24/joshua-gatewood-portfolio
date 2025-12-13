@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    } 
+    }
     // If it's a hash link but we're not on homepage, navigate to homepage first then scroll
     else if (href.startsWith('#') && !isHomePage) {
       e.preventDefault();
@@ -90,14 +90,14 @@ const Navbar: React.FC = () => {
                     {link.name}
                   </Link>
                 ) : (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-all"
-                  >
-                    {link.name}
-                  </a>
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                >
+                  {link.name}
+                </a>
                 )
               ))}
             </div>
@@ -145,14 +145,14 @@ const Navbar: React.FC = () => {
                     {link.name}
                   </Link>
                 ) : (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="font-serif text-4xl text-gray-300 hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </a>
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="font-serif text-4xl text-gray-300 hover:text-white transition-colors"
+                >
+                  {link.name}
+                </a>
                 )
               ))}
               <button 

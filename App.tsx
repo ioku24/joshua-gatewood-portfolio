@@ -9,13 +9,13 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="bg-background min-h-screen text-slate-50 selection:bg-indigo-500 selection:text-white font-sans">
+    <div className="bg-background min-h-screen text-slate-50 selection:bg-indigo-500 selection:text-white font-sans">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/work" element={<PortfolioOverview />} />
           <Route path="/work/:slug" element={<ProjectPage />} />
         </Routes>
-      </div>
+    </div>
     </BrowserRouter>
   );
 }

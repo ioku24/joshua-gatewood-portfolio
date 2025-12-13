@@ -86,13 +86,13 @@ export const projects: ProjectWithSlug[] = [
     link: '#',
     assets: [
       {
-        title: 'Master Alumni Database: From Chaos to Community',
+        title: 'Master Alumni Database',
         type: 'image',
         url: '/assets/alumni-database.png',
         caption: 'Consolidated 5+ scattered data sources into a single source of truth for 184 Gauntlet AI alumni—completed in under 1 week.',
-        challenge: "• Alumni data scattered across 5+ sources (Crossover, emails, Twitter, LinkedIn)\n• ~40% data completeness with duplicates and conflicts\n• 10+ hours/week spent on manual lookups\n• No way to track alumni outcomes or build community\n• Every outreach required starting from scratch",
-        solution: "• Phase 1 – Audit: Inventoried all records and identified gaps\n• Phase 2 – Merge: Resolved conflicts, deduplicated, standardized formats\n• Phase 3 – Enrich: AI-powered research (Claude/Perplexity) to fill missing fields\n• Phase 4 – Maintain: Self-service update form + quarterly deep maintenance",
-        outcome: '184 alumni tracked at 95% completeness. Reduced weekly hours from 10+ to ~1/quarter. Unlocked re-engagement campaigns, job outcome tracking, and community building.'
+        challenge: "• Data scattered across 5+ sources with no single source of truth\n• Only ~40% completeness with duplicates and conflicts\n• 10+ hours/week wasted on manual lookups\n• No way to track alumni outcomes or build community",
+        solution: "• Audit: Inventoried all records and identified gaps\n• Merge: Resolved conflicts, deduplicated, standardized formats\n• Enrich: AI-powered research (Claude/Perplexity) to fill missing fields\n• Maintain: Self-service update form + quarterly maintenance cycle",
+        outcome: '184 alumni tracked at 95% completeness. Weekly hours reduced from 10+ to ~1/quarter. Enabled re-engagement campaigns, job tracking, and community building.'
       }
     ]
   }
