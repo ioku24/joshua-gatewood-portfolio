@@ -33,6 +33,17 @@ export const projects: ProjectWithSlug[] = [
         outcome: "Transformed a scattered, one-size-fits-all homepage into focused funnels that are easier to track, automate, and optimize."
       },
       {
+        title: 'Acquisition Experience: Before and After',
+        type: 'comparison',
+        beforeImage: '/assets/Gauntlet old website.png',
+        afterImage: '/assets/Gauntlet new website.png',
+        beforeCaption: 'The old homepage tried to serve everyone, resulting in diluted messaging.',
+        afterCaption: 'The new structure funnels users immediately into their specific journey.',
+        challenge: "The old homepage forced all traffic into one generic funnel with no segmentation. The redesign routes each audience to a focused experience that speaks directly to their needs.",
+        solution: '',
+        outcome: 'Clear separation of user intent and 2x increase in qualified pipeline.'
+      },
+      {
         title: 'Data Cleanup Map – HubSpot CRM',
         type: 'image',
         url: 'https://ik.imagekit.io/kqcgf084pn/Data%20cleanup%20screenshot.png',

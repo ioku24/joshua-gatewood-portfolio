@@ -113,8 +113,7 @@ const ProjectPage: React.FC = () => {
                       </div>
                       
                       <div className="pl-14">
-                        <p className="text-xs text-indigo-400 uppercase tracking-wider font-bold mb-2">Bucket: {project.title}</p>
-                        <p className="text-gray-300 font-light leading-relaxed text-base md:text-lg whitespace-pre-line">
+                        <p className="text-gray-300 font-light leading-relaxed text-base md:text-lg">
                           {asset.challenge}
                         </p>
                       </div>
