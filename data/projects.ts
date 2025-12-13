@@ -46,7 +46,7 @@ export const projects: ProjectWithSlug[] = [
       {
         title: 'Data Cleanup Map – HubSpot CRM',
         type: 'image',
-        url: '/assets/03 Data Cleanup Map /Data_cleanup_map.svg',
+        url: '/assets/03 Data Cleanup Map /Data cleanup map.png',
         caption: 'Data Cleanup Map: High-level Miro board that documents the full HubSpot cleanup plan, from initial audit to long-term maintenance.',
         challenge: "• Thousands of inconsistent and duplicated records\n• Unreliable lifecycle stages and polluted workflows\n• Bad data = bad reports and failed automations\n• No trustworthy view of the funnel or revenue",
         solution: "• Created a visual \"Data Cleanup Map\" in Miro\n• Three-phase process: Assessment → Action → Maintenance\n• Fixed permissions, archived unused properties, deduplicated records\n• Defined regular cleaning cadence and QA rules",
