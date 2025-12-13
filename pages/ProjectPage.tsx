@@ -235,7 +235,7 @@ const ProjectPage: React.FC = () => {
                     {/* Content */}
                     <div className="w-full bg-black relative">
                       {asset.type === 'embed' ? (
-                        <div className="aspect-video w-full">
+                        <div className={`w-full ${asset.url?.endsWith('.pdf') ? 'h-[800px]' : 'aspect-video'}`}>
                           <iframe 
                             src={asset.url} 
                             className="w-full h-full"
