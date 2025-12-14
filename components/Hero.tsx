@@ -5,21 +5,12 @@ import { Zap, Layers, BarChart, ArrowRight } from 'lucide-react';
 const Hero: React.FC = () => {
   const { scrollY } = useScroll();
   
-  // EFFECT E: Fade + Scale Out as you leave the section
-  const heroOpacity = useTransform(scrollY, [0, 600], [1, 0]);
-  const heroScale = useTransform(scrollY, [0, 600], [1, 0.92]);
-  
-  // EFFECT D: Parallax - different elements move at different speeds
+  // EFFECT D: Parallax only - elements move at different speeds (no fade out)
   const imageY = useTransform(scrollY, [0, 600], [0, 80]); // Image moves slower (parallax)
   const textY = useTransform(scrollY, [0, 600], [0, -30]); // Text moves up slightly
   const badge1Y = useTransform(scrollY, [0, 600], [0, -50]); // Badge 1 floats up faster
   const badge2Y = useTransform(scrollY, [0, 600], [0, -70]); // Badge 2 floats up fastest
   const badge3Y = useTransform(scrollY, [0, 600], [0, -40]); // Badge 3 floats up medium
-
-  // Intro text specific animations
-  // Hidden at scrollY=0, fades in by scrollY=200
-  const introTextOpacity = useTransform(scrollY, [0, 200], [0, 1]);
-  const introTextY = useTransform(scrollY, [0, 200], [20, 0]);
 
   // ROBUST SCROLL HANDLER
   // Prevents "Refusing to connect" errors by stopping default browser navigation completely
@@ -73,11 +64,8 @@ const Hero: React.FC = () => {
         <div className="absolute bottom-[20%] right-[10%] w-[30rem] h-[30rem] bg-purple-500/10 rounded-full blur-[150px] mix-blend-screen" />
       </div>
 
-      {/* EFFECT E: Wrapper for fade + scale out */}
-      <motion.div 
-        style={{ opacity: heroOpacity, scale: heroScale }}
-        className="max-w-7xl mx-auto px-6 w-full relative flex flex-col items-center"
-      >
+      {/* Main Hero Content */}
+      <div className="max-w-7xl mx-auto px-6 w-full relative flex flex-col items-center">
         
         {/* Animated Headline (Decorative - SEO H1 is above) */}
         <motion.p 
@@ -102,7 +90,7 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
           style={{ y: imageY }}
-          className="relative z-10 w-[90vw] h-[55vh] max-h-[40rem] max-w-[26rem] md:w-[28rem] md:h-[36rem] mb-10"
+          className="relative z-10 w-[80vw] h-[45vh] max-h-[28rem] max-w-[22rem] md:w-[24rem] md:h-[30rem] mb-8"
         >
           {/* Main Image Card */}
           <div 
@@ -190,11 +178,9 @@ const Hero: React.FC = () => {
           </motion.a>
         </motion.div>
 
-        {/* Text & Main CTA Container */}
-        <div
-           className="text-center w-full px-4 relative z-20 flex flex-col items-center"
-        >
-          {/* 1. CTA Button (Stays visible on load) */}
+        {/* CTA Button Container */}
+        <div className="text-center w-full px-4 relative z-20 flex flex-col items-center">
+          {/* CTA Button (Stays visible on load) */}
           <motion.div 
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -210,19 +196,20 @@ const Hero: React.FC = () => {
               <ArrowRight size={20} className="group-hover:translate-x-1.5 transition-transform" />
             </motion.a>
           </motion.div>
-
-          {/* 2. Hero Sentence - CHANGED: Controlled by scroll opacity now */}
+          {/* Hero Sentence */}
           <motion.div 
-            style={{ opacity: introTextOpacity, y: introTextY }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.6, duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
             <p className="font-sans text-lg md:text-xl text-gray-300 font-light leading-relaxed">
-              I’m <span className="text-white font-medium">Joshua Gatewood</span>, a systems thinker designing marketing infrastructure so creative ideas can scale.
+              I'm <span className="text-white font-medium">Joshua Gatewood</span>, a systems thinker designing marketing infrastructure so creative ideas can scale.
             </p>
           </motion.div>
         </div>
 
-      </motion.div>
+      </div>
     </section>
   );
 };
