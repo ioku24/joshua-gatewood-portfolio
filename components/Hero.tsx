@@ -12,6 +12,10 @@ const Hero: React.FC = () => {
   const badge2Y = useTransform(scrollY, [0, 600], [0, -70]); // Badge 2 floats up fastest
   const badge3Y = useTransform(scrollY, [0, 600], [0, -40]); // Badge 3 floats up medium
 
+  // Intro text: hidden at first, fades in when you scroll down
+  const introTextOpacity = useTransform(scrollY, [50, 200], [0, 1]);
+  const introTextY = useTransform(scrollY, [50, 200], [20, 0]);
+
   // ROBUST SCROLL HANDLER
   // Prevents "Refusing to connect" errors by stopping default browser navigation completely
   const handleScrollTo = (e: React.MouseEvent, id: string) => {
@@ -196,11 +200,9 @@ const Hero: React.FC = () => {
               <ArrowRight size={20} className="group-hover:translate-x-1.5 transition-transform" />
             </motion.a>
           </motion.div>
-          {/* Hero Sentence */}
+          {/* Hero Sentence - Hidden on load, fades in on scroll */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.6, duration: 0.8 }}
+            style={{ opacity: introTextOpacity, y: introTextY }}
             className="max-w-4xl mx-auto"
           >
             <p className="font-sans text-lg md:text-xl text-gray-300 font-light leading-relaxed">
