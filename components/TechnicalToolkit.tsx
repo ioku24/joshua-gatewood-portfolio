@@ -30,10 +30,10 @@ const TechnicalToolkit: React.FC = () => {
               Marketing Automation
             </h3>
             <ul className="space-y-2 text-gray-300">
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3" />HubSpot (Adv. Workflow)</li>
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3" />Marketo</li>
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3" />Zapier / Make.com</li>
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3" />ActiveCampaign</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3" />HubSpot</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3" />GoHighLevel</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3" />Zapier / Make / N8N</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3" />ManyChat</li>
             </ul>
           </motion.div>
           
@@ -50,13 +50,13 @@ const TechnicalToolkit: React.FC = () => {
             </h3>
             <ul className="space-y-2 text-gray-300">
               <li className="flex items-center"><span className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3" />Google Analytics 4</li>
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3" />Mixpanel</li>
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3" />SQL (Basic)</li>
               <li className="flex items-center"><span className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3" />Looker Studio</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3" />Google Sheets / Coefficient</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3" />Miro</li>
             </ul>
           </motion.div>
           
-          {/* Dev Card */}
+          {/* AI & Creative Card */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,13 +65,13 @@ const TechnicalToolkit: React.FC = () => {
             className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/5 hover:border-pink-500/30 transition-colors group bg-noise"
           >
             <h3 className="text-xl font-semibold mb-4 text-pink-300 group-hover:text-pink-200">
-              Development
+              AI & Creative
             </h3>
             <ul className="space-y-2 text-gray-300">
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-3" />React 19</li>
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-3" />Python (Scripts)</li>
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-3" />REST APIs</li>
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-3" />Git / GitHub</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-3" />Claude / Cursor</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-3" />ChatGPT / Gemini</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-3" />Descript / CapCut</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-3" />Adobe</li>
             </ul>
           </motion.div>
         </div>

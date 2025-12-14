@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Compass, GitFork, Database, BarChart3, Check, Terminal, Activity } from 'lucide-react';
+import { Compass, GitFork, Database, BarChart3, Terminal } from 'lucide-react';
 
 const Expertise: React.FC = () => {
   // Staggered animation container for the grid
@@ -82,12 +82,12 @@ const Expertise: React.FC = () => {
                 <h3 className="text-2xl font-bold text-white mb-3">System Architecture</h3>
                 {/* OPTIMIZATION: Updated Contrast */}
                 <p className="text-gray-300 text-base leading-relaxed font-light max-w-md">
-                  Blueprinting the 'central nervous system' of your marketing operations. I audit tech stacks and map processes to eliminate redundancy.
+                  Breaking down funnels, mapping processes, and connecting tools through APIs. I reverse-engineer what works and build systems that scale.
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-3 mt-8">
-                {["Tech Stack Audit", "Process Mapping", "Integration Strategy"].map((tag, i) => (
+                {["Funnel Audits", "Process Mapping", "API Integrations"].map((tag, i) => (
                   <span key={i} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/5 text-xs text-gray-300">
                     {tag}
                   </span>
@@ -96,7 +96,7 @@ const Expertise: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Card 2: Workflow Automation (Tall/Standard) */}
+          {/* Card 2: AI & Workflow Automation (Tall/Standard) */}
           <motion.div
             variants={itemVariants}
             className="md:col-span-1 p-8 rounded-3xl bg-surface/40 border border-white/5 hover:bg-surface/60 hover:border-purple-500/20 transition-all duration-300 bg-noise relative overflow-hidden group flex flex-col"
@@ -114,20 +114,20 @@ const Expertise: React.FC = () => {
                 <GitFork size={24} />
               </div>
               
-              <h3 className="text-xl font-bold text-white mb-3">Workflow Automation</h3>
+              <h3 className="text-xl font-bold text-white mb-3">AI & Workflow Automation</h3>
               {/* OPTIMIZATION: Updated Contrast */}
               <p className="text-gray-300 text-sm leading-relaxed font-light mb-6">
-                Removing manual bottlenecks with intelligent, automated triggers via Zapier or Make.
+                Building AI agents and automated workflows via N8N, Make.com, HubSpot, and GoHighLevel.
               </p>
 
               <div className="mt-auto pt-6 border-t border-white/5 space-y-2">
                  <div className="flex items-center gap-2 text-sm text-gray-400">
                     <Terminal size={14} className="text-purple-500" />
-                    <span>Lead Routing</span>
+                    <span>AI Agents</span>
                  </div>
                  <div className="flex items-center gap-2 text-sm text-gray-400">
                     <Terminal size={14} className="text-purple-500" />
-                    <span>Auto-Nurture</span>
+                    <span>N8N / Make.com</span>
                  </div>
               </div>
           </motion.div>
@@ -147,9 +147,10 @@ const Expertise: React.FC = () => {
                 Managing the tools and data that power your growth campaigns. Clean data = clear decisions.
               </p>
 
-              <div className="flex gap-2 mt-auto">
-                 <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">CRM</span>
-                 <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">Hygiene</span>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                 <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">HubSpot</span>
+                 <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">GoHighLevel</span>
+                 <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">Data Hygiene</span>
               </div>
           </motion.div>
 
@@ -166,41 +167,25 @@ const Expertise: React.FC = () => {
                 <div className="w-4 bg-pink-400 h-[80%] rounded-t-sm" />
              </div>
 
-             <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start">
-               <div className="flex-1">
+             <div className="relative z-10 h-full flex flex-col justify-between">
+               <div>
                   <div className="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center mb-6 border border-pink-500/20">
                     <BarChart3 size={24} />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-3">Scalable Reporting</h3>
                   {/* OPTIMIZATION: Updated Contrast */}
-                  <p className="text-gray-300 text-base leading-relaxed font-light">
-                    Turning raw data into actionable insights. I build custom dashboards and attribution models so leadership knows exactly what's working.
+                  <p className="text-gray-300 text-base leading-relaxed font-light max-w-md">
+                    Turning raw data into actionable insights. I build dashboards in Looker Studio, Google Sheets, and HubSpot so leadership knows exactly what's working.
                   </p>
                </div>
                
-               {/* Mini Stat Widget */}
-               <div className="w-full md:w-auto bg-black/40 border border-white/10 rounded-xl p-4 min-w-[160px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Activity size={14} className="text-pink-500" />
-                    <span className="text-xs text-gray-500 uppercase tracking-wider">Live Metrics</span>
-                  </div>
-                  <div className="space-y-2">
-                     <div className="flex justify-between text-sm">
-                        <span className="text-gray-400">CAC</span>
-                        <span className="text-white font-mono">$42</span>
-                     </div>
-                     <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
-                        <div className="w-[60%] h-full bg-pink-500" />
-                     </div>
-                     <div className="flex justify-between text-sm">
-                        <span className="text-gray-400">LTV</span>
-                        <span className="text-white font-mono">$850</span>
-                     </div>
-                     <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
-                        <div className="w-[85%] h-full bg-indigo-500" />
-                     </div>
-                  </div>
-               </div>
+               <div className="flex flex-wrap gap-3 mt-8">
+                {["Looker Studio", "Google Sheets", "HubSpot Dashboards"].map((tag, i) => (
+                  <span key={i} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/5 text-xs text-gray-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
              </div>
           </motion.div>
         </motion.div>

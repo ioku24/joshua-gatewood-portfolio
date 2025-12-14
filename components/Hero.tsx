@@ -5,10 +5,18 @@ import { Zap, Layers, BarChart, ArrowRight } from 'lucide-react';
 const Hero: React.FC = () => {
   const { scrollY } = useScroll();
   
-  // OPTIMIZATION: Visibility & Stability
-  const opacity = useTransform(scrollY, [800, 1200], [1, 0]);
+  // EFFECT E: Fade + Scale Out as you leave the section
+  const heroOpacity = useTransform(scrollY, [0, 600], [1, 0]);
+  const heroScale = useTransform(scrollY, [0, 600], [1, 0.92]);
+  
+  // EFFECT D: Parallax - different elements move at different speeds
+  const imageY = useTransform(scrollY, [0, 600], [0, 80]); // Image moves slower (parallax)
+  const textY = useTransform(scrollY, [0, 600], [0, -30]); // Text moves up slightly
+  const badge1Y = useTransform(scrollY, [0, 600], [0, -50]); // Badge 1 floats up faster
+  const badge2Y = useTransform(scrollY, [0, 600], [0, -70]); // Badge 2 floats up fastest
+  const badge3Y = useTransform(scrollY, [0, 600], [0, -40]); // Badge 3 floats up medium
 
-  // NEW: Intro text specific animations
+  // Intro text specific animations
   // Hidden at scrollY=0, fades in by scrollY=200
   const introTextOpacity = useTransform(scrollY, [0, 200], [0, 1]);
   const introTextY = useTransform(scrollY, [0, 200], [20, 0]);
@@ -65,14 +73,18 @@ const Hero: React.FC = () => {
         <div className="absolute bottom-[20%] right-[10%] w-[30rem] h-[30rem] bg-purple-500/10 rounded-full blur-[150px] mix-blend-screen" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 w-full relative flex flex-col items-center">
+      {/* EFFECT E: Wrapper for fade + scale out */}
+      <motion.div 
+        style={{ opacity: heroOpacity, scale: heroScale }}
+        className="max-w-7xl mx-auto px-6 w-full relative flex flex-col items-center"
+      >
         
         {/* Animated Headline (Decorative - SEO H1 is above) */}
         <motion.p 
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          style={{ opacity }} 
+          style={{ y: textY }} 
           className="font-serif text-6xl md:text-8xl text-white mb-8 relative z-20 text-center"
           aria-hidden="true"
         >
@@ -84,12 +96,12 @@ const Hero: React.FC = () => {
         </motion.p>
 
         {/* Profile Image Container - UPDATED SIZE */}
+        {/* EFFECT D: Parallax - image moves slower */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }} // Delayed to happen after text starts
-          style={{ opacity }}
-          // CHANGED: Increased dimensions for mobile (w-[90vw] h-[55vh]) to act as a proper hero visual
+          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+          style={{ y: imageY }}
           className="relative z-10 w-[90vw] h-[55vh] max-h-[40rem] max-w-[26rem] md:w-[28rem] md:h-[36rem] mb-10"
         >
           {/* Main Image Card */}
@@ -115,13 +127,15 @@ const Hero: React.FC = () => {
           {/* Floating Stats Badges - DEEP LINKED TO PROJECTS */}
           
           {/* Badge 1: Saved 30% Time -> Links to Project 1 (Ops) */}
+          {/* EFFECT D: Parallax - badge floats at its own speed */}
           <motion.a 
             href="#project-1"
             onClick={(e) => handleScrollTo(e, 'project-1')}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            whileHover={{ scale: 1.1, y: -5 }}
+            whileHover={{ scale: 1.1 }}
+            style={{ y: badge1Y }}
             className="absolute -right-2 md:-right-8 top-12 glass-card bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-white/10 cursor-pointer group z-30"
           >
             <div className="bg-indigo-500/20 p-2 rounded-xl text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-colors duration-300">
@@ -134,13 +148,15 @@ const Hero: React.FC = () => {
           </motion.a>
 
           {/* Badge 2: 3x Content -> Links to Project 2 (Content) */}
+          {/* EFFECT D: Parallax - badge floats fastest */}
           <motion.a 
             href="#project-2"
             onClick={(e) => handleScrollTo(e, 'project-2')}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1.0, duration: 0.6 }}
-            whileHover={{ scale: 1.1, y: -5 }}
+            whileHover={{ scale: 1.1 }}
+            style={{ y: badge2Y }}
             className="absolute -left-2 md:-left-8 bottom-24 glass-card bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-white/10 cursor-pointer group z-30"
           >
             <div className="bg-purple-500/20 p-2 rounded-xl text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors duration-300">
@@ -153,13 +169,15 @@ const Hero: React.FC = () => {
           </motion.a>
 
           {/* Badge 3: Engagement -> Links to Project 3 (Data) */}
+          {/* EFFECT D: Parallax - badge floats at medium speed */}
           <motion.a 
             href="#project-3"
             onClick={(e) => handleScrollTo(e, 'project-3')}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.6 }}
-            whileHover={{ scale: 1.1, y: -5 }}
+            whileHover={{ scale: 1.1 }}
+            style={{ y: badge3Y }}
             className="absolute right-4 md:-right-4 bottom-8 glass-card bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-white/10 cursor-pointer group z-30"
           >
              <div className="bg-pink-500/20 p-2 rounded-xl text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-colors duration-300">
@@ -178,7 +196,6 @@ const Hero: React.FC = () => {
         >
           {/* 1. CTA Button (Stays visible on load) */}
           <motion.div 
-            style={{ opacity }}
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 1.4, type: "spring", stiffness: 200 }}
@@ -187,19 +204,7 @@ const Hero: React.FC = () => {
             <motion.a 
               href="#work"
               onClick={(e) => handleScrollTo(e, 'work')}
-              className="group flex items-center gap-3 px-10 py-4 bg-white text-black rounded-full font-semibold text-lg transition-all hover:scale-105 shadow-[0_0_50px_rgba(255,255,255,0.35)] hover:shadow-[0_0_70px_rgba(255,255,255,0.6)]"
-              animate={{ 
-                boxShadow: [
-                  "0 0 50px rgba(255,255,255,0.35)",
-                  "0 0 65px rgba(255,255,255,0.5)",
-                  "0 0 50px rgba(255,255,255,0.35)"
-                ]
-              }}
-              transition={{ 
-                duration: 2.5, 
-                repeat: Infinity, 
-                ease: "easeInOut"
-              }}
+              className="group flex items-center gap-3 px-10 py-4 bg-white text-black rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)]"
             >
               View Work
               <ArrowRight size={20} className="group-hover:translate-x-1.5 transition-transform" />
@@ -217,7 +222,7 @@ const Hero: React.FC = () => {
           </motion.div>
         </div>
 
-      </div>
+      </motion.div>
     </section>
   );
 };
