@@ -46,11 +46,22 @@ export const projects: ProjectWithSlug[] = [
       {
         title: 'Data Cleanup Map – HubSpot CRM',
         type: 'image',
-        url: '/assets/03 Data Cleanup Map /Data cleanup map.png',
+        url: '/assets/Data cleanup map.png',
         caption: 'Data Cleanup Map: High-level Miro board that documents the full HubSpot cleanup plan, from initial audit to long-term maintenance.',
         challenge: "• Thousands of inconsistent and duplicated records\n• Unreliable lifecycle stages and polluted workflows\n• Bad data = bad reports and failed automations\n• No trustworthy view of the funnel or revenue",
         solution: "• Created a visual \"Data Cleanup Map\" in Miro\n• Three-phase process: Assessment → Action → Maintenance\n• Fixed permissions, archived unused properties, deduplicated records\n• Defined regular cleaning cadence and QA rules",
         outcome: 'Resolved 4,400+ data issues and established a permanent hygiene protocol.'
+      },
+      {
+        title: 'Detroit Tradesmen Rugby – Website Redesign',
+        type: 'comparison',
+        beforeImage: "/assets/Tradesmen's old website.png",
+        afterImage: "/assets/Tradesmen's new website.png",
+        beforeCaption: 'The old website was an outdated bulletin board with no clear CTAs, zero analytics, and unprofessional design.',
+        afterCaption: 'The new website positions the club as Michigan\'s premier rugby brand with strategic conversion infrastructure.',
+        challenge: "Transformed Detroit Tradesmen Rugby's digital presence from an outdated bulletin board into a premium recruitment and revenue platform. Delivered a conversion-optimized, SEO-ready website in 6-8 hours using systems thinking and strategic brand positioning around Detroit's Motor City legacy.",
+        solution: '',
+        outcome: 'Top-tier branding website with embedded marketing infrastructure, positioned to drive measurable improvements in recruiting and sponsorship inquiries.'
       }
     ]
   },
