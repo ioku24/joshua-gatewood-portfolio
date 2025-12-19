@@ -45,7 +45,7 @@ const ProjectCard: React.FC<{ project: ProjectWithSlug; isMobile?: boolean; id?:
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 0.9]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.5, 1, 1, 0.5]);
   
-  const style = isMobile ? {} : { scale, opacity };
+  const style = isMobile ? {} : { scale, opacity, willChange: 'transform, opacity' };
 
   // Artifact Rendering Logic
   const renderArtifact = () => {

@@ -31,19 +31,19 @@ const CyberneticCursor: React.FC = () => {
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      
-      // Deep check for interactive elements
-      const isInteractive = 
-        target.tagName === 'A' || 
+
+      // Optimized: Removed expensive getComputedStyle call
+      // Deep check for interactive elements using DOM only
+      const isInteractive =
+        target.tagName === 'A' ||
         target.tagName === 'BUTTON' ||
         target.closest('a') ||
         target.closest('button') ||
         target.closest('[role="button"]') ||
         target.tagName === 'INPUT' ||
         target.tagName === 'TEXTAREA' ||
-        target.classList.contains('cursor-pointer') ||
-        window.getComputedStyle(target).cursor === 'pointer';
-      
+        target.classList.contains('cursor-pointer');
+
       setIsHovering(!!isInteractive);
     };
 

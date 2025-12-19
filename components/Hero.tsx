@@ -32,11 +32,11 @@ const Hero: React.FC = () => {
   // Typewriter Animation Variants
   const sentence = "Aloha,";
   const letterVariants = {
-    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+    hidden: { opacity: 0, y: 20, scale: 0.8 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
+      scale: 1,
       transition: {
         type: "spring",
         damping: 12,
@@ -72,11 +72,11 @@ const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 w-full relative flex flex-col items-center">
         
         {/* Animated Headline (Decorative - SEO H1 is above) */}
-        <motion.p 
+        <motion.p
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          style={{ y: textY }} 
+          style={{ y: textY, willChange: 'transform' }}
           className="font-serif text-6xl md:text-8xl text-white mb-8 relative z-20 text-center"
           aria-hidden="true"
         >
@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-          style={{ y: imageY }}
+          style={{ y: imageY, willChange: 'transform' }}
           className="relative z-10 w-[80vw] h-[45vh] max-h-[28rem] max-w-[22rem] md:w-[24rem] md:h-[30rem] mb-8"
         >
           {/* Main Image Card */}
@@ -127,7 +127,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
             whileHover={{ scale: 1.1 }}
-            style={{ y: badge1Y }}
+            style={{ y: badge1Y, willChange: 'transform' }}
             className="absolute -right-2 md:-right-8 top-12 glass-card bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-white/10 cursor-pointer group z-30"
           >
             <div className="bg-indigo-500/20 p-2 rounded-xl text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-colors duration-300">
@@ -148,7 +148,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1.0, duration: 0.6 }}
             whileHover={{ scale: 1.1 }}
-            style={{ y: badge2Y }}
+            style={{ y: badge2Y, willChange: 'transform' }}
             className="absolute -left-2 md:-left-8 bottom-24 glass-card bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-white/10 cursor-pointer group z-30"
           >
             <div className="bg-purple-500/20 p-2 rounded-xl text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors duration-300">
@@ -169,7 +169,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.6 }}
             whileHover={{ scale: 1.1 }}
-            style={{ y: badge3Y }}
+            style={{ y: badge3Y, willChange: 'transform' }}
             className="absolute right-4 md:-right-4 bottom-8 glass-card bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-white/10 cursor-pointer group z-30"
           >
              <div className="bg-pink-500/20 p-2 rounded-xl text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-colors duration-300">
@@ -202,7 +202,7 @@ const Hero: React.FC = () => {
           </motion.div>
           {/* Hero Sentence - Hidden on load, fades in on scroll */}
           <motion.div 
-            style={{ opacity: introTextOpacity, y: introTextY }}
+            style={{ opacity: introTextOpacity, y: introTextY, willChange: 'transform, opacity' }}
             className="max-w-4xl mx-auto"
           >
             <p className="font-sans text-lg md:text-xl text-gray-300 font-light leading-relaxed">
