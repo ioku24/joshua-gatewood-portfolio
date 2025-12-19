@@ -63,9 +63,10 @@ const Lightbox: React.FC<{ src: string; onClose: () => void }> = ({ src, onClose
         className="w-full h-full overflow-auto custom-scrollbar flex items-start justify-center pt-20 pb-20 px-4 md:px-10 cursor-zoom-out"
         onClick={onClose}
       >
-        <img 
-          src={src} 
-          alt="Full screen view" 
+        <img
+          src={src}
+          alt="Full screen view"
+          loading="lazy"
           className="max-w-full md:max-w-4xl w-auto h-auto object-contain shadow-2xl cursor-default"
           onClick={(e) => e.stopPropagation()}
         />
@@ -177,7 +178,7 @@ const ProjectPage: React.FC = () => {
                             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center z-20">
                               <Maximize2 className="text-white drop-shadow-lg" />
                             </div>
-                            <img src={asset.beforeImage} alt="Before" className="w-full h-[400px] object-cover object-top opacity-80 group-hover/image:opacity-100 transition-opacity" />
+                            <img src={asset.beforeImage} alt="Before" loading="lazy" className="w-full h-[400px] object-cover object-top opacity-80 group-hover/image:opacity-100 transition-opacity" />
                           </div>
                         )}
                         <h5 className="text-white font-medium">Before – Old Website</h5>
@@ -208,7 +209,7 @@ const ProjectPage: React.FC = () => {
                             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center z-20">
                               <Maximize2 className="text-white drop-shadow-lg" />
                             </div>
-                            <img src={asset.afterImage} alt="After" className="w-full h-[400px] object-cover object-top" />
+                            <img src={asset.afterImage} alt="After" loading="lazy" className="w-full h-[400px] object-cover object-top" />
                           </div>
                         )}
                         <h5 className="text-white font-medium">After – New Website</h5>
@@ -305,9 +306,10 @@ const ProjectPage: React.FC = () => {
                           <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center z-10">
                             <Maximize2 className="text-white drop-shadow-lg" size={32} />
                           </div>
-                          <img 
-                            src={asset.url} 
+                          <img
+                            src={asset.url}
                             alt={asset.title}
+                            loading="lazy"
                             className="w-full h-auto block"
                           />
                         </div>
