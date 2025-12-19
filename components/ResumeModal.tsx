@@ -34,8 +34,9 @@ const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => {
               
               <div className="flex gap-3">
                 <a
-                  href="/HOME/Joshua Gatewood Resume Final 2026.pdf"
-                  download="Joshua_Gatewood_Resume_2026.pdf"
+                  href="https://drive.google.com/uc?export=download&id=1LMOU6El4YevpkGnVJMKM66dIUy3cBoKd"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 hover:text-white text-gray-300 border border-white/10 rounded-lg text-sm font-medium transition-colors"
                 >
                   <Download size={16} />
@@ -53,7 +54,7 @@ const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => {
             {/* Body - Iframe Embed */}
             <div className="flex-1 bg-[#1a1a1a] relative w-full h-full">
                <iframe
-                  src="/HOME/Joshua Gatewood Resume Final 2026.pdf"
+                  src="https://drive.google.com/file/d/1LMOU6El4YevpkGnVJMKM66dIUy3cBoKd/preview"
                   className="w-full h-full border-none"
                   title="Joshua Gatewood Resume"
                   allow="autoplay"
