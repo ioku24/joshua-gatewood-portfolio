@@ -35,8 +35,8 @@ export const projects: ProjectWithSlug[] = [
       {
         title: 'Acquisition Experience: Before and After',
         type: 'comparison',
-        beforeImage: '/assets/Gauntlet old website.png',
-        afterImage: '/assets/Gauntlet new website.png',
+        beforeImage: '/assets/Gauntlet old website 2.png',
+        afterImage: '/assets/Gauntlet new website 2 .png',
         beforeCaption: 'The old homepage tried to serve everyone, resulting in diluted messaging.',
         afterCaption: 'The new structure funnels users immediately into their specific journey.',
         challenge: "The old homepage forced all traffic into one generic funnel with no segmentation. The redesign routes each audience to a focused experience that speaks directly to their needs.",
@@ -46,7 +46,7 @@ export const projects: ProjectWithSlug[] = [
       {
         title: 'Data Cleanup Map – HubSpot CRM',
         type: 'image',
-        url: '/assets/Data cleanup map.png',
+        url: '/assets/Data Clean Up Map 2 .png',
         caption: 'Data Cleanup Map: High-level Miro board that documents the full HubSpot cleanup plan, from initial audit to long-term maintenance.',
         challenge: "• Thousands of inconsistent and duplicated records\n• Unreliable lifecycle stages and polluted workflows\n• Bad data = bad reports and failed automations\n• No trustworthy view of the funnel or revenue",
         solution: "• Created a visual \"Data Cleanup Map\" in Miro\n• Three-phase process: Assessment → Action → Maintenance\n• Fixed permissions, archived unused properties, deduplicated records\n• Defined regular cleaning cadence and QA rules",
@@ -55,8 +55,8 @@ export const projects: ProjectWithSlug[] = [
       {
         title: 'Detroit Tradesmen Rugby – Website Redesign',
         type: 'comparison',
-        beforeImage: "/assets/Tradesmen's old website.png",
-        afterImage: "/assets/Tradesmen's new website.png",
+        beforeImage: "/assets/Tradesman old website 2.png",
+        afterImage: "/assets/Tradesmen's new website 2.png",
         beforeCaption: 'The old website was an outdated bulletin board with no clear CTAs, zero analytics, and unprofessional design.',
         afterCaption: 'The new website positions the club as Michigan\'s premier rugby brand with strategic conversion infrastructure.',
         challenge: "Transformed Detroit Tradesmen Rugby's digital presence from an outdated bulletin board into a premium recruitment and revenue platform. Delivered a conversion-optimized, SEO-ready website in 6-8 hours using systems thinking and strategic brand positioning around Detroit's Motor City legacy.",
@@ -77,8 +77,8 @@ export const projects: ProjectWithSlug[] = [
     assets: [
       {
         title: 'Content OS',
-        type: 'video',
-        url: '/assets/Content OS video.mp4',
+        type: 'embed',
+        url: 'https://share.descript.com/embed/kaoabOBAcBJ',
         caption: 'Content OS: Combined Miro view showing my Ideation Framework, Written Content OS, and Video OS that turn one idea into multi-channel assets.',
         challenge: "• Manual, reactive content creation with no system\n• Ideas, livestreams, and posts existed as \"one-off\" work\n• Clips scattered in random folders, recordings posted once and forgotten\n• No clear CTAs or funnel integration on most posts\n• Every new piece required starting from scratch",
         solution: "• Built a Written Content OS: inputs → long-form → short-form → distribution\n• Each asset tied to a specific CTA (VSL, lead magnet, key page)\n• Created a Video Repurposing Framework for platform-ready clips\n• Tagged clips by funnel stage (TOFU, MOFU, BOFU)\n• One 60-min session now produces 8–12 clips",
