@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Zap, TrendingUp } from 'lucide-react';
+import { Target, Code2, TrendingUp } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ const About: React.FC = () => {
               About Me
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-white">
-              Startup-tested. Systems-obsessed.
+              Marketer who codes. Engineer who gets GTM.
             </h2>
           </div>
 
@@ -33,10 +33,10 @@ const About: React.FC = () => {
 
             <div className="space-y-6 text-center max-w-2xl mx-auto">
               <p className="text-lg md:text-xl text-gray-300 leading-relaxed font-light">
-                My background in startups taught me to prioritize ruthlessly. When you're wearing multiple hats, you learn to spot bottlenecks fast and fix the problems that actually move the needle.
+                Most marketers configure tools. <span className="text-white font-medium">I build them.</span> When an off-the-shelf solution doesn't exist, I write the code myself—whether that's a Next.js web app, a Supabase-powered dashboard, or an AI agent that automates workflows.
               </p>
               <p className="text-lg md:text-xl text-gray-300 leading-relaxed font-light">
-                Now I'm looking to bring that mindset to a team where <span className="text-white font-medium">process optimization drives growth</span>—whether that's a scaling startup, an agency, or an enterprise marketing team.
+                My startup background taught me to prioritize ruthlessly and ship fast. Now I'm looking to bring that <span className="text-white font-medium">builder mindset</span> to a team where engineering and marketing intersect.
               </p>
             </div>
 
@@ -50,9 +50,9 @@ const About: React.FC = () => {
               </div>
               <div className="text-center">
                 <div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center">
-                  <Zap size={18} className="text-purple-400" />
+                  <Code2 size={18} className="text-purple-400" />
                 </div>
-                <p className="text-xs text-gray-400 font-medium">Build Systems</p>
+                <p className="text-xs text-gray-400 font-medium">Build Solutions</p>
               </div>
               <div className="text-center">
                 <div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center">

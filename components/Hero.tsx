@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
     <section className="relative min-h-[95vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-12 bg-background">
       
       {/* SEO: Primary H1 - Visually hidden but accessible to search engines */}
-      <h1 className="sr-only">Joshua Gatewood - Marketing Operations Specialist</h1>
+      <h1 className="sr-only">Joshua Gatewood - Marketing Ops Engineer</h1>
 
       {/* Background Gradients */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -237,7 +237,7 @@ const Hero: React.FC = () => {
             className="max-w-3xl mx-auto"
           >
             <p className="font-sans text-lg md:text-xl text-gray-300 font-light leading-relaxed text-center">
-              I'm <span className="text-white font-medium">Joshua Gatewood</span>, a Marketing Operations Specialist who builds automation workflows that save teams 30%+ of their time. I audit funnels, clean up CRM data, and create systems that scale.
+              I'm <span className="text-white font-medium">Joshua Gatewood</span>, a Marketing Ops Engineer who doesn't just configure tools—I <span className="text-indigo-400">build them</span>. From automation workflows to custom web apps, I architect systems that scale.
             </p>
           </motion.div>
         </div>

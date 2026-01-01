@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Compass, GitFork, Database, BarChart3, Terminal } from 'lucide-react';
+import { Compass, GitFork, Database, BarChart3, Terminal, Code2 } from 'lucide-react';
 
 const Expertise: React.FC = () => {
   // Staggered animation container for the grid
@@ -154,38 +154,67 @@ const Expertise: React.FC = () => {
               </div>
           </motion.div>
 
-          {/* Card 4: Scalable Reporting (Large) */}
+          {/* Card 4: Scalable Reporting (Standard) */}
           <motion.div
             variants={itemVariants}
-            className="md:col-span-2 p-8 rounded-3xl bg-surface/40 border border-white/5 hover:bg-surface/60 hover:border-pink-500/20 transition-all duration-300 bg-noise relative overflow-hidden group"
+            className="md:col-span-1 p-8 rounded-3xl bg-surface/40 border border-white/5 hover:bg-surface/60 hover:border-pink-500/20 transition-all duration-300 bg-noise relative overflow-hidden group"
           >
-             {/* Decorative Chart */}
-             <div className="absolute bottom-0 right-0 w-48 h-32 opacity-10 group-hover:opacity-20 transition-opacity flex items-end justify-end gap-2 p-8">
-                <div className="w-4 bg-pink-400 h-[40%] rounded-t-sm" />
-                <div className="w-4 bg-pink-400 h-[60%] rounded-t-sm" />
-                <div className="w-4 bg-pink-400 h-[30%] rounded-t-sm" />
-                <div className="w-4 bg-pink-400 h-[80%] rounded-t-sm" />
+             <div className="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center mb-6 border border-pink-500/20">
+               <BarChart3 size={24} />
+             </div>
+             <h3 className="text-xl font-bold text-white mb-3">Scalable Reporting</h3>
+             <p className="text-gray-300 text-sm leading-relaxed font-light mb-6">
+               Turning raw data into actionable insights with dashboards that leadership actually uses.
+             </p>
+             <div className="flex flex-wrap gap-2 mt-auto">
+               <span className="px-3 py-1 bg-pink-500/10 text-pink-400 rounded text-xs font-mono border border-pink-500/20">GA4</span>
+               <span className="px-3 py-1 bg-pink-500/10 text-pink-400 rounded text-xs font-mono border border-pink-500/20">Looker</span>
+               <span className="px-3 py-1 bg-pink-500/10 text-pink-400 rounded text-xs font-mono border border-pink-500/20">Sheets</span>
+             </div>
+          </motion.div>
+
+          {/* Card 5: Engineering Stack (Large - Full Width) */}
+          <motion.div
+            variants={itemVariants}
+            className="md:col-span-3 p-8 rounded-3xl bg-surface/40 border border-white/5 hover:bg-surface/60 hover:border-emerald-500/20 transition-all duration-300 bg-noise relative overflow-hidden group"
+          >
+             {/* Decorative Code Background */}
+             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity font-mono text-[10px] text-emerald-400 leading-relaxed pointer-events-none">
+               <div>const buildSystem = async () =&gt; &#123;</div>
+               <div className="ml-4">await deployToVercel();</div>
+               <div className="ml-4">return success;</div>
+               <div>&#125;</div>
              </div>
 
-             <div className="relative z-10 h-full flex flex-col justify-between">
-               <div>
-                  <div className="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center mb-6 border border-pink-500/20">
-                    <BarChart3 size={24} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">Scalable Reporting</h3>
-                  {/* OPTIMIZATION: Updated Contrast */}
-                  <p className="text-gray-300 text-base leading-relaxed font-light max-w-md">
-                    Turning raw data into actionable insights. I build dashboards in Looker Studio, Google Sheets, and HubSpot so leadership knows exactly what's working.
-                  </p>
+             <div className="relative z-10">
+               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                 <div className="flex-1">
+                   <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6 border border-emerald-500/20">
+                     <Code2 size={24} />
+                   </div>
+                   <h3 className="text-2xl font-bold text-white mb-3">Engineering Stack</h3>
+                   <p className="text-gray-300 text-base leading-relaxed font-light max-w-lg">
+                     When off-the-shelf tools don't cut it, I build custom solutions. This portfolio? Built from scratch with React, TypeScript, and deployed on Vercel.
+                   </p>
+                 </div>
+
+                 {/* Tech Stack Grid */}
+                 <div className="grid grid-cols-3 md:grid-cols-3 gap-3 md:w-auto">
+                   {[
+                     { name: "Next.js", sub: "Frontend" },
+                     { name: "TypeScript", sub: "Language" },
+                     { name: "Supabase", sub: "Database" },
+                     { name: "Vercel", sub: "Hosting" },
+                     { name: "Claude Code", sub: "AI Dev" },
+                     { name: "VS Code", sub: "Editor" },
+                   ].map((tech, i) => (
+                     <div key={i} className="px-4 py-3 bg-emerald-500/5 border border-emerald-500/20 rounded-xl text-center group-hover:bg-emerald-500/10 transition-colors">
+                       <p className="text-sm font-medium text-white">{tech.name}</p>
+                       <p className="text-[10px] text-emerald-400/70">{tech.sub}</p>
+                     </div>
+                   ))}
+                 </div>
                </div>
-               
-               <div className="flex flex-wrap gap-3 mt-8">
-                {["GA4", "Looker Studio", "Google Sheets", "HubSpot Dashboards"].map((tag, i) => (
-                  <span key={i} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/5 text-xs text-gray-300">
-                    {tag}
-                  </span>
-                ))}
-              </div>
              </div>
           </motion.div>
         </motion.div>
