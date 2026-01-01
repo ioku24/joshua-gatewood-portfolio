@@ -89,12 +89,12 @@ const ProjectPage: React.FC = () => {
   return (
     <>
       <Navbar />
-      <main className="pt-32 pb-24 min-h-screen">
+      <main className="pt-32 pb-24 min-h-screen bg-stone-50 dark:bg-background">
         <div className="max-w-5xl mx-auto px-6">
           {/* Back Link */}
-          <Link 
-            to="/work" 
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8 group"
+          <Link
+            to="/work"
+            className="inline-flex items-center gap-2 text-slate-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors mb-8 group"
           >
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
             <span>Back to All Projects</span>
@@ -105,18 +105,18 @@ const ProjectPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-16"
+            className="mb-20"
           >
-            <span className="px-3 py-1 text-xs font-mono text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 rounded-full mb-4 inline-block">
+            <span className="px-3 py-1.5 text-xs font-mono text-indigo-600 dark:text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 rounded-full mb-6 inline-block">
               {project.category}
             </span>
-            <h1 className="font-serif text-4xl md:text-6xl text-white mb-6">{project.title}</h1>
-            <p className="text-gray-300 text-lg md:text-xl max-w-2xl mb-6">
+            <h1 className="font-serif text-4xl md:text-6xl text-slate-900 dark:text-white mb-6 leading-[1.1]">{project.title}</h1>
+            <p className="text-slate-600 dark:text-gray-300 text-lg md:text-xl max-w-3xl mb-8 leading-relaxed">
               {project.description}
             </p>
             <div className="flex flex-wrap gap-2">
               {project.tags.map(tag => (
-                <span key={tag} className="px-3 py-1 text-[10px] font-medium tracking-wide uppercase bg-indigo-500/10 text-indigo-300 rounded-full border border-indigo-500/20 backdrop-blur-sm">
+                <span key={tag} className="px-3 py-1.5 text-[10px] font-medium tracking-wide uppercase bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 rounded-full border border-indigo-500/20 backdrop-blur-sm">
                   {tag}
                 </span>
               ))}
@@ -139,14 +139,14 @@ const ProjectPage: React.FC = () => {
                     {/* Comparison Header */}
                     <div className="space-y-4">
                       <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center font-mono text-gray-500 text-sm">
+                        <div className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center font-mono text-slate-400 dark:text-gray-500 text-sm">
                           0{index + 1}
                         </div>
-                        <h4 className="text-2xl md:text-3xl font-serif text-white">{asset.title}</h4>
+                        <h4 className="text-2xl md:text-3xl font-serif text-slate-900 dark:text-white">{asset.title}</h4>
                       </div>
-                      
+
                       <div className="pl-14">
-                        <p className="text-gray-300 font-light leading-relaxed text-base md:text-lg">
+                        <p className="text-slate-600 dark:text-gray-300 font-light leading-relaxed text-base md:text-lg">
                           {asset.challenge}
                         </p>
                       </div>
@@ -181,8 +181,8 @@ const ProjectPage: React.FC = () => {
                             <img src={asset.beforeImage} alt="Before" loading="lazy" className="w-full h-[400px] object-cover object-top opacity-80 group-hover/image:opacity-100 transition-opacity" />
                           </div>
                         )}
-                        <h5 className="text-white font-medium">Before – Old Website</h5>
-                        {asset.beforeCaption && <p className="text-sm text-gray-500 font-light">{asset.beforeCaption}</p>}
+                        <h5 className="text-slate-900 dark:text-white font-medium">Before – Old Website</h5>
+                        {asset.beforeCaption && <p className="text-sm text-slate-500 dark:text-gray-500 font-light">{asset.beforeCaption}</p>}
                       </div>
 
                       {/* Right Column - After */}
@@ -212,8 +212,8 @@ const ProjectPage: React.FC = () => {
                             <img src={asset.afterImage} alt="After" loading="lazy" className="w-full h-[400px] object-cover object-top" />
                           </div>
                         )}
-                        <h5 className="text-white font-medium">After – New Website</h5>
-                        {asset.afterCaption && <p className="text-sm text-gray-500 font-light">{asset.afterCaption}</p>}
+                        <h5 className="text-slate-900 dark:text-white font-medium">After – New Website</h5>
+                        {asset.afterCaption && <p className="text-sm text-slate-500 dark:text-gray-500 font-light">{asset.afterCaption}</p>}
                       </div>
                     </div>
                     
@@ -224,14 +224,14 @@ const ProjectPage: React.FC = () => {
                           <TrendingUp size={20} />
                         </div>
                         <div className="flex-1">
-<span className="text-xs text-indigo-300 uppercase tracking-wider font-bold block mb-1">Outcome</span>
-                          <p className="text-white font-medium text-lg">{renderWithLinks(asset.outcome)}</p>
+                          <span className="text-xs text-indigo-600 dark:text-indigo-300 uppercase tracking-wider font-bold block mb-1">Outcome</span>
+                          <p className="text-slate-900 dark:text-white font-medium text-lg">{renderWithLinks(asset.outcome)}</p>
                         </div>
                       </div>
                     </div>
 
                     {index !== project.assets.length - 1 && (
-                      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent w-full mt-8" />
+                      <div className="h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-white/10 to-transparent w-full mt-8" />
                     )}
                   </motion.div>
                 );
@@ -249,15 +249,15 @@ const ProjectPage: React.FC = () => {
                   {/* Asset Header */}
                   <div className="space-y-4">
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center font-mono text-gray-500 text-sm">
+                      <div className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center font-mono text-slate-400 dark:text-gray-500 text-sm">
                         0{index + 1}
                       </div>
-                      <h4 className="text-2xl md:text-3xl font-serif text-white">{asset.title}</h4>
+                      <h4 className="text-2xl md:text-3xl font-serif text-slate-900 dark:text-white">{asset.title}</h4>
                     </div>
-                    
+
                     {asset.caption && (
                       <div className="pl-14">
-                        <p className="text-gray-300 font-light leading-relaxed text-base md:text-lg">
+                        <p className="text-slate-600 dark:text-gray-300 font-light leading-relaxed text-base md:text-lg">
                           {asset.caption}
                         </p>
                       </div>
@@ -265,18 +265,9 @@ const ProjectPage: React.FC = () => {
                   </div>
 
                   {/* Visual Media Container */}
-                  <div className="rounded-xl overflow-hidden border border-white/10 bg-[#121212] shadow-2xl relative group-hover:border-white/20 transition-colors">
-                    {/* Fake Browser Toolbar */}
-                    <div className="h-8 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 gap-2">
-                      <div className="flex gap-1.5">
-                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/20" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/20" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-green-500/20" />
-                      </div>
-                    </div>
-                    
+                  <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-surface shadow-lg dark:shadow-2xl relative group-hover:border-indigo-500/30 transition-colors">
                     {/* Content */}
-                    <div className="w-full bg-black relative">
+                    <div className="w-full bg-stone-50 dark:bg-background relative">
                       {asset.type === 'embed' ? (
                         <div className={`w-full ${asset.url?.endsWith('.pdf') ? 'h-[800px]' : 'aspect-video'}`}>
                           <iframe 
@@ -318,12 +309,12 @@ const ProjectPage: React.FC = () => {
                     
                     {/* Visual Description Section (under the image) */}
                     {(asset.visualDescription || asset.caption) && (
-                      <div className="px-5 py-4 border-t border-white/5 bg-[#141414]">
+                      <div className="px-5 py-4 border-t border-slate-200 dark:border-white/5 bg-slate-100 dark:bg-[#141414]">
                         <div className="flex gap-3">
                           <div className="mt-0.5 text-indigo-400">
                             <Info size={16} />
                           </div>
-                          <p className="text-sm text-gray-400 font-light italic leading-relaxed">
+                          <p className="text-sm text-slate-500 dark:text-gray-400 font-light italic leading-relaxed">
                             {asset.visualDescription || asset.caption}
                           </p>
                         </div>
@@ -331,45 +322,84 @@ const ProjectPage: React.FC = () => {
                     )}
                   </div>
 
+                  {/* Supporting Images Grid */}
+                  {asset.supportingImages && asset.supportingImages.length > 0 && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {asset.supportingImages.map((supportingImg, imgIndex) => (
+                        <div
+                          key={imgIndex}
+                          className="rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-surface shadow-lg dark:shadow-2xl hover:border-indigo-500/30 transition-colors"
+                        >
+                          <div
+                            className="relative group/image cursor-zoom-in bg-stone-50 dark:bg-background"
+                            onClick={() => setLightboxImage(supportingImg.url)}
+                          >
+                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center z-10">
+                              <Maximize2 className="text-white drop-shadow-lg" size={32} />
+                            </div>
+                            <img
+                              src={supportingImg.url}
+                              alt={supportingImg.caption || `Supporting image ${imgIndex + 1}`}
+                              loading="lazy"
+                              className="w-full h-auto block"
+                            />
+                          </div>
+                          {supportingImg.caption && (
+                            <div className="px-5 py-4 border-t border-slate-200 dark:border-white/5 bg-slate-100 dark:bg-[#141414]">
+                              <div className="flex gap-3">
+                                <div className="mt-0.5 text-indigo-400">
+                                  <Info size={16} />
+                                </div>
+                                <p className="text-sm text-slate-500 dark:text-gray-400 font-light italic leading-relaxed">
+                                  {supportingImg.caption}
+                                </p>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                   {/* Problem / Solution Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Challenge Card */}
-                    <div className="bg-red-500/[0.03] border border-red-500/10 rounded-2xl p-6 hover:bg-red-500/[0.05] transition-colors">
-                      <div className="flex items-center gap-2 mb-3 text-red-400">
-                        <AlertCircle size={18} />
+                    <div className="bg-red-50 dark:bg-red-500/[0.03] border border-red-200 dark:border-red-500/10 rounded-2xl p-7 hover:bg-red-100 dark:hover:bg-red-500/[0.05] hover:shadow-md transition-all duration-200">
+                      <div className="flex items-center gap-2 mb-4 text-red-600 dark:text-red-400">
+                        <AlertCircle size={20} />
                         <span className="font-bold text-xs uppercase tracking-wider">The Challenge</span>
                       </div>
-                      <p className="text-gray-300 font-light leading-relaxed text-sm whitespace-pre-line">
+                      <p className="text-slate-700 dark:text-gray-300 font-light leading-[1.7] text-sm whitespace-pre-line">
                         {asset.challenge}
                       </p>
                     </div>
 
                     {/* Solution Card */}
-                    <div className="bg-emerald-500/[0.03] border border-emerald-500/10 rounded-2xl p-6 hover:bg-emerald-500/[0.05] transition-colors">
-                      <div className="flex items-center gap-2 mb-3 text-emerald-400">
-                        <CheckCircle2 size={18} />
+                    <div className="bg-emerald-50 dark:bg-emerald-500/[0.03] border border-emerald-200 dark:border-emerald-500/10 rounded-2xl p-7 hover:bg-emerald-100 dark:hover:bg-emerald-500/[0.05] hover:shadow-md transition-all duration-200">
+                      <div className="flex items-center gap-2 mb-4 text-emerald-600 dark:text-emerald-400">
+                        <CheckCircle2 size={20} />
                         <span className="font-bold text-xs uppercase tracking-wider">The Solution</span>
                       </div>
-                      <p className="text-gray-300 font-light leading-relaxed text-sm whitespace-pre-line">
+                      <p className="text-slate-700 dark:text-gray-300 font-light leading-[1.7] text-sm whitespace-pre-line">
                         {asset.solution}
                       </p>
                     </div>
                   </div>
 
                   {/* Outcome Banner */}
-                  <div className="bg-indigo-500/5 border border-indigo-500/10 p-5 rounded-xl flex flex-col md:flex-row md:items-center gap-4">
-                    <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400 w-fit">
-                      <TrendingUp size={20} />
+                  <div className="bg-indigo-50 dark:bg-indigo-500/5 border border-indigo-200 dark:border-indigo-500/10 p-6 rounded-2xl flex flex-col md:flex-row md:items-center gap-4 hover:shadow-md transition-all duration-200">
+                    <div className="p-2.5 bg-indigo-500/10 rounded-lg text-indigo-500 dark:text-indigo-400 w-fit">
+                      <TrendingUp size={22} />
                     </div>
                     <div className="flex-1">
-                      <span className="text-xs text-indigo-300 uppercase tracking-wider font-bold block mb-1">Outcome</span>
-                      <p className="text-white font-medium text-lg">{renderWithLinks(asset.outcome)}</p>
+                      <span className="text-xs text-indigo-600 dark:text-indigo-300 uppercase tracking-wider font-bold block mb-2">Outcome</span>
+                      <p className="text-slate-900 dark:text-white font-medium text-lg leading-[1.6]">{renderWithLinks(asset.outcome)}</p>
                     </div>
                   </div>
 
                   {/* Separator (except for last item) */}
                   {index !== project.assets.length - 1 && (
-                    <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent w-full mt-8" />
+                    <div className="h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-white/10 to-transparent w-full mt-8" />
                   )}
                 </motion.div>
               );

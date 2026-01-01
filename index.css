@@ -2,13 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Standard CSS */
-
-body {
-  background-color: #000000;
-  color: #fafafa;
-  overflow-x: hidden;
-}
+/* Standard CSS - Theme colors handled by Tailwind classes */
 
 /* Glassmorphism 2.0 - Noise Texture */
 .bg-noise {
@@ -26,19 +20,28 @@ body {
   background-size: 128px;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - theme aware */
 ::-webkit-scrollbar {
   width: 6px;
-  height: 6px; 
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #fafaf9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #d4d4d8;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #09090b;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #27272a;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
   background: #3f3f46;
 }
 

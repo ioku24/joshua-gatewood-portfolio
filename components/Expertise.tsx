@@ -29,7 +29,7 @@ const Expertise: React.FC = () => {
   };
 
   return (
-    <section id="expertise" className="py-24 bg-background relative border-t border-white/5 scroll-mt-32">
+    <section id="expertise" className="py-24 bg-stone-50 dark:bg-background relative border-t border-slate-200 dark:border-white/5 scroll-mt-32">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -39,20 +39,19 @@ const Expertise: React.FC = () => {
              viewport={{ once: true }}
              transition={{ duration: 0.6 }}
           >
-            <p className="text-indigo-400 text-sm font-medium tracking-wider uppercase mb-3">My Expertise</p>
-            <h2 className="font-serif text-4xl md:text-5xl text-white max-w-2xl leading-tight">
-              Architecting the <span className="text-gray-500">invisible systems</span> that power growth.
+            <p className="text-indigo-600 dark:text-indigo-400 text-sm font-medium tracking-wider uppercase mb-3">What I Do</p>
+            <h2 className="font-serif text-4xl md:text-5xl text-slate-900 dark:text-white max-w-2xl leading-tight">
+              Building the <span className="text-slate-400 dark:text-gray-500">marketing systems</span> that drive growth.
             </h2>
           </motion.div>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            // OPTIMIZATION: Updated Contrast
-            className="text-gray-300 max-w-sm text-sm md:text-base font-light"
+            className="text-slate-600 dark:text-gray-300 max-w-sm text-sm md:text-base font-light"
           >
-            Moving beyond simple tasks to build scalable, automated infrastructure.
+            From fixing broken funnels to shipping automated tools. I solve marketing problems with systems thinking and AI.
           </motion.p>
         </div>
 
@@ -68,7 +67,7 @@ const Expertise: React.FC = () => {
           {/* Card 1: System Architecture (Large) */}
           <motion.div
             variants={itemVariants}
-            className="md:col-span-2 p-8 rounded-3xl bg-surface/40 border border-white/5 hover:bg-surface/60 hover:border-indigo-500/20 transition-all duration-300 bg-noise relative overflow-hidden group"
+            className="md:col-span-2 p-8 rounded-3xl bg-white dark:bg-surface/40 border border-slate-200 dark:border-white/5 hover:bg-stone-50 dark:hover:bg-surface/60 hover:border-indigo-500/20 transition-all duration-300 bg-noise relative overflow-hidden group shadow-sm dark:shadow-none"
           >
             <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                <Compass size={120} />
@@ -79,16 +78,15 @@ const Expertise: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-6 border border-indigo-500/20">
                   <Compass size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">System Architecture</h3>
-                {/* OPTIMIZATION: Updated Contrast */}
-                <p className="text-gray-300 text-base leading-relaxed font-light max-w-md">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">System Architecture</h3>
+                <p className="text-slate-600 dark:text-gray-300 text-base leading-relaxed font-light max-w-md">
                   Breaking down funnels, mapping processes, and connecting tools through APIs. I reverse-engineer what works and build systems that scale.
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-3 mt-8">
                 {["Funnel Audits", "Process Mapping", "API Integrations", "Miro"].map((tag, i) => (
-                  <span key={i} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/5 text-xs text-gray-300">
+                  <span key={i} className="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-xs text-slate-600 dark:text-gray-300">
                     {tag}
                   </span>
                 ))}
@@ -99,7 +97,7 @@ const Expertise: React.FC = () => {
           {/* Card 2: AI & Workflow Automation (Tall/Standard) */}
           <motion.div
             variants={itemVariants}
-            className="md:col-span-1 p-8 rounded-3xl bg-surface/40 border border-white/5 hover:bg-surface/60 hover:border-purple-500/20 transition-all duration-300 bg-noise relative overflow-hidden group flex flex-col"
+            className="md:col-span-1 p-8 rounded-3xl bg-white dark:bg-surface/40 border border-slate-200 dark:border-white/5 hover:bg-stone-50 dark:hover:bg-surface/60 hover:border-purple-500/20 transition-all duration-300 bg-noise relative overflow-hidden group flex flex-col shadow-sm dark:shadow-none"
           >
              {/* Decorative Code Snippet */}
              <div className="absolute -right-4 top-8 w-32 h-32 opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none">
@@ -113,19 +111,18 @@ const Expertise: React.FC = () => {
              <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6 border border-purple-500/20">
                 <GitFork size={24} />
               </div>
-              
-              <h3 className="text-xl font-bold text-white mb-3">AI & Workflow Automation</h3>
-              {/* OPTIMIZATION: Updated Contrast */}
-              <p className="text-gray-300 text-sm leading-relaxed font-light mb-6">
+
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">AI & Workflow Automation</h3>
+              <p className="text-slate-600 dark:text-gray-300 text-sm leading-relaxed font-light mb-6">
                 Building AI agents and automated workflows via N8N, Make.com, HubSpot, and GoHighLevel.
               </p>
 
-              <div className="mt-auto pt-6 border-t border-white/5 space-y-2">
-                 <div className="flex items-center gap-2 text-sm text-gray-400">
+              <div className="mt-auto pt-6 border-t border-slate-200 dark:border-white/5 space-y-2">
+                 <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-gray-400">
                     <Terminal size={14} className="text-purple-500" />
                     <span>N8N / Make / Zapier</span>
                  </div>
-                 <div className="flex items-center gap-2 text-sm text-gray-400">
+                 <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-gray-400">
                     <Terminal size={14} className="text-purple-500" />
                     <span>Claude / ChatGPT</span>
                  </div>
@@ -135,48 +132,47 @@ const Expertise: React.FC = () => {
           {/* Card 3: Marketing Ops (Standard) */}
           <motion.div
             variants={itemVariants}
-            className="md:col-span-1 p-8 rounded-3xl bg-surface/40 border border-white/5 hover:bg-surface/60 hover:border-cyan-500/20 transition-all duration-300 bg-noise relative overflow-hidden group"
+            className="md:col-span-1 p-8 rounded-3xl bg-white dark:bg-surface/40 border border-slate-200 dark:border-white/5 hover:bg-stone-50 dark:hover:bg-surface/60 hover:border-cyan-500/20 transition-all duration-300 bg-noise relative overflow-hidden group shadow-sm dark:shadow-none"
           >
               <div className="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-6 border border-cyan-500/20">
                 <Database size={24} />
               </div>
-              
-              <h3 className="text-xl font-bold text-white mb-3">Marketing Ops</h3>
-              {/* OPTIMIZATION: Updated Contrast */}
-              <p className="text-gray-300 text-sm leading-relaxed font-light mb-6">
+
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Marketing Ops</h3>
+              <p className="text-slate-600 dark:text-gray-300 text-sm leading-relaxed font-light mb-6">
                 Managing the tools and data that power your growth campaigns. Clean data = clear decisions.
               </p>
 
               <div className="flex flex-wrap gap-2 mt-auto">
-                 <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">HubSpot</span>
-                 <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">GoHighLevel</span>
-                 <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">ManyChat</span>
+                 <span className="px-3 py-1 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">HubSpot</span>
+                 <span className="px-3 py-1 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">GoHighLevel</span>
+                 <span className="px-3 py-1 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">ManyChat</span>
               </div>
           </motion.div>
 
           {/* Card 4: Scalable Reporting (Standard) */}
           <motion.div
             variants={itemVariants}
-            className="md:col-span-1 p-8 rounded-3xl bg-surface/40 border border-white/5 hover:bg-surface/60 hover:border-pink-500/20 transition-all duration-300 bg-noise relative overflow-hidden group"
+            className="md:col-span-1 p-8 rounded-3xl bg-white dark:bg-surface/40 border border-slate-200 dark:border-white/5 hover:bg-stone-50 dark:hover:bg-surface/60 hover:border-pink-500/20 transition-all duration-300 bg-noise relative overflow-hidden group shadow-sm dark:shadow-none"
           >
              <div className="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center mb-6 border border-pink-500/20">
                <BarChart3 size={24} />
              </div>
-             <h3 className="text-xl font-bold text-white mb-3">Scalable Reporting</h3>
-             <p className="text-gray-300 text-sm leading-relaxed font-light mb-6">
+             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Scalable Reporting</h3>
+             <p className="text-slate-600 dark:text-gray-300 text-sm leading-relaxed font-light mb-6">
                Turning raw data into actionable insights with dashboards that leadership actually uses.
              </p>
              <div className="flex flex-wrap gap-2 mt-auto">
-               <span className="px-3 py-1 bg-pink-500/10 text-pink-400 rounded text-xs font-mono border border-pink-500/20">GA4</span>
-               <span className="px-3 py-1 bg-pink-500/10 text-pink-400 rounded text-xs font-mono border border-pink-500/20">Looker</span>
-               <span className="px-3 py-1 bg-pink-500/10 text-pink-400 rounded text-xs font-mono border border-pink-500/20">Sheets</span>
+               <span className="px-3 py-1 bg-pink-500/10 text-pink-600 dark:text-pink-400 rounded text-xs font-mono border border-pink-500/20">GA4</span>
+               <span className="px-3 py-1 bg-pink-500/10 text-pink-600 dark:text-pink-400 rounded text-xs font-mono border border-pink-500/20">Looker</span>
+               <span className="px-3 py-1 bg-pink-500/10 text-pink-600 dark:text-pink-400 rounded text-xs font-mono border border-pink-500/20">Sheets</span>
              </div>
           </motion.div>
 
           {/* Card 5: Engineering Stack (Large - Full Width) */}
           <motion.div
             variants={itemVariants}
-            className="md:col-span-3 p-8 rounded-3xl bg-surface/40 border border-white/5 hover:bg-surface/60 hover:border-emerald-500/20 transition-all duration-300 bg-noise relative overflow-hidden group"
+            className="md:col-span-3 p-8 rounded-3xl bg-white dark:bg-surface/40 border border-slate-200 dark:border-white/5 hover:bg-stone-50 dark:hover:bg-surface/60 hover:border-emerald-500/20 transition-all duration-300 bg-noise relative overflow-hidden group shadow-sm dark:shadow-none"
           >
              {/* Decorative Code Background */}
              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity font-mono text-[10px] text-emerald-400 leading-relaxed pointer-events-none">
@@ -192,9 +188,9 @@ const Expertise: React.FC = () => {
                    <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6 border border-emerald-500/20">
                      <Code2 size={24} />
                    </div>
-                   <h3 className="text-2xl font-bold text-white mb-3">Engineering Stack</h3>
-                   <p className="text-gray-300 text-base leading-relaxed font-light max-w-lg">
-                     When off-the-shelf tools don't cut it, I build custom solutions. This portfolio? Built from scratch with React, TypeScript, and deployed on Vercel.
+                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">AI-Powered Development</h3>
+                   <p className="text-slate-600 dark:text-gray-300 text-base leading-relaxed font-light max-w-lg">
+                     When no-code tools aren't enough, I use Claude Code and ChatGPT to build custom solutions. This portfolio? Built with React, TypeScript, and deployed on Vercel using AI assistance.
                    </p>
                  </div>
 
@@ -208,9 +204,8 @@ const Expertise: React.FC = () => {
                      { name: "Claude Code", sub: "AI Dev" },
                      { name: "VS Code", sub: "Editor" },
                    ].map((tech, i) => (
-                     <div key={i} className="px-4 py-3 bg-emerald-500/5 border border-emerald-500/20 rounded-xl text-center group-hover:bg-emerald-500/10 transition-colors">
-                       <p className="text-sm font-medium text-white">{tech.name}</p>
-                       <p className="text-[10px] text-emerald-400/70">{tech.sub}</p>
+                     <div key={i} className="px-4 py-3 bg-emerald-500/5 border border-emerald-500/20 rounded-xl text-center group-hover:bg-emerald-500/10 transition-all duration-200 hover:scale-105 hover:border-emerald-500/40 hover:shadow-sm cursor-default">
+                       <p className="text-sm font-medium text-slate-900 dark:text-white">{tech.name}</p>
                      </div>
                    ))}
                  </div>

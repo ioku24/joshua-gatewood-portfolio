@@ -77,8 +77,8 @@ npm run preview      # Preview production build locally
 ### Styling System
 - **Tailwind CSS** with custom design tokens in `tailwind.config.js`
 - **Color Palette:**
-  - `background`: `#000000` (pure black)
-  - `surface`: `#0a0a0a` (subtle off-black for cards)
+  - `background`: `#09090b` (soft black with subtle warmth)
+  - `surface`: `#151518` (clearly visible card surface)
   - `accent`: `#6366f1` (indigo 500 for CTAs and highlights)
 - **Typography:**
   - Headers: `Playfair Display` (serif, editorial feel)

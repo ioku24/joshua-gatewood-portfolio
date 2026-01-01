@@ -79,12 +79,12 @@ const PortfolioOverview: React.FC = () => {
   return (
     <>
       <Navbar />
-      <main className="pt-32 pb-24 min-h-screen">
+      <main className="pt-32 pb-24 min-h-screen bg-stone-50 dark:bg-background">
         <div className="max-w-7xl mx-auto px-6">
           {/* Back Link */}
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8 group"
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-slate-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors mb-8 group"
           >
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
             <span>Back to Home</span>
@@ -97,9 +97,9 @@ const PortfolioOverview: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="mb-16"
           >
-            <h1 className="font-serif text-5xl md:text-7xl text-white mb-6">Selected Work</h1>
-            <p className="text-gray-300 text-lg md:text-xl max-w-2xl">
-              A collection of projects showcasing my expertise in marketing operations, 
+            <h1 className="font-serif text-5xl md:text-7xl text-slate-900 dark:text-white mb-6">Selected Work</h1>
+            <p className="text-slate-600 dark:text-gray-300 text-lg md:text-xl max-w-2xl">
+              A collection of projects showcasing my expertise in marketing operations,
               content systems, and data-driven optimization.
             </p>
           </motion.div>
@@ -114,19 +114,19 @@ const PortfolioOverview: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className={index === 2 ? 'md:col-span-2' : ''}
               >
-                <Link 
+                <Link
                   to={`/work/${project.slug}`}
-                  className="block relative group rounded-[2rem] border border-white/5 bg-surface transition-all duration-300 bg-noise overflow-hidden hover:border-indigo-500/30 hover:shadow-[0_0_30px_rgba(99,102,241,0.15)] hover:scale-[1.02]"
+                  className="block relative group rounded-[2rem] border border-slate-200 dark:border-white/5 bg-white dark:bg-surface transition-all duration-300 bg-noise overflow-hidden shadow-sm dark:shadow-none hover:border-indigo-500/30 hover:shadow-[0_0_30px_rgba(99,102,241,0.15)] hover:scale-[1.02]"
                 >
                   {/* Card Image / Artifact Area */}
-                  <div className="relative h-[240px] md:h-[350px] overflow-hidden border-b border-white/5 bg-black/20">
+                  <div className="relative h-[240px] md:h-[350px] overflow-hidden border-b border-slate-200 dark:border-white/5 bg-slate-100 dark:bg-black/20">
                     {renderArtifact(project.id)}
-                    
+
                     {/* Floating Badge */}
                     <div className="absolute top-4 right-4 z-20 glass-card px-3 py-1.5 rounded-full backdrop-blur-xl border-white/10">
                       <span className="text-[10px] font-mono text-white tracking-wider">{project.stats}</span>
                     </div>
-                    
+
                     {/* Click Indicator Overlay */}
                     <div className="absolute inset-0 bg-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="glass-card px-4 py-2 rounded-full text-white text-sm font-medium flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -134,27 +134,27 @@ const PortfolioOverview: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Content Area */}
                   <div className="p-6 md:p-8 relative z-10">
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tags.map(tag => (
-                        <span key={tag} className="px-3 py-1 text-[10px] font-medium tracking-wide uppercase bg-indigo-500/10 text-indigo-300 rounded-full border border-indigo-500/20 backdrop-blur-sm">
+                        <span key={tag} className="px-3 py-1 text-[10px] font-medium tracking-wide uppercase bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 rounded-full border border-indigo-500/20 backdrop-blur-sm">
                           {tag}
                         </span>
                       ))}
                     </div>
-                    
+
                     <div className="flex justify-between items-start gap-4">
                       <div>
-                        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors">
                           {project.title}
                         </h3>
-                        <p className="text-gray-300 leading-relaxed text-sm md:text-base font-light">
+                        <p className="text-slate-600 dark:text-gray-300 leading-relaxed text-sm md:text-base font-light">
                           {project.description}
                         </p>
                       </div>
-                      <div className="p-3 rounded-full border border-white/10 group-hover:bg-white group-hover:text-black transition-all duration-300 flex-shrink-0 mt-1">
+                      <div className="p-3 rounded-full border border-slate-200 dark:border-white/10 text-slate-600 dark:text-white group-hover:bg-indigo-600 dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black group-hover:border-indigo-600 dark:group-hover:border-white transition-all duration-300 flex-shrink-0 mt-1">
                         <ArrowUpRight size={20} />
                       </div>
                     </div>

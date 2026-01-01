@@ -72,15 +72,15 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[95vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-12 bg-background">
+    <section className="relative min-h-[95vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-12 bg-stone-50 dark:bg-background">
       
       {/* SEO: Primary H1 - Visually hidden but accessible to search engines */}
       <h1 className="sr-only">Joshua Gatewood - Marketing Ops Engineer</h1>
 
       {/* Background Gradients */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-[10%] left-[10%] w-[35rem] h-[35rem] bg-indigo-500/10 rounded-full blur-[150px] mix-blend-screen" />
-        <div className="absolute bottom-[20%] right-[10%] w-[30rem] h-[30rem] bg-purple-500/10 rounded-full blur-[150px] mix-blend-screen" />
+        <div className="absolute top-[10%] left-[10%] w-[35rem] h-[35rem] bg-indigo-500/20 dark:bg-indigo-500/10 rounded-full blur-[150px] mix-blend-multiply dark:mix-blend-screen" />
+        <div className="absolute bottom-[20%] right-[10%] w-[30rem] h-[30rem] bg-purple-500/20 dark:bg-purple-500/10 rounded-full blur-[150px] mix-blend-multiply dark:mix-blend-screen" />
       </div>
 
       {/* Main Hero Content */}
@@ -92,7 +92,7 @@ const Hero: React.FC = () => {
           initial="hidden"
           animate="visible"
           style={{ y: textY, willChange: 'transform' }}
-          className="font-serif text-6xl md:text-8xl text-white mb-4 relative z-20 text-center"
+          className="font-serif text-6xl md:text-8xl text-slate-900 dark:text-white mb-4 relative z-20 text-center"
           aria-hidden="true"
         >
           {sentence.split("").map((char, index) => (
@@ -151,7 +151,7 @@ const Hero: React.FC = () => {
           
           {/* Badge 1: Saved 30% Time -> Links to Project 1 (Ops) */}
           {/* EFFECT D: Parallax - badge floats at its own speed */}
-          <motion.a 
+          <motion.a
             href="#project-1"
             onClick={(e) => handleScrollTo(e, 'project-1')}
             initial={{ opacity: 0, x: 20 }}
@@ -159,20 +159,20 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.8, duration: 0.6 }}
             whileHover={{ scale: 1.1 }}
             style={{ y: badge1Y, willChange: 'transform' }}
-            className="absolute -right-2 md:-right-8 top-12 glass-card bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-white/10 cursor-pointer group z-30"
+            className="absolute -right-2 md:-right-8 top-12 glass-card bg-white/80 dark:bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-stone-200 dark:border-white/10 cursor-pointer group z-30"
           >
-            <div className="bg-indigo-500/20 p-2 rounded-xl text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-colors duration-300">
+            <div className="bg-indigo-500/20 p-2 rounded-xl text-indigo-600 dark:text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-colors duration-300">
                <Zap size={16} />
             </div>
             <div>
-              <p className="text-[9px] text-gray-300 uppercase tracking-wider">Saved</p>
-              <p className="text-sm font-bold text-white">30% Time</p>
+              <p className="text-[9px] text-slate-500 dark:text-gray-300 uppercase tracking-wider">Saved</p>
+              <p className="text-sm font-bold text-slate-900 dark:text-white">30% Time</p>
             </div>
           </motion.a>
 
           {/* Badge 2: 3x Content -> Links to Project 2 (Content) */}
           {/* EFFECT D: Parallax - badge floats fastest */}
-          <motion.a 
+          <motion.a
             href="#project-2"
             onClick={(e) => handleScrollTo(e, 'project-2')}
             initial={{ opacity: 0, x: -20 }}
@@ -180,20 +180,20 @@ const Hero: React.FC = () => {
             transition={{ delay: 1.0, duration: 0.6 }}
             whileHover={{ scale: 1.1 }}
             style={{ y: badge2Y, willChange: 'transform' }}
-            className="absolute -left-2 md:-left-8 bottom-24 glass-card bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-white/10 cursor-pointer group z-30"
+            className="absolute -left-2 md:-left-8 bottom-24 glass-card bg-white/80 dark:bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-stone-200 dark:border-white/10 cursor-pointer group z-30"
           >
-            <div className="bg-purple-500/20 p-2 rounded-xl text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors duration-300">
+            <div className="bg-purple-500/20 p-2 rounded-xl text-purple-600 dark:text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors duration-300">
                <Layers size={16} />
             </div>
              <div>
-              <p className="text-[9px] text-gray-300 uppercase tracking-wider">Output</p>
-              <p className="text-sm font-bold text-white">3x Content</p>
+              <p className="text-[9px] text-slate-500 dark:text-gray-300 uppercase tracking-wider">Output</p>
+              <p className="text-sm font-bold text-slate-900 dark:text-white">3x Content</p>
             </div>
           </motion.a>
 
           {/* Badge 3: Engagement -> Links to Project 3 (Data) */}
           {/* EFFECT D: Parallax - badge floats at medium speed */}
-          <motion.a 
+          <motion.a
             href="#project-3"
             onClick={(e) => handleScrollTo(e, 'project-3')}
             initial={{ opacity: 0, y: 20 }}
@@ -201,14 +201,14 @@ const Hero: React.FC = () => {
             transition={{ delay: 1.2, duration: 0.6 }}
             whileHover={{ scale: 1.1 }}
             style={{ y: badge3Y, willChange: 'transform' }}
-            className="absolute right-4 md:-right-4 bottom-8 glass-card bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-white/10 cursor-pointer group z-30"
+            className="absolute right-4 md:-right-4 bottom-8 glass-card bg-white/80 dark:bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-stone-200 dark:border-white/10 cursor-pointer group z-30"
           >
-             <div className="bg-pink-500/20 p-2 rounded-xl text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-colors duration-300">
+             <div className="bg-pink-500/20 p-2 rounded-xl text-pink-600 dark:text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-colors duration-300">
                <BarChart size={16} />
             </div>
              <div>
-              <p className="text-[9px] text-gray-300 uppercase tracking-wider">Engagement</p>
-              <p className="text-sm font-bold text-white">+40%</p>
+              <p className="text-[9px] text-slate-500 dark:text-gray-300 uppercase tracking-wider">Engagement</p>
+              <p className="text-sm font-bold text-slate-900 dark:text-white">+40%</p>
             </div>
           </motion.a>
         </motion.div>
@@ -222,10 +222,10 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 1.4, type: "spring", stiffness: 200 }}
             className="mb-8"
           >
-            <motion.a 
+            <motion.a
               href="#work"
               onClick={(e) => handleScrollTo(e, 'work')}
-              className="group flex items-center gap-3 px-10 py-4 bg-white text-black rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)]"
+              className="group flex items-center gap-3 px-10 py-4 bg-slate-900 dark:bg-white text-white dark:text-black rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(0,0,0,0.15)] dark:shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:shadow-[0_0_60px_rgba(0,0,0,0.25)] dark:hover:shadow-[0_0_60px_rgba(255,255,255,0.5)]"
             >
               View Work
               <ArrowRight size={20} className="group-hover:translate-x-1.5 transition-transform" />
@@ -236,8 +236,8 @@ const Hero: React.FC = () => {
             style={{ opacity: introTextOpacity, y: introTextY, willChange: 'transform, opacity' }}
             className="max-w-3xl mx-auto"
           >
-            <p className="font-sans text-lg md:text-xl text-gray-300 font-light leading-relaxed text-center">
-              I'm <span className="text-white font-medium">Joshua Gatewood</span>, a Marketing Ops Engineer who doesn't just configure tools—I <span className="text-indigo-400">build them</span>. From automation workflows to custom web apps, I architect systems that scale.
+            <p className="font-sans text-lg md:text-xl text-slate-600 dark:text-gray-300 font-light leading-relaxed text-center">
+              I'm <span className="text-slate-900 dark:text-white font-medium">Joshua Gatewood</span>, a Marketing Operations Specialist who builds what traditional marketers can't. Using AI tools like <span className="text-indigo-600 dark:text-indigo-400">Claude Code and ChatGPT</span>, I ship automated workflows, data systems, and even full SaaS products faster than most teams. I combine marketing expertise with AI-assisted development to deliver 10x impact.
             </p>
           </motion.div>
         </div>

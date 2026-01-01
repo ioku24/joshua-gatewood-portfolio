@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Download } from 'lucide-react';
+import { Menu, X, Download, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ResumeModal from './ResumeModal';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,6 +11,7 @@ const Navbar: React.FC = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
   
   const isHomePage = location.pathname === '/';
 
@@ -61,31 +63,31 @@ const Navbar: React.FC = () => {
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className={`pointer-events-auto transition-all duration-500 rounded-full border border-white/10 backdrop-blur-xl ${
+          className={`pointer-events-auto transition-all duration-500 rounded-full border backdrop-blur-xl ${
             isScrolled || mobileMenuOpen
-              ? 'bg-black/80 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-2 py-2' 
-              : 'bg-white/5 px-3 py-3'
+              ? 'bg-white/90 dark:bg-black/80 border-stone-200 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-2 py-2'
+              : 'bg-white/60 dark:bg-white/5 border-stone-200/50 dark:border-white/10 px-3 py-3'
           }`}
         >
           <div className="flex items-center gap-2 md:gap-8">
             
             {/* Logo */}
-            <Link 
-              to="/" 
-              onClick={handleLogoClick} 
-              className="pl-4 pr-2 font-serif text-xl font-bold tracking-tight text-white hover:text-indigo-400 transition-colors"
+            <Link
+              to="/"
+              onClick={handleLogoClick}
+              className="pl-4 pr-2 font-serif text-xl font-bold tracking-tight text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             >
               JG<span className="text-indigo-500">.</span>
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-1 bg-white/5 rounded-full px-1.5 py-1.5 border border-white/5">
+            <div className="hidden md:flex items-center gap-1 bg-stone-100 dark:bg-white/5 rounded-full px-1.5 py-1.5 border border-stone-200 dark:border-white/5">
               {navLinks.map((link) => (
                 link.isRoute ? (
                   <Link
                     key={link.name}
                     to={link.href}
-                    className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                    className="px-4 py-2 text-sm font-medium text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-white/10 rounded-full transition-all"
                   >
                     {link.name}
                   </Link>
@@ -94,7 +96,7 @@ const Navbar: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                  className="px-4 py-2 text-sm font-medium text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-white/10 rounded-full transition-all"
                 >
                   {link.name}
                 </a>
@@ -103,10 +105,19 @@ const Navbar: React.FC = () => {
             </div>
 
             {/* Desktop CTA */}
-            <div className="hidden md:block pr-1">
-              <button 
+            <div className="hidden md:flex items-center gap-2 pr-1">
+              {/* Theme Toggle */}
+              <button
+                onClick={toggleTheme}
+                className="p-2.5 rounded-full bg-stone-100 dark:bg-white/10 text-slate-600 dark:text-gray-400 hover:bg-stone-200 dark:hover:bg-white/20 hover:text-slate-900 dark:hover:text-white transition-all cursor-pointer"
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+
+              <button
                 onClick={() => setIsResumeOpen(true)}
-                className="flex items-center gap-2 px-6 py-2.5 bg-white text-black rounded-full text-sm font-semibold hover:bg-indigo-50 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] cursor-pointer"
+                className="flex items-center gap-2 px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-black rounded-full text-sm font-semibold hover:bg-slate-800 dark:hover:bg-indigo-50 transition-colors shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] cursor-pointer"
               >
                 <span>View Resume</span>
                 <Download size={16} />
@@ -115,7 +126,7 @@ const Navbar: React.FC = () => {
 
             {/* Mobile Toggle */}
             <button
-              className="md:hidden text-white p-3 rounded-full hover:bg-white/10 transition-colors"
+              className="md:hidden text-slate-900 dark:text-white p-3 rounded-full hover:bg-stone-100 dark:hover:bg-white/10 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -131,7 +142,7 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center md:hidden"
+            className="fixed inset-0 z-40 bg-stone-50/98 dark:bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center md:hidden"
           >
              <div className="flex flex-col items-center space-y-8">
               {navLinks.map((link) => (
@@ -140,7 +151,7 @@ const Navbar: React.FC = () => {
                     key={link.name}
                     to={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-serif text-4xl text-gray-300 hover:text-white transition-colors"
+                    className="font-serif text-4xl text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -149,18 +160,28 @@ const Navbar: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="font-serif text-4xl text-gray-300 hover:text-white transition-colors"
+                  className="font-serif text-4xl text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white transition-colors"
                 >
                   {link.name}
                 </a>
                 )
               ))}
-              <button 
+
+              {/* Mobile Theme Toggle */}
+              <button
+                onClick={toggleTheme}
+                className="flex items-center gap-3 px-6 py-3 bg-stone-100 dark:bg-white/10 text-slate-700 dark:text-gray-300 rounded-full text-lg font-medium hover:bg-stone-200 dark:hover:bg-white/20 transition-colors"
+              >
+                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+              </button>
+
+              <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   setIsResumeOpen(true);
                 }}
-                className="mt-8 flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full text-lg font-semibold hover:bg-gray-200 transition-colors"
+                className="flex items-center gap-3 px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-black rounded-full text-lg font-semibold hover:bg-slate-800 dark:hover:bg-gray-200 transition-colors"
               >
                 View Resume
                 <Download size={20} />

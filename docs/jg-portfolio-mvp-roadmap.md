@@ -18,7 +18,7 @@ As of the current iteration, we have a functional Single Page Application (SPA).
 *   **Resume Ecosystem:** A native, embedded PDF viewer (`ResumeModal.tsx`) that allows users to read your resume without leaving the site, powered by Google Drive.
 *   **Responsive Navigation:** A floating, glass-morphism navbar that adapts from desktop links to a mobile full-screen menu.
 *   **3D Hero Section:** Interactive profile card with mouse-tracking tilt effects and parallax floating stats.
-*   **Visual Identity:** Deep dark mode (`#000000` background) with Indigo/Purple glowing accents.
+*   **Visual Identity:** Deep dark mode (`#09090b` background - soft black with subtle warmth) with Indigo glowing accents.
 
 ### Content Section Status:
 *   **Expertise (Completed):** Upgraded to a modern 3-column "Bento Grid" layout (`Expertise.tsx`) with dashboard-style widgets and decorations.

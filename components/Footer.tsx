@@ -6,21 +6,21 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="bg-surface pt-24 pb-16 border-t border-white/5 scroll-mt-32">
+    <footer id="contact" className="bg-white dark:bg-surface pt-24 pb-16 border-t border-slate-200 dark:border-white/5 scroll-mt-32">
       <div className="max-w-5xl mx-auto px-6 text-center">
-        
+
         <motion.div
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
         >
-          <p className="text-indigo-400 text-sm font-medium tracking-wider uppercase mb-4">
+          <p className="text-indigo-600 dark:text-indigo-400 text-sm font-medium tracking-wider uppercase mb-4">
             Currently seeking opportunities
           </p>
-          <h2 className="font-serif text-5xl md:text-7xl text-white mb-8 leading-tight">
+          <h2 className="font-serif text-5xl md:text-7xl text-slate-900 dark:text-white mb-8 leading-tight">
             Need a Marketing Ops hire?
           </h2>
-          <p className="text-gray-300 text-xl mb-16 max-w-2xl mx-auto font-light">
+          <p className="text-slate-600 dark:text-gray-300 text-xl mb-16 max-w-2xl mx-auto font-light">
             I'm actively looking for full-time roles where I can build scalable systems and drive measurable growth. Let's talk.
           </p>
 
@@ -41,21 +41,21 @@ const Footer: React.FC = () => {
             { icon: Instagram, href: "https://www.instagram.com/joshhustle/", label: "Instagram" },
             { icon: Youtube, href: "https://www.youtube.com/@joshuagatewood", label: "YouTube" }
           ].map((Social, index) => (
-            <a 
+            <a
               key={index}
-              href={Social.href} 
+              href={Social.href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={Social.label}
-              className="p-5 rounded-full glass-card text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
+              className="p-5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/10 hover:border-slate-300 dark:hover:border-white/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg dark:hover:shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
             >
               <Social.icon size={24} />
             </a>
           ))}
         </div>
 
-        <div className="border-t border-white/5 pt-10">
-          <p className="text-sm text-gray-500">
+        <div className="border-t border-slate-200 dark:border-white/5 pt-10">
+          <p className="text-sm text-slate-500 dark:text-gray-500">
             &copy; {currentYear} Joshua Gatewood. Crafted with precision.
           </p>
         </div>

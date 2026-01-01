@@ -7,7 +7,13 @@ export interface ProjectAsset {
   poster?: string; // Optional thumbnail/poster for video assets
   caption?: string; // Optional caption for visual evidence
   visualDescription?: string; // Optional description shown under the image/video
-  
+
+  // Supporting Images - Array of additional images shown below main image
+  supportingImages?: Array<{
+    url: string;
+    caption?: string;
+  }>;
+
   // New Comparison Fields
   beforeImage?: string;
   afterImage?: string;

@@ -84,22 +84,21 @@ const Experience: React.FC = () => {
   });
 
   return (
-    <section id="experience" ref={containerRef} className="py-24 bg-background relative overflow-hidden scroll-mt-32">
+    <section id="experience" ref={containerRef} className="py-24 bg-stone-50 dark:bg-background relative overflow-hidden scroll-mt-32 border-t border-slate-200 dark:border-transparent">
       <div className="max-w-4xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-24 text-center relative z-10"
         >
-          <h2 className="font-serif text-4xl md:text-5xl text-white mb-6">Professional Journey</h2>
-          {/* OPTIMIZATION: Updated Contrast */}
-          <p className="text-gray-300">The path that led to systems thinking.</p>
+          <h2 className="font-serif text-4xl md:text-5xl text-slate-900 dark:text-white mb-6">Professional Journey</h2>
+          <p className="text-slate-600 dark:text-gray-300">The path that led to systems thinking.</p>
         </motion.div>
 
         <div className="relative">
           {/* Static Background Line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-white/5 md:-translate-x-[0.5px]" />
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-slate-200 dark:bg-white/5 md:-translate-x-[0.5px]" />
           
           {/* Animated Progress Line */}
           <motion.div 
@@ -121,19 +120,19 @@ const Experience: React.FC = () => {
               >
                 {/* Timeline Node */}
                 <div className="absolute left-[-6px] md:left-1/2 top-0 z-20 md:-translate-x-[7px]">
-                  <motion.div 
+                  <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.2 }}
-                    className="w-3.5 h-3.5 bg-background border-2 border-indigo-500 rounded-full shadow-[0_0_10px_rgba(99,102,241,0.5)]"
+                    className="w-3.5 h-3.5 bg-stone-50 dark:bg-background border-2 border-indigo-500 rounded-full shadow-[0_0_10px_rgba(99,102,241,0.5)]"
                   />
                 </div>
 
                 {/* Content Card - OPTIMIZATION: Increased mobile padding (pl-12) */}
                 <div className="md:w-1/2 pl-12 md:pl-0">
                   <div className={`
-                    relative p-8 rounded-3xl border border-white/5 bg-surface/80 backdrop-blur-sm bg-noise
-                    hover:border-indigo-500/30 hover:bg-white/[0.02] transition-all duration-500 group
+                    relative p-8 rounded-3xl border border-slate-200 dark:border-white/5 bg-white dark:bg-surface/80 backdrop-blur-sm bg-noise shadow-sm dark:shadow-none
+                    hover:border-indigo-500/30 hover:bg-stone-50 dark:hover:bg-white/[0.02] transition-all duration-500 group
                     ${index % 2 === 0 ? 'md:mr-16' : 'md:ml-16'}
                   `}>
                     
@@ -142,22 +141,22 @@ const Experience: React.FC = () => {
 
                     <div className="flex flex-col md:flex-row md:items-start justify-between mb-3 gap-2">
                       <div>
-                        <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-indigo-200 transition-colors">
+                        <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-200 transition-colors">
                           {exp.role}
                         </h3>
-                        <div className="text-gray-400 text-sm font-medium mt-1 flex items-center gap-2">
-                          <span className="text-gray-300">{exp.company}</span>
-                          <span className="w-1 h-1 rounded-full bg-gray-600" />
-                          <span className="text-gray-500">{exp.highlight}</span>
+                        <div className="text-slate-500 dark:text-gray-400 text-sm font-medium mt-1 flex items-center gap-2">
+                          <span className="text-slate-700 dark:text-gray-300">{exp.company}</span>
+                          <span className="w-1 h-1 rounded-full bg-slate-400 dark:bg-gray-600" />
+                          <span className="text-slate-500 dark:text-gray-500">{exp.highlight}</span>
                         </div>
                       </div>
                       <div className="flex items-center gap-2 flex-shrink-0">
                         {exp.metric && (
-                          <span className="px-3 py-1 bg-indigo-500/20 rounded-full text-xs font-semibold text-indigo-300 border border-indigo-500/30">
+                          <span className="px-3 py-1 bg-indigo-500/20 rounded-full text-xs font-semibold text-indigo-600 dark:text-indigo-300 border border-indigo-500/30">
                             {exp.metric}
                           </span>
                         )}
-                        <span className="px-3 py-1 bg-white/5 rounded-full text-[10px] md:text-xs font-mono text-gray-400 border border-white/5 whitespace-nowrap">
+                        <span className="px-3 py-1 bg-slate-100 dark:bg-white/5 rounded-full text-[10px] md:text-xs font-mono text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-white/5 whitespace-nowrap">
                           {exp.period}
                         </span>
                       </div>
@@ -166,18 +165,18 @@ const Experience: React.FC = () => {
                     {/* Achievement bullets */}
                     <ul className="space-y-2 mb-4">
                       {exp.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start gap-3 text-gray-300 text-sm leading-relaxed">
+                        <li key={i} className="flex items-start gap-3 text-slate-600 dark:text-gray-300 text-sm leading-relaxed">
                           <span className="w-1.5 h-1.5 rounded-full bg-indigo-500/60 mt-2 flex-shrink-0" />
-                          <span className="group-hover:text-gray-200 transition-colors">{achievement}</span>
+                          <span className="group-hover:text-slate-800 dark:group-hover:text-gray-200 transition-colors">{achievement}</span>
                         </li>
                       ))}
                     </ul>
 
                     {/* Skill tags */}
                     {exp.skills && (
-                      <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                      <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-200 dark:border-white/5">
                         {exp.skills.map((skill, i) => (
-                          <span key={i} className="px-2 py-1 bg-white/5 rounded text-[10px] text-gray-400 font-medium">
+                          <span key={i} className="px-2 py-1 bg-slate-100 dark:bg-white/5 rounded text-[10px] text-slate-500 dark:text-gray-400 font-medium">
                             {skill}
                           </span>
                         ))}
