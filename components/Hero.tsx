@@ -77,10 +77,10 @@ const Hero: React.FC = () => {
       {/* SEO: Primary H1 - Visually hidden but accessible to search engines */}
       <h1 className="sr-only">Joshua Gatewood - Marketing Ops Engineer</h1>
 
-      {/* Background Gradients */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-[10%] left-[10%] w-[35rem] h-[35rem] bg-indigo-500/20 dark:bg-indigo-500/10 rounded-full blur-[150px] mix-blend-multiply dark:mix-blend-screen" />
-        <div className="absolute bottom-[20%] right-[10%] w-[30rem] h-[30rem] bg-purple-500/20 dark:bg-purple-500/10 rounded-full blur-[150px] mix-blend-multiply dark:mix-blend-screen" />
+      {/* Background Gradients - only show in dark mode */}
+      <div className="absolute inset-0 pointer-events-none z-0 hidden dark:block">
+        <div className="absolute top-[10%] left-[10%] w-[35rem] h-[35rem] bg-indigo-500/10 rounded-full blur-[150px] mix-blend-screen" />
+        <div className="absolute bottom-[20%] right-[10%] w-[30rem] h-[30rem] bg-purple-500/10 rounded-full blur-[150px] mix-blend-screen" />
       </div>
 
       {/* Main Hero Content */}
@@ -159,13 +159,13 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.8, duration: 0.6 }}
             whileHover={{ scale: 1.1 }}
             style={{ y: badge1Y, willChange: 'transform' }}
-            className="absolute -right-2 md:-right-8 top-12 glass-card bg-white/80 dark:bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-stone-200 dark:border-white/10 cursor-pointer group z-30"
+            className="absolute -right-2 md:-right-8 top-12 glass-card bg-white dark:bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl dark:shadow-2xl border-2 border-slate-300 dark:border-white/10 cursor-pointer group z-30 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] hover:border-indigo-400 dark:hover:border-white/20 transition-all duration-300"
           >
-            <div className="bg-indigo-500/20 p-2 rounded-xl text-indigo-600 dark:text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-colors duration-300">
+            <div className="bg-indigo-100 dark:bg-indigo-500/20 p-2 rounded-xl text-indigo-600 dark:text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-colors duration-300">
                <Zap size={16} />
             </div>
             <div>
-              <p className="text-[9px] text-slate-500 dark:text-gray-300 uppercase tracking-wider">Saved</p>
+              <p className="text-[9px] text-slate-600 dark:text-gray-300 uppercase tracking-wider font-semibold">Saved</p>
               <p className="text-sm font-bold text-slate-900 dark:text-white">30% Time</p>
             </div>
           </motion.a>
@@ -180,13 +180,13 @@ const Hero: React.FC = () => {
             transition={{ delay: 1.0, duration: 0.6 }}
             whileHover={{ scale: 1.1 }}
             style={{ y: badge2Y, willChange: 'transform' }}
-            className="absolute -left-2 md:-left-8 bottom-24 glass-card bg-white/80 dark:bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-stone-200 dark:border-white/10 cursor-pointer group z-30"
+            className="absolute -left-2 md:-left-8 bottom-24 glass-card bg-white dark:bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl dark:shadow-2xl border-2 border-slate-300 dark:border-white/10 cursor-pointer group z-30 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] hover:border-purple-400 dark:hover:border-white/20 transition-all duration-300"
           >
-            <div className="bg-purple-500/20 p-2 rounded-xl text-purple-600 dark:text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors duration-300">
+            <div className="bg-purple-100 dark:bg-purple-500/20 p-2 rounded-xl text-purple-600 dark:text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors duration-300">
                <Layers size={16} />
             </div>
              <div>
-              <p className="text-[9px] text-slate-500 dark:text-gray-300 uppercase tracking-wider">Output</p>
+              <p className="text-[9px] text-slate-600 dark:text-gray-300 uppercase tracking-wider font-semibold">Output</p>
               <p className="text-sm font-bold text-slate-900 dark:text-white">3x Content</p>
             </div>
           </motion.a>
@@ -201,13 +201,13 @@ const Hero: React.FC = () => {
             transition={{ delay: 1.2, duration: 0.6 }}
             whileHover={{ scale: 1.1 }}
             style={{ y: badge3Y, willChange: 'transform' }}
-            className="absolute right-4 md:-right-4 bottom-8 glass-card bg-white/80 dark:bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl backdrop-blur-2xl border border-stone-200 dark:border-white/10 cursor-pointer group z-30"
+            className="absolute right-4 md:-right-4 bottom-8 glass-card bg-white dark:bg-black/60 px-4 py-2.5 rounded-2xl flex items-center space-x-3 shadow-2xl dark:shadow-2xl border-2 border-slate-300 dark:border-white/10 cursor-pointer group z-30 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] hover:border-pink-400 dark:hover:border-white/20 transition-all duration-300"
           >
-             <div className="bg-pink-500/20 p-2 rounded-xl text-pink-600 dark:text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-colors duration-300">
+             <div className="bg-pink-100 dark:bg-pink-500/20 p-2 rounded-xl text-pink-600 dark:text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-colors duration-300">
                <BarChart size={16} />
             </div>
              <div>
-              <p className="text-[9px] text-slate-500 dark:text-gray-300 uppercase tracking-wider">Engagement</p>
+              <p className="text-[9px] text-slate-600 dark:text-gray-300 uppercase tracking-wider font-semibold">Engagement</p>
               <p className="text-sm font-bold text-slate-900 dark:text-white">+40%</p>
             </div>
           </motion.a>
