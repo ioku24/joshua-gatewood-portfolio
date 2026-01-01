@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Zap, Layers, BarChart, ArrowRight } from 'lucide-react';
+import { Zap, Layers, BarChart, ArrowRight, Sparkles } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const { scrollY } = useScroll();
@@ -31,6 +31,21 @@ const Hero: React.FC = () => {
 
   // Typewriter Animation Variants
   const sentence = "Aloha,";
+  const statusBadgeVariants = {
+    initial: { opacity: 0, scale: 0.8, y: -10 },
+    animate: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        delay: 1.6,
+        duration: 0.5,
+        type: "spring",
+        stiffness: 200
+      }
+    }
+  };
+
   const letterVariants = {
     hidden: { opacity: 0, y: 20, scale: 0.8 },
     visible: {
@@ -77,7 +92,7 @@ const Hero: React.FC = () => {
           initial="hidden"
           animate="visible"
           style={{ y: textY, willChange: 'transform' }}
-          className="font-serif text-6xl md:text-8xl text-white mb-8 relative z-20 text-center"
+          className="font-serif text-6xl md:text-8xl text-white mb-4 relative z-20 text-center"
           aria-hidden="true"
         >
           {sentence.split("").map((char, index) => (
@@ -86,6 +101,22 @@ const Hero: React.FC = () => {
             </motion.span>
           ))}
         </motion.p>
+
+        {/* Open to Work Badge */}
+        <motion.div
+          variants={statusBadgeVariants}
+          initial="initial"
+          animate="animate"
+          className="mb-6 relative z-20"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 backdrop-blur-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="text-emerald-400 text-sm font-medium tracking-wide">Open to Opportunities</span>
+          </div>
+        </motion.div>
 
         {/* Profile Image Container - UPDATED SIZE */}
         {/* EFFECT D: Parallax - image moves slower */}
@@ -201,12 +232,12 @@ const Hero: React.FC = () => {
             </motion.a>
           </motion.div>
           {/* Hero Sentence - Hidden on load, fades in on scroll */}
-          <motion.div 
+          <motion.div
             style={{ opacity: introTextOpacity, y: introTextY, willChange: 'transform, opacity' }}
-            className="max-w-4xl mx-auto"
+            className="max-w-3xl mx-auto"
           >
-            <p className="font-sans text-lg md:text-xl text-gray-300 font-light leading-relaxed">
-              I'm <span className="text-white font-medium">Joshua Gatewood</span>, a systems thinker designing marketing infrastructure so creative ideas can scale.
+            <p className="font-sans text-lg md:text-xl text-gray-300 font-light leading-relaxed text-center">
+              I'm <span className="text-white font-medium">Joshua Gatewood</span>, a Marketing Operations Specialist who builds automation workflows that save teams 30%+ of their time. I audit funnels, clean up CRM data, and create systems that scale.
             </p>
           </motion.div>
         </div>

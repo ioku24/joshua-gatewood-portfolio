@@ -87,7 +87,7 @@ const Expertise: React.FC = () => {
               </div>
 
               <div className="flex flex-wrap gap-3 mt-8">
-                {["Funnel Audits", "Process Mapping", "API Integrations"].map((tag, i) => (
+                {["Funnel Audits", "Process Mapping", "API Integrations", "Miro"].map((tag, i) => (
                   <span key={i} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/5 text-xs text-gray-300">
                     {tag}
                   </span>
@@ -123,11 +123,11 @@ const Expertise: React.FC = () => {
               <div className="mt-auto pt-6 border-t border-white/5 space-y-2">
                  <div className="flex items-center gap-2 text-sm text-gray-400">
                     <Terminal size={14} className="text-purple-500" />
-                    <span>AI Agents</span>
+                    <span>N8N / Make / Zapier</span>
                  </div>
                  <div className="flex items-center gap-2 text-sm text-gray-400">
                     <Terminal size={14} className="text-purple-500" />
-                    <span>N8N / Make.com</span>
+                    <span>Claude / ChatGPT</span>
                  </div>
               </div>
           </motion.div>
@@ -150,7 +150,7 @@ const Expertise: React.FC = () => {
               <div className="flex flex-wrap gap-2 mt-auto">
                  <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">HubSpot</span>
                  <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">GoHighLevel</span>
-                 <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">Data Hygiene</span>
+                 <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs font-mono border border-cyan-500/20">ManyChat</span>
               </div>
           </motion.div>
 
@@ -180,7 +180,7 @@ const Expertise: React.FC = () => {
                </div>
                
                <div className="flex flex-wrap gap-3 mt-8">
-                {["Looker Studio", "Google Sheets", "HubSpot Dashboards"].map((tag, i) => (
+                {["GA4", "Looker Studio", "Google Sheets", "HubSpot Dashboards"].map((tag, i) => (
                   <span key={i} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/5 text-xs text-gray-300">
                     {tag}
                   </span>

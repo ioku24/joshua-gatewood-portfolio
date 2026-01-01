@@ -14,18 +14,22 @@ const Footer: React.FC = () => {
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
         >
-          <h2 className="font-serif text-5xl md:text-7xl text-white mb-10 leading-tight">
-            Let's build together.
+          <p className="text-indigo-400 text-sm font-medium tracking-wider uppercase mb-4">
+            Currently seeking opportunities
+          </p>
+          <h2 className="font-serif text-5xl md:text-7xl text-white mb-8 leading-tight">
+            Need a Marketing Ops hire?
           </h2>
           <p className="text-gray-300 text-xl mb-16 max-w-2xl mx-auto font-light">
-            Ready to optimize your marketing operations or build a scalable content system? Let's connect.
+            I'm actively looking for full-time roles where I can build scalable systems and drive measurable growth. Let's talk.
           </p>
-          
-          <a 
+
+          <a
             href="mailto:joshuangatewood@gmail.com"
             className="inline-flex items-center space-x-3 px-10 py-5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-medium hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] hover:scale-105 transition-all duration-300 mb-20 group"
           >
-            <span>Get in Touch</span>
+            <Mail size={20} />
+            <span>Let's Connect</span>
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </a>
         </motion.div>
