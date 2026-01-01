@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="bg-surface pt-40 pb-16 border-t border-white/5 scroll-mt-32">
+    <footer id="contact" className="bg-surface pt-24 pb-16 border-t border-white/5 scroll-mt-32">
       <div className="max-w-5xl mx-auto px-6 text-center">
         
         <motion.div

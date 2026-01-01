@@ -2,34 +2,68 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { ExperienceItem } from '../types';
 
-const experiences: ExperienceItem[] = [
+interface ExtendedExperience extends ExperienceItem {
+  achievements: string[];
+  metric?: string;
+  skills?: string[];
+}
+
+const experiences: ExtendedExperience[] = [
   {
     company: 'Gauntlet AI',
     role: 'Marketing Operations Intern',
     period: '06/2025 - Present',
-    description: 'Audited the acquisition ecosystem to diagnose bottlenecks. Built offer-specific funnels driving a 2x increase in pipeline volume. Created KPI dashboards and cleaned HubSpot data for executive reporting. Engineered a content repurposing engine increasing output 3-5x.',
-    highlight: 'Remote'
+    description: '',
+    highlight: 'Remote',
+    metric: '2x Pipeline',
+    achievements: [
+      'Audited acquisition ecosystem to diagnose bottlenecks',
+      'Built offer-specific funnels driving 2x pipeline increase',
+      'Created KPI dashboards and cleaned HubSpot data',
+      'Engineered content repurposing engine (3-5x output)'
+    ],
+    skills: ['HubSpot', 'Funnel Design', 'Data Ops']
   },
   {
     company: 'HOME Organization',
     role: 'Social Media Manager',
     period: '04/2025 - 06/2025',
-    description: 'Developed strategies across LinkedIn, FB, and IG, increasing engagement by 25% in 30 days. Built AI-assisted workflows to streamline content creation and scheduling.',
-    highlight: 'Remote'
+    description: '',
+    highlight: 'Remote',
+    metric: '+25% Engagement',
+    achievements: [
+      'Developed multi-platform strategy (LinkedIn, FB, IG)',
+      'Increased engagement 25% in 30 days',
+      'Built AI-assisted content workflows'
+    ],
+    skills: ['Social Strategy', 'AI Tools', 'Content']
   },
   {
     company: 'Lenawee County',
     role: 'Community Development Assistant',
     period: '05/2023 - 05/2025',
-    description: 'Secured federal funding for community programs and housing. Created content for Land Bank properties and presented data-driven reports to Commissioners.',
-    highlight: 'Adrian, MI'
+    description: '',
+    highlight: 'Adrian, MI',
+    achievements: [
+      'Secured federal funding for community programs',
+      'Created content for Land Bank properties',
+      'Presented data-driven reports to Commissioners'
+    ],
+    skills: ['Reporting', 'Stakeholder Mgmt']
   },
   {
     company: 'Adrian College',
-    role: 'Social Media & Brand Manager (Men\'s Rugby)',
+    role: 'Social Media & Brand Manager',
     period: '08/2023 - 05/2024',
-    description: 'Built digital presence attracting 2,000+ followers. Generated 75 recruitment calls leading to a record-high 30-player freshman class. Developed AI chatbot converting leads into recruits.',
-    highlight: 'Adrian, MI'
+    description: '',
+    highlight: 'Adrian, MI',
+    metric: '2,000+ Followers',
+    achievements: [
+      'Built digital presence attracting 2,000+ followers',
+      'Generated 75 recruitment calls (record 30-player class)',
+      'Developed AI chatbot converting leads to recruits'
+    ],
+    skills: ['Brand Building', 'Lead Gen', 'Chatbots']
   }
 ];
 
@@ -106,25 +140,49 @@ const Experience: React.FC = () => {
                     {/* Glowing effect behind card */}
                     <div className="absolute inset-0 bg-indigo-500/5 blur-2xl rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
 
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                       <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-indigo-200 transition-colors">
-                        {exp.role}
-                      </h3>
-                      <span className="inline-block px-3 py-1 bg-white/5 rounded-full text-[10px] md:text-xs font-mono text-indigo-300 border border-white/5 whitespace-nowrap">
-                        {exp.period}
-                      </span>
+                    <div className="flex flex-col md:flex-row md:items-start justify-between mb-3 gap-2">
+                      <div>
+                        <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-indigo-200 transition-colors">
+                          {exp.role}
+                        </h3>
+                        <div className="text-gray-400 text-sm font-medium mt-1 flex items-center gap-2">
+                          <span className="text-gray-300">{exp.company}</span>
+                          <span className="w-1 h-1 rounded-full bg-gray-600" />
+                          <span className="text-gray-500">{exp.highlight}</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 flex-shrink-0">
+                        {exp.metric && (
+                          <span className="px-3 py-1 bg-indigo-500/20 rounded-full text-xs font-semibold text-indigo-300 border border-indigo-500/30">
+                            {exp.metric}
+                          </span>
+                        )}
+                        <span className="px-3 py-1 bg-white/5 rounded-full text-[10px] md:text-xs font-mono text-gray-400 border border-white/5 whitespace-nowrap">
+                          {exp.period}
+                        </span>
+                      </div>
                     </div>
 
-                    <div className="text-gray-400 text-sm font-medium mb-6 flex items-center gap-2">
-                       <span className="text-gray-300">{exp.company}</span>
-                       <span className="w-1 h-1 rounded-full bg-gray-600" />
-                       <span className="text-gray-500">{exp.highlight}</span>
-                    </div>
+                    {/* Achievement bullets */}
+                    <ul className="space-y-2 mb-4">
+                      {exp.achievements.map((achievement, i) => (
+                        <li key={i} className="flex items-start gap-3 text-gray-300 text-sm leading-relaxed">
+                          <span className="w-1.5 h-1.5 rounded-full bg-indigo-500/60 mt-2 flex-shrink-0" />
+                          <span className="group-hover:text-gray-200 transition-colors">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                    {/* OPTIMIZATION: Updated Contrast */}
-                    <p className="text-gray-300 text-base leading-relaxed font-light group-hover:text-gray-200 transition-colors">
-                      {exp.description}
-                    </p>
+                    {/* Skill tags */}
+                    {exp.skills && (
+                      <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                        {exp.skills.map((skill, i) => (
+                          <span key={i} className="px-2 py-1 bg-white/5 rounded text-[10px] text-gray-400 font-medium">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
                 

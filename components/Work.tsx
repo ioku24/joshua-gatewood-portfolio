@@ -192,7 +192,7 @@ const Work: React.FC = () => {
   };
 
   return (
-    <section id="work" className="py-24 bg-surface relative scroll-mt-32">
+    <section id="work" className="py-24 bg-surface relative scroll-mt-32 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-end justify-between mb-12 md:mb-16">
           <motion.div
@@ -217,9 +217,9 @@ const Work: React.FC = () => {
         {/* Desktop Layout (Grid) */}
         <div className="hidden md:grid grid-cols-2 gap-8 lg:gap-12">
           {projects.map((project, index) => (
-            <div key={project.id} className={index === 2 ? 'col-span-2 w-2/3 mx-auto' : ''}>
-              <ProjectCard 
-                project={project} 
+            <div key={project.id} className={index === 2 ? 'col-span-2' : ''}>
+              <ProjectCard
+                project={project}
                 id={`project-${project.id}`}
               />
             </div>
