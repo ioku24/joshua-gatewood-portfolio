@@ -56,11 +56,19 @@
     scrollbar-width: none;  /* Firefox */
 }
 
+/* Glass card - theme aware */
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(24px); /* Increased blur for 2.0 look */
+  backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Thinner border */
+  /* Light mode: solid white with subtle shadow */
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.dark .glass-card {
+  /* Dark mode: subtle frosted glass */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 html {
