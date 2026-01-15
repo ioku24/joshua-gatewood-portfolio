@@ -1,38 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
-    <script>
-      // Prevent flash of wrong theme
-      (function() {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'light') {
-          document.documentElement.classList.remove('dark');
-        } else {
-          document.documentElement.classList.add('dark');
-        }
-      })();
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Joshua Gatewood | Marketing Operations Specialist</title>
+    <title>Joshua Gatewood | Builder & Marketer</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
-    <meta name="apple-mobile-web-app-title" content="Joshua Gatewood | Marketing Ops Specialist">
 
     <!-- Primary Meta Tags -->
-    <meta name="title" content="Joshua Gatewood | Marketing Operations Specialist">
-    <meta name="description" content="Marketing Operations Specialist who builds what traditional marketers can't. Using AI tools like Claude Code, I ship automated workflows, data systems, and SaaS products. Built RankEasy (SEO automation platform) in 4 days with payments and OAuth integrations.">
+    <meta name="title" content="Joshua Gatewood | Builder & Marketer">
+    <meta name="description" content="I build SaaS products and marketing systems. Shipped RankEasy (AI-powered SEO platform) in 4 days. Marketing ops background with hands-on technical skills.">
 
-    <!-- Schema.org Person Markup for SEO -->
+    <!-- Schema.org Person Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Joshua Gatewood",
-      "jobTitle": "Marketing Operations Specialist",
+      "jobTitle": "Builder & Marketer",
       "url": "https://www.joshuangatewood.com",
       "sameAs": [
         "https://www.linkedin.com/in/joshuangatewood",
@@ -40,38 +27,35 @@
         "https://www.instagram.com/joshhustle/",
         "https://www.youtube.com/@joshuagatewood"
       ],
-      "knowsAbout": ["Marketing Operations", "Marketing Automation", "HubSpot", "Funnel Optimization", "Data Analysis", "AI-Assisted Development", "Claude Code", "Next.js", "TypeScript", "Process Design", "Systems Thinking"]
+      "knowsAbout": ["SaaS Development", "Marketing Operations", "AI Tools", "Automation", "HubSpot", "TypeScript", "React"]
     }
     </script>
 
-    <!-- Open Graph / Facebook / LinkedIn -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.joshuangatewood.com/">
-    <meta property="og:title" content="Joshua Gatewood | Marketing Operations Specialist">
-    <meta property="og:description" content="Marketing Ops Specialist who uses AI to build automated workflows, data systems, and even SaaS products. Built RankEasy in 4 days with Claude Code. From funnel optimization to full-stack solutions.">
+    <meta property="og:title" content="Joshua Gatewood | Builder & Marketer">
+    <meta property="og:description" content="I build SaaS products and marketing systems. Shipped RankEasy in 4 days with payments, automation, and analytics.">
     <meta property="og:image" content="https://ik.imagekit.io/kqcgf084pn/JG2">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Joshua Gatewood Portfolio">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.joshuangatewood.com/">
-    <meta property="twitter:title" content="Joshua Gatewood | Marketing Operations Specialist">
-    <meta property="twitter:description" content="Marketing Ops Specialist who uses AI to build what traditional marketers can't. Built RankEasy (SEO automation) in 4 days. HubSpot, funnels, data, and AI-powered automation.">
+    <meta property="twitter:title" content="Joshua Gatewood | Builder & Marketer">
+    <meta property="twitter:description" content="I build SaaS products and marketing systems. Shipped RankEasy in 4 days.">
     <meta property="twitter:image" content="https://ik.imagekit.io/kqcgf084pn/JG2">
 
-    <!-- Additional SEO -->
-    <meta name="keywords" content="marketing operations, marketing ops specialist, marketing automation, HubSpot, funnel optimization, AI automation, Claude Code, data analysis, CRM management, content systems, growth operations, revenue operations, AI-assisted development">
+    <!-- SEO -->
     <meta name="author" content="Joshua Gatewood">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.joshuangatewood.com/">
 
+    <!-- Fonts: DM Sans (body) + Instrument Serif (display) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-stone-50 dark:bg-background text-slate-900 dark:text-primary overflow-x-hidden transition-colors duration-300">
+  <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
