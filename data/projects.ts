@@ -75,8 +75,7 @@ export const siteConfig: SiteConfig = {
       url: "#",
       context: "at Gauntlet AI",
       media: [
-        // TODO: Host video on CDN (ImageKit/Cloudinary) - file too large for GitHub
-        // { type: "video", url: "YOUR_CDN_URL_HERE", thumbnail: "/assets/content-os-system.webp" },
+        { type: "embed", url: "https://share.descript.com/embed/kaoabOBAcBJ", thumbnail: "/assets/content-os-system.webp" },
         { type: "image", url: "/assets/content-os-system.webp" }
       ]
     },
