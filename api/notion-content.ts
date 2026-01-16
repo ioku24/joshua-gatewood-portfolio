@@ -81,7 +81,8 @@ function parseNotionBlocks(blocks: NotionBlock[]) {
   let currentProject: any = null;
   let currentFieldType = '';
 
-  for (const block of blocks) {
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i];
     const type = block.type;
 
     // Handle heading blocks to determine section
@@ -169,11 +170,26 @@ function parseNotionBlocks(blocks: NotionBlock[]) {
       const url = plainText.trim();
 
       if (url) {
-        // Determine media type
-        if (url.includes('descript.com') || url.includes('youtube.com') || url.includes('youtu.be') || url.includes('loom.com')) {
+        // Check if this is an embed URL
+        const isEmbed = url.includes('descript.com') || url.includes('youtube.com') || url.includes('youtu.be') || url.includes('loom.com');
+
+        if (isEmbed) {
+          // Look ahead to see if the next item is an image (thumbnail)
+          const nextBlock = blocks[i + 1];
+          let thumbnail = undefined;
+
+          if (nextBlock && nextBlock.type === 'bulleted_list_item') {
+            const nextText = extractPlainText(nextBlock[nextBlock.type]).trim();
+            if (nextText.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
+              thumbnail = nextText;
+              i++; // Skip the next block since we used it as thumbnail
+            }
+          }
+
           currentProject.media.push({
             type: 'embed',
-            url: url.replace(' (Descript embed)', '').replace(' (YouTube)', '').trim()
+            url: url.replace(' (Descript embed)', '').replace(' (YouTube)', '').trim(),
+            ...(thumbnail && { thumbnail })
           });
         } else if (url.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
           currentProject.media.push({
