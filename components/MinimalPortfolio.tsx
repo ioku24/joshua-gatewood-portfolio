@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, Instagram, Youtube, ExternalLink, Calendar, FileText, X, Play, PenLine } from 'lucide-react';
-import { siteConfig, ProjectMedia } from '../data/projects';
+import { siteConfig as staticConfig, ProjectMedia, SiteConfig } from '../data/projects';
+import { fetchNotionContent } from '../utils/notionClient';
 
 const iconMap = {
   Linkedin,
@@ -12,6 +13,28 @@ const iconMap = {
 
 const MinimalPortfolio: React.FC = () => {
   const [lightboxMedia, setLightboxMedia] = useState<ProjectMedia | null>(null);
+  const [siteConfig, setSiteConfig] = useState<SiteConfig>(staticConfig);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Fetch content from Notion on component mount
+  useEffect(() => {
+    async function loadContent() {
+      setIsLoading(true);
+      const notionContent = await fetchNotionContent();
+
+      if (notionContent) {
+        setSiteConfig(notionContent);
+      } else {
+        // Fall back to static config if Notion fetch fails
+        console.log('Using static config as fallback');
+        setSiteConfig(staticConfig);
+      }
+
+      setIsLoading(false);
+    }
+
+    loadContent();
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#FAFAF8]">
