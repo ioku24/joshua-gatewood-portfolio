@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Linkedin, Twitter, Instagram, Youtube, ExternalLink, Calendar, FileText, X, Play, PenLine } from 'lucide-react';
+import { Linkedin, Twitter, Instagram, Youtube, ExternalLink, Calendar, FileText, X, Play, PenLine, Bot } from 'lucide-react';
 import { siteConfig as staticConfig, ProjectMedia, SiteConfig } from '../data/projects';
 import { fetchNotionContent } from '../utils/notionClient';
 
@@ -201,6 +201,15 @@ const MinimalPortfolio: React.FC = () => {
               <FileText size={16} />
               View Resume
             </a>
+
+            {/* AI Business Team Link */}
+            <Link
+              to="/ai-business-team"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-slate-700 text-sm font-medium rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 hover:scale-[1.02] active:scale-[0.98] transition-all"
+            >
+              <Bot size={16} />
+              AI Business Team
+            </Link>
 
             {/* Blog Link */}
             <Link
