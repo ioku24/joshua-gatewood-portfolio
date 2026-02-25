@@ -285,12 +285,12 @@ const AIBusinessTeam: React.FC = () => {
             <div className="w-px h-4 bg-slate-300" />
 
             {/* Branch line */}
-            <div className="relative w-full max-w-2xl">
+            <div className="relative w-full max-w-2xl overflow-x-auto">
               {/* Horizontal line */}
               <div className="absolute top-0 left-[10%] right-[10%] h-px bg-slate-300" />
 
               {/* Department columns */}
-              <div className="grid grid-cols-5 gap-2 md:gap-3">
+              <div className="grid grid-cols-5 gap-2 md:gap-3 min-w-[480px]">
                 {[
                   { name: 'Sales', icon: Search, color: 'emerald', workers: ['Prospector', 'Scorer', 'Outreach', 'Researcher'] },
                   { name: 'Marketing', icon: PenLine, color: 'blue', workers: ['Creator', 'Researcher'] },
