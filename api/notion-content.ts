@@ -1,4 +1,16 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import type { IncomingMessage, ServerResponse } from 'http';
+
+interface VercelRequest extends IncomingMessage {
+  query: Record<string, string | string[]>;
+  body: any;
+  method?: string;
+}
+
+interface VercelResponse extends ServerResponse {
+  status: (code: number) => VercelResponse;
+  json: (data: any) => void;
+  setHeader: (name: string, value: string) => VercelResponse;
+}
 
 const NOTION_API_VERSION = '2022-06-28';
 const NOTION_PAGE_ID = '2eae3fe480e5818ea5a6d2b423cc3a07';
