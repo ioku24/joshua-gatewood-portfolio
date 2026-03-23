@@ -27,26 +27,18 @@ const BlogPost: React.FC = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        // Try fetching single post or find from list
-        const response = await fetch(`${BLOG_API_URL}/${slug}`);
+        const response = await fetch(BLOG_API_URL);
         if (response.ok) {
           const data = await response.json();
-          setPost(data);
-        } else {
-          // Fallback: fetch all and find by slug
-          const listResponse = await fetch(BLOG_API_URL);
-          if (listResponse.ok) {
-            const data = await listResponse.json();
-            const posts = data.articles || data;
-            const found = posts.find((p: BlogPostType) => p.slug === slug);
-            if (found) {
-              setPost(found);
-            } else {
-              navigate('/blog', { replace: true });
-            }
+          const posts = data.articles || data;
+          const found = posts.find((p: BlogPostType) => p.slug === slug);
+          if (found) {
+            setPost(found);
           } else {
-            throw new Error('Failed to fetch');
+            navigate('/blog', { replace: true });
           }
+        } else {
+          throw new Error('Failed to fetch');
         }
       } catch (err) {
         // Use demo posts as fallback

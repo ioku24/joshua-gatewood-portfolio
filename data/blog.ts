@@ -16,8 +16,8 @@ export interface BlogPost {
   reading_time?: number; // minutes
 }
 
-// Configure your RankEasy API endpoint here
-export const BLOG_API_URL = "https://rankeasy.io/api/public/articles/joshuagatewood";
+// Blog posts served from static JSON in public/data/posts.json
+export const BLOG_API_URL = "/data/posts.json";
 
 // Fallback/demo posts (used when API is unavailable or for development)
 export const demoPosts: BlogPost[] = [
