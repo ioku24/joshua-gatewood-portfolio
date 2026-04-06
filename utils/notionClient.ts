@@ -1,8 +1,9 @@
-import { SiteConfig } from '../data/projects';
+import { SiteConfig, siteConfig as staticConfig } from '../data/projects';
 
 /**
  * Fetches portfolio content from Notion via the API route
- * Returns the same SiteConfig structure for compatibility
+ * Notion controls: name, tagline, about, photo, links, socials
+ * Static config controls: projects (with all media, tech stacks, highlights)
  */
 export async function fetchNotionContent(): Promise<SiteConfig | null> {
   try {
@@ -15,7 +16,7 @@ export async function fetchNotionContent(): Promise<SiteConfig | null> {
 
     const data = await response.json();
 
-    // Map the API response to SiteConfig structure
+    // Merge Notion data with static config — always use static projects
     const siteConfig: SiteConfig = {
       name: data.name || 'Joshua Gatewood',
       tagline: data.tagline || 'Builder & Marketer',
@@ -23,10 +24,10 @@ export async function fetchNotionContent(): Promise<SiteConfig | null> {
       calComUrl: (data.calComUrl && !data.calComUrl.match(/^https?:\/\/cal\.com\/?$/))
         ? data.calComUrl
         : 'https://cal.com/joshuagatewood',
-      resumeUrl: data.resumeUrl || '',
-      about: data.about || '',
-      projects: data.projects || [],
-      socials: data.socials || []
+      resumeUrl: data.resumeUrl || staticConfig.resumeUrl,
+      about: data.about || staticConfig.about,
+      projects: staticConfig.projects,
+      socials: (data.socials && data.socials.length > 0) ? data.socials : staticConfig.socials
     };
 
     return siteConfig;
