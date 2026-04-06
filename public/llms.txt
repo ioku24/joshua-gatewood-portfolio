@@ -1,0 +1,54 @@
+# Joshua Gatewood
+
+> AI Engineer. I build autonomous multi-agent AI systems, ship SaaS products, and deliver client websites.
+
+## About
+
+I started in marketing ops — auditing funnels, cleaning CRM data, building automated workflows. Then I picked up AI coding tools and realized I could build the systems I used to only spec out. I built RankEasy.io (a full SaaS) in 4 days. Then I built OpenClaw — a complete autonomous AI platform that orchestrates 25+ agents across business departments, running 24/7 on dedicated hardware at $2/day.
+
+## Contact
+
+- Website: https://www.joshuangatewood.com
+- Book a call: https://cal.com/joshuagatewood
+- LinkedIn: https://www.linkedin.com/in/joshuangatewood
+- X/Twitter: https://x.com/joshgatewood
+- Instagram: https://www.instagram.com/joshhustle/
+- YouTube: https://www.youtube.com/@joshuagatewood
+
+## Projects
+
+### OpenClaw — Autonomous Multi-Agent Orchestration Platform
+- URL: https://x.com/boringclaw (live proof), https://boringclaw.com (product site)
+- Status: Live, running 24/7
+- Tech: TypeScript, Node.js, Express.js, React, Claude API (Anthropic), Twitter/X API, Slack API, Cron
+- Description: Production AI system with 25+ specialized agents across Sales, Marketing, and Operations. Orchestrated by a CEO agent (Claude Opus 4.6) with pull-based scheduling, formal pipeline contracts between agents, and self-healing. Runs on Mac Mini M4 at ~$2/day (96% cost reduction from v1 architecture). Features hierarchical model routing (Opus for strategy, Sonnet for execution, Haiku for validation), circuit breakers, health checks, emergency stops, and rate limiting. Powers @boringclaw on X — a fully autonomous Twitter brand that posts, engages, and operates without human intervention.
+
+### BoringClaw (Twitter/X Brand)
+- URL: https://x.com/boringclaw
+- Description: The autonomous Twitter brand operated by OpenClaw. An AI character that narrates its own operations with real metrics. Full autonomy — JARVIS QA only. Live proof that OpenClaw works.
+
+### RankEasy.io
+- URL: https://rankeasy.io
+- Status: Live
+- Tech: Next.js, React, TypeScript, Supabase, Clerk, Stripe, Claude AI
+- Description: Full-stack AI SaaS — automated SEO content generation, analytics dashboard, and Stripe payment processing. Designed, built, and shipped to production in 4 days.
+
+### US Gage (Client Work)
+- URL: https://usgage.com
+- Status: Live
+- Description: Professional website with 3D product visualization for precision thread gage manufacturer. Clients include GE Aerospace, BAE Systems, and Northstar Aerospace.
+
+### Samco FM (Client Work)
+- URL: https://samcofm.com
+- Status: Live
+- Description: SEO-optimized website for commercial HVAC and facilities maintenance company. 4.9-star rating, 255+ reviews.
+
+## Skills
+
+AI Agents, Multi-Agent Orchestration, Claude API, Model Routing, SaaS Development, TypeScript, React, Node.js, Express.js, SEO, Web Development, Marketing Operations, Automation
+
+## Pages
+
+- Home: https://www.joshuangatewood.com/
+- OpenClaw / BoringClaw: https://www.joshuangatewood.com/boringclaw
+- Blog: https://www.joshuangatewood.com/blog

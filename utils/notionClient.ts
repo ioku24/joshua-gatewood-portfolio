@@ -20,7 +20,9 @@ export async function fetchNotionContent(): Promise<SiteConfig | null> {
       name: data.name || 'Joshua Gatewood',
       tagline: data.tagline || 'Builder & Marketer',
       photoUrl: data.photoUrl || '/JG profile photos.jpeg',
-      calComUrl: data.calComUrl || 'https://cal.com/joshuagatewood',
+      calComUrl: (data.calComUrl && !data.calComUrl.match(/^https?:\/\/cal\.com\/?$/))
+        ? data.calComUrl
+        : 'https://cal.com/joshuagatewood',
       resumeUrl: data.resumeUrl || '',
       about: data.about || '',
       projects: data.projects || [],

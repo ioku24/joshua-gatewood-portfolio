@@ -1,16 +1,24 @@
 # robots.txt for joshuangatewood.com
-# Allow all search engines to crawl the entire site
 
+# Allow all crawlers including AI agents
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Explicitly allow AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap and AI-readable content
 Sitemap: https://www.joshuangatewood.com/sitemap.xml
-
-
-
-
-
-
-
-
