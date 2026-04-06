@@ -41,7 +41,11 @@ I started in marketing ops — auditing funnels, cleaning CRM data, building aut
 ### Samco FM (Client Work)
 - URL: https://samcofm.com
 - Status: Live
-- Description: SEO-optimized website for commercial HVAC and facilities maintenance company. 4.9-star rating, 255+ reviews.
+- Description: Website, mobile app (iOS), and full SEO/AEO strategy for commercial HVAC company. Ranked on Google's first page within a week. #1 in Perplexity, visible in ChatGPT and Grok. 4.9-star rating, 255+ reviews.
+
+### UGM Field Ops (Client Work)
+- Status: Live
+- Description: Full-stack field operations platform for construction company. Real-time budget tracking, mobile clock-in/out, foreman approval workflow, AI-powered insights, and offline-first architecture. Next.js, React 19, TypeScript, Supabase, Claude AI, PWA. Delivered in 2 weeks, $8K fixed-cap. 225-388% ROI.
 
 ## Skills
 
@@ -50,5 +54,4 @@ AI Agents, Multi-Agent Orchestration, Claude API, Model Routing, SaaS Developmen
 ## Pages
 
 - Home: https://www.joshuangatewood.com/
-- OpenClaw / BoringClaw: https://www.joshuangatewood.com/boringclaw
 - Blog: https://www.joshuangatewood.com/blog
