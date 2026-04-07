@@ -43,7 +43,7 @@ export const siteConfig: SiteConfig = {
   tagline: "Builder & Marketer",
   photoUrl: "/JG profile photos.jpeg",
   calComUrl: "https://cal.com/joshuagatewood",
-  resumeUrl: "https://drive.google.com/file/d/1LMOU6El4YevpkGnVJMKM66dIUy3cBoKd/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/1BIZjsPMEKay0K9RrAORZ0gMJug7-edm4/view?usp=sharing",
 
   about: "I build AI agent systems and ship SaaS products. BoringClaw runs 22 autonomous agents across marketing, sales, and operations. RankEasy automates SEO content at scale. I also build high-converting websites for clients like US Gage and Samco FM. I started in marketing ops — now I build the tools.",
 
