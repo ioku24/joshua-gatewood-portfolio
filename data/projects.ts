@@ -1,11 +1,9 @@
 /**
  * Site Configuration - Edit this file to update your portfolio content
- *
- * Future: This will be connected to Notion for live editing
  */
 
 export interface ProjectMedia {
-  type: 'image' | 'video' | 'embed';
+  type: "image" | "video" | "embed";
   url: string; // Image path, YouTube URL, local MP4 path, or embed URL (Descript, Loom)
   thumbnail?: string; // Optional thumbnail for videos/embeds
 }
@@ -24,12 +22,13 @@ export interface Project {
 export interface SocialLink {
   name: string;
   url: string;
-  icon: 'Linkedin' | 'Twitter' | 'Instagram' | 'Youtube' | 'Github';
+  icon: "Linkedin" | "Twitter" | "Instagram" | "Youtube" | "Github";
 }
 
 export interface SiteConfig {
   name: string;
   tagline: string;
+  headline: string;
   photoUrl: string;
   calComUrl: string;
   resumeUrl: string;
@@ -40,59 +39,88 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   name: "Joshua Gatewood",
-  tagline: "Builder & Marketer",
+  tagline: "AI Engineer",
+  headline:
+    "I build autonomous AI systems and full-stack platforms. One I built was acquired.",
   photoUrl: "/JG profile photos.jpeg",
   calComUrl: "https://cal.com/joshuagatewood",
-  resumeUrl: "https://drive.google.com/file/d/1BIZjsPMEKay0K9RrAORZ0gMJug7-edm4/view?usp=sharing",
+  resumeUrl: "/resume",
 
-  about: "I build AI agent systems and ship SaaS products. BoringClaw runs 22 autonomous agents across marketing, sales, and operations. RankEasy automates SEO content at scale. I also build high-converting websites for clients like US Gage and Samco FM. I started in marketing ops — now I build the tools.",
+  about:
+    "I'm an AI Engineer at Brinker. I started in marketing ops, then picked up AI coding tools and realized I could build what I used to only spec out. On my own, I built a field-operations platform for a construction company that was acquired, I'm building a content and distribution engine, and I deliver production websites for clients like a precision manufacturer and a commercial HVAC company. I build fast, ship to production, and measure everything.",
 
   projects: [
     {
-      name: "BoringClaw",
-      description: "Autonomous multi-agent AI business team built on OpenClaw (open-source). 25+ agents across Sales, Marketing, and Operations, orchestrated by a CEO agent (Claude Opus 4.6) with pull-based scheduling, formal pipeline contracts, and self-healing. Runs 24/7.",
-      url: "https://boringclaw.com",
+      name: "UGM Field Ops",
+      description:
+        "Full-stack field operations platform for a construction company. Real-time budget tracking, mobile clock-in/out, foreman approval workflow, AI-powered insights, and offline-first for remote job sites. Acquired by a company about a month and a half after launch.",
+      url: "#",
       isLive: true,
-      techStack: ["TypeScript", "Node.js", "Express.js", "React", "Claude API", "Twitter/X API", "Slack API", "Cron"],
+      context: "Acquired",
+      techStack: [
+        "Next.js",
+        "React 19",
+        "TypeScript",
+        "Supabase",
+        "Claude AI",
+        "PWA",
+      ],
       highlights: [
-        "25+ agents with hierarchical model routing (Opus \u2192 Sonnet \u2192 Haiku)",
-        "96% cost reduction through pull-based architecture ($50/day \u2192 $2/day)",
-        "24/7 autonomous operation with circuit breakers and self-healing"
+        "Replaced manual data entry that was costing the company $26K-$39K/year in labor",
+        "Role-based access for foremen, PMs, and office staff",
+        "Works fully offline at remote job sites",
+        "AI morning briefings and natural-language cost queries",
       ],
       media: [
-        { type: "video", url: "/assets/boringclaw-demo.mp4", thumbnail: "/assets/boringclaw-site.png" },
-        { type: "image", url: "/assets/boringclaw-site.png" },
-        { type: "image", url: "/assets/openclaw-org-chart.png" }
-      ]
+        {
+          type: "video",
+          url: "/assets/ugm-demo.mp4",
+          thumbnail: "/assets/ugm-dashboard.png",
+        },
+        { type: "image", url: "/assets/ugm-dashboard.png" },
+        { type: "image", url: "/assets/ugm-mobile.png" },
+        { type: "image", url: "/assets/ugm-approvals.png" },
+      ],
     },
     {
-      name: "RankEasy.io",
-      description: "Full-stack AI SaaS \u2014 automated SEO content generation, analytics dashboard, and Stripe payment processing. Designed, built, and shipped to production in 4 days.",
-      url: "https://rankeasy.io",
-      isLive: true,
-      techStack: ["Next.js", "React", "TypeScript", "Supabase", "Clerk", "Stripe", "Claude AI"],
+      name: "Content Engine",
+      description:
+        "An AI system I'm building that turns trend signals and a single idea into voice-matched, publish-ready content and handles distribution across channels, with a human-approval queue. It grew out of an earlier multi-agent system I built across sales, marketing, and operations; I'm now focused on the content and distribution layer.",
+      url: "#",
+      context: "Building",
+      techStack: ["Claude API", "Multi-Agent Systems", "Automation"],
       highlights: [
-        "End-to-end SaaS: auth, payments, AI content generation, analytics",
-        "Built and shipped to production in 4 days"
+        "Pulls live signals, drafts in my voice, and routes to a one-tap approve, edit, or reject queue",
+        "Multi-agent pipeline with a quality gate before anything publishes",
       ],
-      media: [
-        { type: "image", url: "/assets/easyrank1.webp" }
-      ]
     },
     {
       name: "US Gage",
-      description: "Professional website with 3D product visualization for precision manufacturer. Clients include GE Aerospace and BAE Systems.",
+      description:
+        "Full digital transformation for precision thread gauge manufacturer serving GE Aerospace and BAE Systems. Website redesign, Google Ads optimization (health score 22 → 50, optimization score 71% → 90%), full analytics infrastructure (GA4 + GTM + GSC), brand strategy, and competitive analysis.",
       url: "https://usgage.com",
       isLive: true,
       context: "Client Work",
-      techStack: ["React", "WebGL", "Tailwind CSS", "SEO"],
-      media: [
-        { type: "image", url: "/assets/us-gage-site.png" }
-      ]
+      techStack: [
+        "WordPress",
+        "WooCommerce",
+        "Google Ads",
+        "GA4/GTM",
+        "SEO",
+        "Brand Strategy",
+      ],
+      highlights: [
+        "Google Ads health score 22 → 50 (more than doubled), optimization score 71% → 90%",
+        "6 conversion events configured across GA4, GTM, and Google Ads",
+        "Complete brand repositioning around speed — uncontested differentiator in market",
+        "E-commerce integration (WooCommerce + Stripe) for direct gauge purchasing",
+      ],
+      media: [{ type: "image", url: "/assets/us-gage-site.png" }],
     },
     {
       name: "Samco FM",
-      description: "Website, mobile app (iOS), and full SEO/AEO strategy for commercial HVAC company. Ranked on Google's first page within a week. #1 in Perplexity, visible in ChatGPT and Grok. 4.9-star rating, 255+ reviews.",
+      description:
+        "Website, mobile app (iOS), and full SEO/AEO strategy for commercial HVAC company. Ranked on Google's first page within a week. #1 in Perplexity, visible in ChatGPT and Grok.",
       url: "https://samcofm.com",
       isLive: true,
       context: "Client Work",
@@ -100,78 +128,61 @@ export const siteConfig: SiteConfig = {
       highlights: [
         "Built website + mobile app (work orders, QR scanning, GPS tracking)",
         "First page of Google within 1 week",
-        "#1 in Perplexity, visible in ChatGPT and Grok for commercial HVAC queries"
+        "#1 in Perplexity, visible in ChatGPT and Grok for commercial HVAC queries",
       ],
       media: [
         { type: "image", url: "/assets/samcofm-site.png" },
         { type: "image", url: "/assets/samcofm-google.png" },
         { type: "image", url: "/assets/samco-app-home.png" },
-        { type: "video", url: "/assets/samco-app-demo.mp4", thumbnail: "/assets/samco-app-jobs.png" },
+        {
+          type: "video",
+          url: "/assets/samco-app-demo.mp4",
+          thumbnail: "/assets/samco-app-jobs.png",
+        },
         { type: "image", url: "/assets/samcofm-perplexity.png" },
         { type: "image", url: "/assets/samcofm-grok.png" },
-        { type: "image", url: "/assets/samcofm-chatgpt.png" }
-      ]
+        { type: "image", url: "/assets/samcofm-chatgpt.png" },
+      ],
     },
     {
-      name: "UGM Field Ops",
-      description: "Full-stack field operations platform for construction company. Real-time budget tracking, mobile clock-in/out, foreman approval workflow, AI-powered insights, and offline-first architecture. Delivered in 2 weeks, $8K fixed-cap.",
+      name: "Gauntlet AI",
+      description:
+        "Marketing operations for an established AI company. Full-funnel audit, CRM cleanup, content automation, and competitive intelligence.",
       url: "#",
-      isLive: true,
-      context: "Client Work",
-      techStack: ["Next.js", "React 19", "TypeScript", "Supabase", "Claude AI", "PWA"],
+      context: "Marketing Operations",
+      techStack: ["HubSpot", "Marketing Ops", "Automation"],
       highlights: [
-        "Solved $26K-$39K/year manual data entry cost; 225-388% ROI",
-        "7-role permission hierarchy with Supabase RLS",
-        "Offline-first with IndexedDB sync for remote job sites",
-        "AI morning briefings + natural language cost queries"
+        "Full-funnel audit and roadmap that contributed to 2x pipeline growth",
+        "Resolved 4,400+ CRM data issues and set data-hygiene standards",
+        "Built content automation that lifted team output 3-5x",
       ],
       media: [
-        { type: "video", url: "/assets/ugm-demo.mp4", thumbnail: "/assets/ugm-dashboard.png" },
-        { type: "image", url: "/assets/ugm-dashboard.png" },
-        { type: "image", url: "/assets/ugm-mobile.png" },
-        { type: "image", url: "/assets/ugm-approvals.png" }
-      ]
+        {
+          type: "embed",
+          url: "https://share.descript.com/embed/zibGionZg6K",
+          thumbnail: "/assets/gauntlet-funnel-system.webp",
+        },
+        { type: "image", url: "/assets/gauntlet-new-website-2.webp" },
+      ],
     },
-    {
-      name: "Marketing Ops Infrastructure",
-      description: "Funnel redesigns, HubSpot cleanup, workflow automation. Saved 30% of team time.",
-      url: "#",
-      context: "at Gauntlet AI",
-      techStack: ["HubSpot", "Marketing Ops", "Workflow Automation"],
-      media: [
-        { type: "embed", url: "https://share.descript.com/embed/zibGionZg6K", thumbnail: "/assets/gauntlet-funnel-system.webp" },
-        { type: "image", url: "/assets/data-cleanup-map-2.webp" },
-        { type: "image", url: "/assets/gauntlet-old-website-2.webp" },
-        { type: "image", url: "/assets/gauntlet-new-website-2.webp" }
-      ]
-    },
-    {
-      name: "Content System",
-      description: "Repeatable system that turns one idea into 2-4 weeks of content. 3x output.",
-      url: "#",
-      context: "at Gauntlet AI",
-      techStack: ["Content Strategy", "Automation", "Repurposing"],
-      media: [
-        { type: "embed", url: "https://share.descript.com/embed/kaoabOBAcBJ", thumbnail: "/assets/content-os-system.webp" }
-      ]
-    },
-    {
-      name: "Competitive Ad Intelligence",
-      description: "AI-powered analysis of 100+ competitor ads to inform creative strategy.",
-      url: "#",
-      context: "at Gauntlet AI",
-      techStack: ["AI/LLM Analysis", "Data Pipeline", "Competitive Intelligence"],
-      media: [
-        { type: "image", url: "/assets/competitive-ad-analysis.webp" },
-        { type: "image", url: "/assets/competitive-ad-intelligence-1.webp" }
-      ]
-    }
   ],
 
   socials: [
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/joshuangatewood", icon: "Linkedin" },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/joshuangatewood",
+      icon: "Linkedin",
+    },
     { name: "X", url: "https://x.com/joshgatewood", icon: "Twitter" },
-    { name: "Instagram", url: "https://www.instagram.com/joshhustle/", icon: "Instagram" },
-    { name: "YouTube", url: "https://www.youtube.com/@joshuagatewood", icon: "Youtube" }
-  ]
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/joshhustle/",
+      icon: "Instagram",
+    },
+    {
+      name: "YouTube",
+      url: "https://www.youtube.com/@joshuagatewood",
+      icon: "Youtube",
+    },
+  ],
 };
