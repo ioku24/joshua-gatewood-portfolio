@@ -12,14 +12,14 @@ I'm an AI Engineer at Brinker. I started in marketing ops, then picked up AI cod
 - Book a call: https://cal.com/joshuagatewood
 - LinkedIn: https://www.linkedin.com/in/joshuangatewood
 - X/Twitter: https://x.com/joshgatewood
-- Instagram: https://www.instagram.com/joshhustle/
+- Instagram: https://www.instagram.com/joshuangatewood/
 - YouTube: https://www.youtube.com/@joshuagatewood
 
 ## Projects
 
 ### UGM Field Ops (Acquired)
 - Status: Acquired
-- Description: Full-stack field operations platform for a construction company. Real-time budget tracking, mobile clock-in/out, foreman approval workflow, AI-powered insights, and offline-first for remote job sites. Acquired by a company about a month and a half after launch. Replaced manual data entry that was costing the company $26K-$39K/year in labor.
+- Description: Full-stack field operations platform for a construction company. Real-time budget tracking, mobile clock-in/out, foreman approval workflow, AI-powered insights, and offline-first for remote job sites. Acquired by a company about six weeks after launch. Replaced manual data entry that was costing the company $26K-$39K/year in labor.
 
 ### Content Engine (In Progress)
 - Status: Building
@@ -28,7 +28,7 @@ I'm an AI Engineer at Brinker. I started in marketing ops, then picked up AI cod
 ### US Gage (Client Work)
 - URL: https://usgage.com
 - Status: Live
-- Description: Full digital transformation for precision thread gauge manufacturer serving GE Aerospace and BAE Systems. Website redesign, Google Ads optimization (health score 22 to 50, optimization score 71% to 90%), full analytics infrastructure (GA4 + GTM + GSC), brand strategy, competitive analysis, and WooCommerce e-commerce integration.
+- Description: Full digital transformation for a precision thread-gauge manufacturer (whose customers include GE Aerospace and BAE Systems). Website redesign, Google Ads optimization (health score 22 to 50, optimization score 71% to 90%), full analytics infrastructure (GA4 + GTM + GSC), brand strategy, competitive analysis, and WooCommerce e-commerce integration.
 
 ### Samco FM (Client Work)
 - URL: https://samcofm.com

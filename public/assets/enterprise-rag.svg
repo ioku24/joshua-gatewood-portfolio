@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F4F4EF"/>
+    </linearGradient>
+    <linearGradient id="dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#312E81"/>
+      <stop offset="1" stop-color="#3730A3"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <rect width="1080" height="640" fill="#FAFAF8"/>
+
+  <!-- Title -->
+  <text x="48" y="58" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#0F172A">Enterprise knowledge retrieval</text>
+  <text x="48" y="90" font-size="17" fill="#64748B">Answers grounded in an organization's own documents, with citations and data residency.</text>
+
+  <!-- Connectors -->
+  <g stroke="#CBD5E1" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <path d="M272,270 L298,270" marker-end="url(#arrow)"/>
+    <path d="M500,270 L526,270" marker-end="url(#arrow)"/>
+    <path d="M784,270 L810,270" marker-end="url(#arrow)"/>
+    <path d="M922,330 L922,406" marker-end="url(#arrow)"/>
+    <path d="M812,470 L786,470" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Source docs -->
+  <g filter="url(#shadow)"><rect x="48" y="210" width="224" height="120" rx="18" fill="url(#card)" stroke="#E2E8F0"/></g>
+  <circle cx="160" cy="240" r="20" fill="#F1F5F9"/>
+  <g transform="translate(148,228)" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M6 3 h8 l4 4 v13 a1 1 0 0 1 -1 1 h-11 a1 1 0 0 1 -1 -1 v-16 a1 1 0 0 1 1 -1 z"/>
+    <path d="M14 3 v4 h4"/>
+    <line x1="8.5" y1="13" x2="15.5" y2="13"/>
+    <line x1="8.5" y1="16.5" x2="14" y2="16.5"/>
+  </g>
+  <text x="160" y="288" text-anchor="middle" font-size="18" font-weight="600" fill="#0F172A">Source docs</text>
+  <text x="160" y="310" text-anchor="middle" font-size="13" fill="#64748B">SOPs · policies · handbooks</text>
+
+  <!-- Chunk + index -->
+  <g filter="url(#shadow)"><rect x="300" y="210" width="200" height="120" rx="18" fill="url(#card)" stroke="#E2E8F0"/></g>
+  <circle cx="400" cy="240" r="20" fill="#F1F5F9"/>
+  <g transform="translate(388,228)" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M12 3 l9 5 l-9 5 l-9 -5 z"/>
+    <path d="M3 13 l9 5 l9 -5"/>
+  </g>
+  <text x="400" y="288" text-anchor="middle" font-size="18" font-weight="600" fill="#0F172A">Chunk + index</text>
+  <text x="400" y="310" text-anchor="middle" font-size="13" fill="#64748B">by section, with metadata</text>
+
+  <!-- In-boundary embeddings -->
+  <g filter="url(#shadow)"><rect x="528" y="210" width="256" height="120" rx="18" fill="url(#card)" stroke="#E2E8F0"/></g>
+  <circle cx="656" cy="240" r="20" fill="#EEF2FF"/>
+  <g transform="translate(644,228)" fill="none" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="5" y="11" width="14" height="9" rx="2"/>
+    <path d="M8 11 v-3 a4 4 0 0 1 8 0 v3"/>
+  </g>
+  <text x="656" y="288" text-anchor="middle" font-size="18" font-weight="600" fill="#0F172A">In-boundary embeddings</text>
+  <text x="656" y="310" text-anchor="middle" font-size="13" fill="#4F46E5">data residency · nothing leaves</text>
+
+  <!-- Vector store -->
+  <g filter="url(#shadow)"><rect x="812" y="210" width="220" height="120" rx="18" fill="url(#card)" stroke="#E2E8F0"/></g>
+  <circle cx="922" cy="240" r="20" fill="#F1F5F9"/>
+  <g transform="translate(910,228)" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="12" cy="6" rx="7" ry="3"/>
+    <path d="M5 6 v12 c0 1.7 3.1 3 7 3 s7 -1.3 7 -3 v-12"/>
+    <path d="M5 12 c0 1.7 3.1 3 7 3 s7 -1.3 7 -3"/>
+  </g>
+  <text x="922" y="288" text-anchor="middle" font-size="18" font-weight="600" fill="#0F172A">Vector store</text>
+  <text x="922" y="310" text-anchor="middle" font-size="13" fill="#64748B">searchable index</text>
+
+  <!-- Retrieve + rerank -->
+  <g filter="url(#shadow)"><rect x="812" y="410" width="220" height="120" rx="18" fill="url(#card)" stroke="#E2E8F0"/></g>
+  <circle cx="922" cy="440" r="20" fill="#F1F5F9"/>
+  <g transform="translate(910,428)" stroke="#475569" stroke-width="2.4" fill="none" stroke-linecap="round">
+    <line x1="5" y1="8" x2="19" y2="8"/>
+    <line x1="5" y1="13" x2="15" y2="13"/>
+    <line x1="5" y1="18" x2="11" y2="18"/>
+  </g>
+  <text x="922" y="488" text-anchor="middle" font-size="18" font-weight="600" fill="#0F172A">Retrieve + rerank</text>
+  <text x="922" y="510" text-anchor="middle" font-size="13" fill="#64748B">best matches for the question</text>
+
+  <!-- Cite or defer (indigo anchor) -->
+  <g filter="url(#shadow)"><rect x="500" y="410" width="284" height="120" rx="18" fill="url(#dark)" stroke="#312E81"/></g>
+  <circle cx="612" cy="440" r="20" fill="#FFFFFF" fill-opacity="0.14"/>
+  <g transform="translate(600,428)" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M4 5 h16 a2 2 0 0 1 2 2 v8 a2 2 0 0 1 -2 2 h-9 l-5 4 v-4 h-2 a2 2 0 0 1 -2 -2 v-8 a2 2 0 0 1 2 -2 z"/>
+    <path d="M8.5 11 l2 2 l4.5 -4.5"/>
+  </g>
+  <text x="642" y="480" text-anchor="middle" font-size="18" font-weight="600" fill="#FFFFFF">Cite-or-defer answer</text>
+  <text x="642" y="502" text-anchor="middle" font-size="13" fill="#C7D2FE">every claim links to its source</text>
+
+  <!-- Governance strip -->
+  <g filter="url(#shadow)"><rect x="48" y="566" width="984" height="50" rx="14" fill="#F5F5F0" stroke="#E2E8F0"/></g>
+  <g transform="translate(72,579)" fill="none" stroke="#059669" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M12 2 l8 3 v6 c0 5 -4 8 -8 10 c-4 -2 -8 -5 -8 -10 v-6 z"/>
+    <path d="M8.5 12 l2.5 2.5 l4.5 -5"/>
+  </g>
+  <text x="112" y="590" font-size="15" font-weight="600" fill="#0F172A">Eval harness + human review</text>
+  <text x="112" y="608" font-size="12.5" fill="#64748B">measured before it ships, and every answer stays traceable to a source</text>
+</svg>

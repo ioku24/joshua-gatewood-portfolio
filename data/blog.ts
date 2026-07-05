@@ -1,8 +1,7 @@
 /**
  * Blog Configuration
  *
- * Update BLOG_API_URL to point to your RankEasy API endpoint
- * e.g., "https://rankeasy.io/api/public/articles/joshuagatewood"
+ * Posts are served from the static JSON at BLOG_API_URL (see below).
  */
 
 export interface BlogPost {

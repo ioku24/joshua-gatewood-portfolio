@@ -41,7 +41,7 @@ const Resume: React.FC = () => {
         {/* Header */}
         <header className="mb-10">
           <div className="flex items-start justify-between gap-4">
-            <h1 className="font-serif text-4xl md:text-5xl font-normal text-slate-900 tracking-tight">
+            <h1 className="font-display text-4xl md:text-5xl font-extrabold text-slate-900 tracking-[-0.02em]">
               Joshua Gatewood
             </h1>
             <button
@@ -83,54 +83,88 @@ const Resume: React.FC = () => {
             </a>
           </p>
           <p className="mt-4 text-slate-600 italic leading-relaxed text-[15px]">
-            Self-taught AI engineer with a marketing background, now an AI
-            Engineer at Brinker. I build autonomous agent systems, ship
-            production platforms, and deliver full-stack work. One of my
-            platforms was acquired.
+            AI engineer, now at Brinker, who designs autonomous
+            human-in-the-loop agent systems and production-grade RAG, and builds
+            the full stack around them, from Postgres and Next.js to a shipped
+            iOS app. I came up through marketing operations and taught myself to
+            build with AI; one platform I built was acquired within weeks of
+            launch. I work framework-free and evals-first, and I care about
+            systems that actually run: fact-checked, measured, and reliable.
           </p>
         </header>
 
         <SectionLabel>Skills</SectionLabel>
         <div className="space-y-1.5 text-[15px] text-slate-600 leading-relaxed">
           <p>
+            <span className="text-slate-900 font-medium">AI &amp; Agents:</span>{" "}
+            Claude Code / Agent SDK, OpenAI GPT-5 / Codex, Google Gemini,
+            Perplexity, local models (Qwen / Ollama); Hermes autonomous agent
+            runtime; multi-agent systems and multi-model orchestration;
+            human-in-the-loop approval flows and scheduled agents; builds and
+            integrates MCP servers (20+ live tool and data integrations); prompt
+            and context engineering
+          </p>
+          <p>
             <span className="text-slate-900 font-medium">
-              AI &amp; Automation:
+              RAG &amp; Retrieval:
             </span>{" "}
-            Claude API (Opus, Sonnet, Haiku), OpenAI, multi-agent systems,
-            prompt engineering, ElevenLabs, Replicate
+            Obsidian knowledge base, Pinecone (multilingual-e5), hybrid keyword
+            + vector retrieval, wiki-link graph expansion, abstain gates,
+            semantic chunking, golden-set evals (Recall@k, MRR), retrieval data
+            governance
           </p>
           <p>
             <span className="text-slate-900 font-medium">Languages:</span>{" "}
-            TypeScript, Python, JavaScript
+            TypeScript, JavaScript, Python, SQL, PHP, Bash
           </p>
           <p>
             <span className="text-slate-900 font-medium">Frontend:</span> React
-            19, Next.js, Tailwind CSS, Framer Motion
+            18 / 19, Next.js, Vite, Tailwind CSS, shadcn/Radix
           </p>
           <p>
             <span className="text-slate-900 font-medium">
               Backend &amp; Data:
             </span>{" "}
-            Supabase (PostgreSQL), Node.js, Edge Functions, REST APIs, Inngest
-          </p>
-          <p>
-            <span className="text-slate-900 font-medium">Infrastructure:</span>{" "}
-            Vercel, Stripe, Clerk, Git/GitHub, FFmpeg, Sentry
+            Supabase (PostgreSQL, RLS, Auth, Edge Functions), Node.js, REST
+            APIs, Anthropic &amp; OpenAI SDKs
           </p>
           <p>
             <span className="text-slate-900 font-medium">Mobile:</span> React
-            Native, Expo
+            Native, Expo (shipped iOS + Android app)
+          </p>
+          <p>
+            <span className="text-slate-900 font-medium">
+              Infrastructure &amp; DevOps:
+            </span>{" "}
+            Vercel, Cloudways, GitHub Actions CI/CD, Git, Playwright + Vitest,
+            Stripe
+          </p>
+          <p>
+            <span className="text-slate-900 font-medium">
+              Web &amp; Growth:
+            </span>{" "}
+            SEO, AEO/GEO (AI-search optimization), Google Ads optimization, GA4
+            / GTM / GSC and marketing analytics, WordPress / PHP, WooCommerce
+          </p>
+          <p>
+            <span className="text-slate-900 font-medium">Practices:</span>{" "}
+            Agentic (agent-driven) engineering, test-driven development,
+            systematic debugging, verification-before-completion, spec-driven
+            development, architecture diagramming (Miro, Excalidraw), automated
+            browser QA
           </p>
         </div>
 
         <SectionLabel>Experience</SectionLabel>
         <Role
-          title="AI Engineer — Brinker"
+          title="AI Engineer, Brinker"
           meta="06/2026 - Present"
-          bullets={[<>Build AI systems and internal tooling.</>]}
+          bullets={[
+            <>Building enterprise AI systems, agents, and internal tooling.</>,
+          ]}
         />
         <Role
-          title="AI Engineer — Freelance (Client & Product Work)"
+          title="Freelance (Client & Product Work)"
           meta="2026"
           bullets={[
             <>
@@ -163,10 +197,10 @@ const Resume: React.FC = () => {
             <>
               Led full digital transformation for{" "}
               <strong className="text-slate-900 font-medium">US Gage</strong>, a
-              precision gauge manufacturer serving GE Aerospace and BAE Systems:
-              website redesign, Google Ads optimization (health score 22 to 50),
-              GA4/GTM analytics, and WooCommerce e-commerce. (WordPress,
-              WooCommerce, Google Ads)
+              precision gauge manufacturer whose customers include GE Aerospace
+              and BAE Systems: website redesign, Google Ads optimization (health
+              score 22 to 50), GA4/GTM analytics, and WooCommerce e-commerce.
+              (WordPress, WooCommerce, Google Ads)
             </>,
             <>
               Delivered{" "}
@@ -179,8 +213,8 @@ const Resume: React.FC = () => {
           ]}
         />
         <Role
-          title="Marketing Operations Specialist — Gauntlet AI"
-          meta="Hybrid, Austin TX · 06/2025 - 12/2025"
+          title="Marketing Operations Specialist, Gauntlet AI"
+          meta="Austin, TX · 06/2025 - 12/2025"
           bullets={[
             <>
               Conducted full-funnel audit across website, CRM, and messaging;
@@ -217,10 +251,20 @@ const Resume: React.FC = () => {
         <div className="space-y-2 text-[15px] text-slate-600 leading-relaxed">
           <p>
             <span className="text-slate-900 font-medium">
-              AI Recruitment Chatbot:
+              Personal RAG Knowledge System:
             </span>{" "}
-            Automated lead-qualification bot using OpenAI API and GoHighLevel
-            for Adrian College Rugby, converting 10 D1 recruits in two months.
+            Hybrid retrieval over my Obsidian knowledge graph (keyword +
+            Pinecone / multilingual-e5 + wiki-link expansion) that surfaces the
+            right notes into my agents and stays silent when unsure. Measured
+            with a golden-set eval (Recall@4 ~0.91, MRR 0.80).
+          </p>
+          <p>
+            <span className="text-slate-900 font-medium">
+              AI Recruitment Chatbot (2023):
+            </span>{" "}
+            One of my first AI builds, right after the OpenAI API launched: an
+            automated lead-qualification bot (OpenAI API + GoHighLevel) for
+            Adrian College Rugby that converted 10 D1 recruits in two months.
           </p>
           <p>
             <span className="text-slate-900 font-medium">

@@ -6,6 +6,7 @@ export interface ProjectMedia {
   type: "image" | "video" | "embed";
   url: string; // Image path, YouTube URL, local MP4 path, or embed URL (Descript, Loom)
   thumbnail?: string; // Optional thumbnail for videos/embeds
+  fit?: "cover" | "contain"; // "contain" shows the whole image uncropped (use for diagrams). Default "cover".
 }
 
 export interface Project {
@@ -25,6 +26,11 @@ export interface SocialLink {
   icon: "Linkedin" | "Twitter" | "Instagram" | "Youtube" | "Github";
 }
 
+export interface Stat {
+  value: string;
+  label: string;
+}
+
 export interface SiteConfig {
   name: string;
   tagline: string;
@@ -33,6 +39,7 @@ export interface SiteConfig {
   calComUrl: string;
   resumeUrl: string;
   about: string;
+  stats: Stat[];
   projects: Project[];
   socials: SocialLink[];
 }
@@ -41,35 +48,60 @@ export const siteConfig: SiteConfig = {
   name: "Joshua Gatewood",
   tagline: "AI Engineer",
   headline:
-    "I build autonomous AI systems and full-stack platforms. One I built was acquired.",
+    "I build autonomous AI systems and full-stack platforms. One was acquired.",
   photoUrl: "/JG profile photos.jpeg",
   calComUrl: "https://cal.com/joshuagatewood",
   resumeUrl: "/resume",
 
   about:
-    "I'm an AI Engineer at Brinker. I started in marketing ops, then picked up AI coding tools and realized I could build what I used to only spec out. On my own, I built a field-operations platform for a construction company that was acquired, I'm building a content and distribution engine, and I deliver production websites for clients like a precision manufacturer and a commercial HVAC company. I build fast, ship to production, and measure everything.",
+    "I'm an AI Engineer at Brinker. I came up through marketing operations, then AI coding tools let me build the systems I used to only spec. Now I ship autonomous AI systems and full-stack platforms, from a field-operations platform that was acquired to a content engine I'm building today. I care about systems that actually run in the real world: fact-checked, human-in-the-loop, and measured.",
+
+  stats: [
+    {
+      value: "Acquired",
+      label: "A field-ops platform, bought soon after launch",
+    },
+    { value: "~2 mo", label: "Concept to production on that platform" },
+    { value: "#1", label: "Client site ranked first in Perplexity" },
+  ],
 
   projects: [
     {
+      name: "Personal RAG Knowledge System",
+      description:
+        "A retrieval system over my own ~300-chunk Obsidian vault that auto-surfaces the right notes into my AI agents mid-task and stays silent when nothing is relevant. It combines deterministic keyword search with multilingual-e5 vector search (Pinecone), then follows my notes' wiki-links to pull in linked context, with a dependency-free local floor so recall degrades gracefully instead of failing when the vector store is down.",
+      url: "#",
+      context: "Building",
+      highlights: [
+        "Hybrid retrieval: weighted keyword scoring plus dense (multilingual-e5) semantic search, merged and deduped",
+        "Walks the Obsidian wiki-link graph: retrieved notes pull in their 1-hop linked neighbors, so connected context comes along",
+        "Precision-first abstain gate injects context only when the semantic hit is corroborated, so out-of-scope queries stay silent",
+        "Measured like production: Recall@4 ~0.91, MRR 0.80, and 100% correct abstention on out-of-scope queries against a golden-set eval",
+        "Default-deny governance layer that separates personal knowledge from confidential data, verified at zero leakage",
+      ],
+      techStack: [
+        "Python",
+        "Pinecone",
+        "multilingual-e5",
+        "wiki-link graph",
+        "evals",
+      ],
+      media: [
+        { type: "image", url: "/assets/rag-pipeline.svg", fit: "contain" },
+      ],
+    },
+    {
       name: "UGM Field Ops",
       description:
-        "Full-stack field operations platform for a construction company. Real-time budget tracking, mobile clock-in/out, foreman approval workflow, AI-powered insights, and offline-first for remote job sites. Acquired by a company about a month and a half after launch.",
+        "A field operations platform I built for a commercial construction company, replacing triple manual data entry (paper timesheets, accounting, and spreadsheets) with one offline-capable app. Crews log time from the jobsite, estimates and cost data import automatically, and an AI layer generates cost reports, drafts change orders, and sends a daily briefing. Built from concept to production in about two months, then acquired by a company.",
       url: "#",
       isLive: true,
       context: "Acquired",
-      techStack: [
-        "Next.js",
-        "React 19",
-        "TypeScript",
-        "Supabase",
-        "Claude AI",
-        "PWA",
-      ],
       highlights: [
-        "Replaced manual data entry that was costing the company $26K-$39K/year in labor",
-        "Role-based access for foremen, PMs, and office staff",
-        "Works fully offline at remote job sites",
-        "AI morning briefings and natural-language cost queries",
+        "Eliminated roughly 8 hours a week of manual re-entry between the field, accounting, and spreadsheets",
+        "Turned a full day of monthly cost reporting into one upload and one click",
+        "Role-based access and multi-company architecture, offline-capable for remote job sites",
+        "AI layer for cost reports, change-order drafts, and daily project briefings",
       ],
       media: [
         {
@@ -85,21 +117,50 @@ export const siteConfig: SiteConfig = {
     {
       name: "Content Engine",
       description:
-        "An AI system I'm building that turns trend signals and a single idea into voice-matched, publish-ready content and handles distribution across channels, with a human-approval queue. It grew out of an earlier multi-agent system I built across sales, marketing, and operations; I'm now focused on the content and distribution layer.",
+        "A venture-agnostic content and distribution engine I'm building: it researches trends from public sources, ranks and fact-checks them, drafts posts in a defined brand voice, and routes every draft through a human approval gate before publishing and measuring. Built as a reusable core with a swappable per-venture config, so the same pipeline runs any brand by changing configuration, not code.",
       url: "#",
       context: "Building",
-      techStack: ["Claude API", "Multi-Agent Systems", "Automation"],
       highlights: [
-        "Pulls live signals, drafts in my voice, and routes to a one-tap approve, edit, or reject queue",
-        "Multi-agent pipeline with a quality gate before anything publishes",
+        "A deliberate, research-backed alternative to multi-agent swarms: one deterministic, fact-checked pipeline with human-in-the-loop",
+        "Runs on the same agent runtime as a second autonomous agent that scouts AI-frontier signal and briefs me daily",
+        "The content-creation half runs daily; multi-channel distribution and a learning loop are in active development",
+      ],
+      techStack: [
+        "autonomous agents",
+        "LLM routing",
+        "fact-check",
+        "Telegram HITL",
+      ],
+      media: [{ type: "image", url: "/assets/agent-loop.svg", fit: "contain" }],
+    },
+    {
+      name: "Enterprise RAG",
+      description:
+        "The retrieval pattern I build for organizations: a system that answers questions from a company's own documents (SOPs, policies, handbooks) with a citation on every claim, and defers instead of guessing when the source isn't there. Embeddings run inside the org's environment for data residency, so sensitive information never leaves it.",
+      url: "#",
+      context: "Building",
+      highlights: [
+        "Cite-or-defer answers: every claim links to its source document, and the system abstains rather than hallucinate",
+        "In-boundary embeddings so sensitive data never leaves the organization's environment",
+        "Same eval-first rigor as my personal RAG: retrieval quality is measured before anything ships",
+      ],
+      techStack: [
+        "RAG",
+        "vector DB",
+        "embeddings",
+        "reranking",
+        "citations",
+        "evals",
+      ],
+      media: [
+        { type: "image", url: "/assets/enterprise-rag.svg", fit: "contain" },
       ],
     },
     {
       name: "US Gage",
       description:
-        "Full digital transformation for precision thread gauge manufacturer serving GE Aerospace and BAE Systems. Website redesign, Google Ads optimization (health score 22 → 50, optimization score 71% → 90%), full analytics infrastructure (GA4 + GTM + GSC), brand strategy, and competitive analysis.",
-      url: "https://usgage.com",
-      isLive: true,
+        "Full digital transformation for a precision thread-gauge manufacturer (whose customers include GE Aerospace and BAE Systems). Website redesign, Google Ads optimization (health score 22 → 50, optimization score 71% → 90%), full analytics infrastructure (GA4 + GTM + GSC), brand strategy, and competitive analysis.",
+      url: "#",
       context: "Client Work",
       techStack: [
         "WordPress",
@@ -112,10 +173,9 @@ export const siteConfig: SiteConfig = {
       highlights: [
         "Google Ads health score 22 → 50 (more than doubled), optimization score 71% → 90%",
         "6 conversion events configured across GA4, GTM, and Google Ads",
-        "Complete brand repositioning around speed — uncontested differentiator in market",
+        "Complete brand repositioning around speed, an uncontested differentiator in market",
         "E-commerce integration (WooCommerce + Stripe) for direct gauge purchasing",
       ],
-      media: [{ type: "image", url: "/assets/us-gage-site.png" }],
     },
     {
       name: "Samco FM",
@@ -156,14 +216,6 @@ export const siteConfig: SiteConfig = {
         "Resolved 4,400+ CRM data issues and set data-hygiene standards",
         "Built content automation that lifted team output 3-5x",
       ],
-      media: [
-        {
-          type: "embed",
-          url: "https://share.descript.com/embed/zibGionZg6K",
-          thumbnail: "/assets/gauntlet-funnel-system.webp",
-        },
-        { type: "image", url: "/assets/gauntlet-new-website-2.webp" },
-      ],
     },
   ],
 
@@ -173,10 +225,11 @@ export const siteConfig: SiteConfig = {
       url: "https://www.linkedin.com/in/joshuangatewood",
       icon: "Linkedin",
     },
+    { name: "GitHub", url: "https://github.com/ioku24", icon: "Github" },
     { name: "X", url: "https://x.com/joshgatewood", icon: "Twitter" },
     {
       name: "Instagram",
-      url: "https://www.instagram.com/joshhustle/",
+      url: "https://www.instagram.com/joshuangatewood/",
       icon: "Instagram",
     },
     {

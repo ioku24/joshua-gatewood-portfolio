@@ -1,11 +1,15 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { BlogPost as BlogPostType, BLOG_API_URL, demoPosts } from '../data/blog';
+import React, { useEffect, useState, useRef, useCallback } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import {
+  BlogPost as BlogPostType,
+  BLOG_API_URL,
+  demoPosts,
+} from "../data/blog";
 
 const PILLAR_LABELS: Record<string, string> = {
-  'The Build': 'BUILD',
-  'The Mindset': 'MINDSET',
-  'The Business': 'BUSINESS',
+  "The Build": "BUILD",
+  "The Mindset": "MINDSET",
+  "The Business": "BUSINESS",
 };
 
 interface TocItem {
@@ -19,7 +23,7 @@ const BlogPostPage: React.FC = () => {
   const [post, setPost] = useState<BlogPostType | null>(null);
   const [loading, setLoading] = useState(true);
   const [tocItems, setTocItems] = useState<TocItem[]>([]);
-  const [activeId, setActiveId] = useState('');
+  const [activeId, setActiveId] = useState("");
   const [copied, setCopied] = useState(false);
   const [readProgress, setReadProgress] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -35,17 +39,17 @@ const BlogPostPage: React.FC = () => {
           if (found) {
             setPost(found);
           } else {
-            navigate('/blog', { replace: true });
+            navigate("/blog", { replace: true });
           }
         } else {
-          throw new Error('Failed to fetch');
+          throw new Error("Failed to fetch");
         }
       } catch {
         const found = demoPosts.find((p) => p.slug === slug);
         if (found) {
           setPost(found);
         } else {
-          navigate('/blog', { replace: true });
+          navigate("/blog", { replace: true });
         }
       } finally {
         setLoading(false);
@@ -57,16 +61,17 @@ const BlogPostPage: React.FC = () => {
   // Extract TOC from rendered content
   useEffect(() => {
     if (!contentRef.current) return;
-    const headings = contentRef.current.querySelectorAll('h2');
+    const headings = contentRef.current.querySelectorAll("h2");
     const items: TocItem[] = [];
     headings.forEach((h, i) => {
-      const id = h.textContent
-        ?.toLowerCase()
-        .replace(/[^a-z0-9\s]/g, '')
-        .replace(/\s+/g, '-')
-        .slice(0, 50) || `section-${i}`;
+      const id =
+        h.textContent
+          ?.toLowerCase()
+          .replace(/[^a-z0-9\s]/g, "")
+          .replace(/\s+/g, "-")
+          .slice(0, 50) || `section-${i}`;
       h.id = id;
-      items.push({ id, text: h.textContent || '' });
+      items.push({ id, text: h.textContent || "" });
     });
     setTocItems(items);
   }, [post]);
@@ -82,7 +87,7 @@ const BlogPostPage: React.FC = () => {
           }
         }
       },
-      { threshold: 0.3, rootMargin: '-80px 0px -60% 0px' }
+      { threshold: 0.3, rootMargin: "-80px 0px -60% 0px" },
     );
     tocItems.forEach(({ id }) => {
       const el = document.getElementById(id);
@@ -93,22 +98,23 @@ const BlogPostPage: React.FC = () => {
 
   // Read progress
   const handleScroll = useCallback(() => {
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const docHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
     if (docHeight > 0) {
       setReadProgress((window.scrollY / docHeight) * 100);
     }
   }, []);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
@@ -116,11 +122,11 @@ const BlogPostPage: React.FC = () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
     } catch {
-      const input = document.createElement('input');
+      const input = document.createElement("input");
       input.value = window.location.href;
       document.body.appendChild(input);
       input.select();
-      document.execCommand('copy');
+      document.execCommand("copy");
       document.body.removeChild(input);
     }
     setCopied(true);
@@ -131,7 +137,7 @@ const BlogPostPage: React.FC = () => {
     if (!post) return;
     const text = encodeURIComponent(post.title);
     const url = encodeURIComponent(window.location.href);
-    window.open(`https://x.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+    window.open(`https://x.com/intent/tweet?text=${text}&url=${url}`, "_blank");
   };
 
   if (loading) {
@@ -176,28 +182,45 @@ const BlogPostPage: React.FC = () => {
             <span>←</span> back to blog
           </Link>
 
-          <div className="flex items-center gap-3 mb-5 font-mono text-[0.68rem] uppercase tracking-[0.08em] animate-fade-up" style={{ opacity: 0, animationDelay: '0s' }}>
+          <div
+            className="flex items-center gap-3 mb-5 font-mono text-[0.68rem] uppercase tracking-[0.08em] animate-fade-up"
+            style={{ opacity: 0, animationDelay: "0s" }}
+          >
             <span className="px-2.5 py-0.5 rounded-full bg-[rgba(92,112,128,0.1)] text-[#4A6170] font-medium">
-              {PILLAR_LABELS[(post as any).pillar] || 'POST'}
+              {PILLAR_LABELS[(post as any).pillar] || "POST"}
             </span>
-            <span className="text-slate-400">{formatDate(post.published_at)}</span>
+            <span className="text-slate-400">
+              {formatDate(post.published_at)}
+            </span>
             {post.reading_time && (
-              <span className="text-slate-400">{post.reading_time} min read</span>
+              <span className="text-slate-400">
+                {post.reading_time} min read
+              </span>
             )}
           </div>
 
           <h1
-            className="font-serif text-[clamp(1.9rem,5vw,3rem)] leading-[1.1] text-slate-900 mb-5 animate-fade-up"
-            style={{ opacity: 0, animationDelay: '0.08s' }}
+            className="font-display font-extrabold tracking-[-0.02em] text-[clamp(1.9rem,5vw,3rem)] leading-[1.08] text-slate-900 mb-5 animate-fade-up"
+            style={{ opacity: 0, animationDelay: "0.08s" }}
           >
             {post.title}
           </h1>
 
           <div
             className="font-mono text-[0.72rem] text-slate-400 flex items-center gap-2 animate-fade-up"
-            style={{ opacity: 0, animationDelay: '0.16s' }}
+            style={{ opacity: 0, animationDelay: "0.16s" }}
           >
-            <span>By <a href="https://x.com/joshgatewood" target="_blank" rel="noopener noreferrer" className="text-[#5C7080] hover:text-slate-900 transition-colors">@joshgatewood</a></span>
+            <span>
+              By{" "}
+              <a
+                href="https://x.com/joshgatewood"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#5C7080] hover:text-slate-900 transition-colors"
+              >
+                @joshgatewood
+              </a>
+            </span>
             <span className="text-slate-300">·</span>
             <span>Published {formatDate(post.published_at)}</span>
           </div>
@@ -209,7 +232,7 @@ const BlogPostPage: React.FC = () => {
           <article
             ref={contentRef}
             className="prose prose-slate prose-lg max-w-none animate-fade-up
-              prose-headings:font-serif prose-headings:font-normal prose-headings:tracking-tight
+              prose-headings:font-display prose-headings:font-bold prose-headings:tracking-[-0.01em]
               prose-h2:text-[1.5rem] prose-h2:border-t prose-h2:border-slate-200/60 prose-h2:pt-4 prose-h2:mt-12
               prose-h3:text-[1.15rem] prose-h3:mt-8
               prose-p:text-slate-600 prose-p:text-[1.05rem] prose-p:leading-[1.85] prose-p:font-light
@@ -217,10 +240,10 @@ const BlogPostPage: React.FC = () => {
               prose-strong:text-slate-900 prose-strong:font-medium
               prose-ul:text-slate-600 prose-ol:text-slate-600
               prose-li:text-[1.05rem] prose-li:leading-[1.85] prose-li:font-light
-              prose-blockquote:border-l-[3px] prose-blockquote:border-[#D4A84B] prose-blockquote:font-serif prose-blockquote:text-[1.1rem] prose-blockquote:italic prose-blockquote:leading-[1.65] prose-blockquote:text-slate-600
+              prose-blockquote:border-l-[3px] prose-blockquote:border-[#D4A84B] prose-blockquote:text-[1.1rem] prose-blockquote:italic prose-blockquote:leading-[1.65] prose-blockquote:text-slate-600
               prose-code:text-slate-800 prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono
               prose-pre:bg-slate-900"
-            style={{ opacity: 0, animationDelay: '0.24s' }}
+            style={{ opacity: 0, animationDelay: "0.24s" }}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
@@ -228,7 +251,10 @@ const BlogPostPage: React.FC = () => {
           <aside className="order-first lg:order-last">
             <div className="lg:sticky lg:top-20 space-y-4">
               {/* Share */}
-              <div className="bg-white border border-slate-200/80 rounded-lg p-5 animate-fade-up" style={{ opacity: 0, animationDelay: '0.3s' }}>
+              <div
+                className="bg-white border border-slate-200/80 rounded-lg p-5 animate-fade-up"
+                style={{ opacity: 0, animationDelay: "0.3s" }}
+              >
                 <div className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-slate-400 mb-3">
                   Share
                 </div>
@@ -244,19 +270,22 @@ const BlogPostPage: React.FC = () => {
                     onClick={handleCopyLink}
                     className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 border rounded-md font-mono text-[0.72rem] transition-all ${
                       copied
-                        ? 'border-green-500 text-green-600 bg-green-50'
-                        : 'border-slate-200 text-slate-600 hover:border-[#D4A84B] hover:bg-[rgba(212,168,75,0.05)]'
+                        ? "border-green-500 text-green-600 bg-green-50"
+                        : "border-slate-200 text-slate-600 hover:border-[#D4A84B] hover:bg-[rgba(212,168,75,0.05)]"
                     }`}
                   >
-                    <span className="text-base">{copied ? '✓' : '🔗'}</span>
-                    {copied ? 'Copied!' : 'Copy link'}
+                    <span className="text-base">{copied ? "✓" : "🔗"}</span>
+                    {copied ? "Copied!" : "Copy link"}
                   </button>
                 </div>
               </div>
 
               {/* Table of Contents */}
               {tocItems.length > 0 && (
-                <div className="bg-white border border-slate-200/80 rounded-lg p-5 animate-fade-up" style={{ opacity: 0, animationDelay: '0.36s' }}>
+                <div
+                  className="bg-white border border-slate-200/80 rounded-lg p-5 animate-fade-up"
+                  style={{ opacity: 0, animationDelay: "0.36s" }}
+                >
                   <div className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-slate-400 mb-3">
                     In this post
                   </div>
@@ -267,12 +296,14 @@ const BlogPostPage: React.FC = () => {
                           href={`#${id}`}
                           onClick={(e) => {
                             e.preventDefault();
-                            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+                            document
+                              .getElementById(id)
+                              ?.scrollIntoView({ behavior: "smooth" });
                           }}
                           className={`block font-mono text-[0.68rem] py-1.5 px-2 rounded transition-all ${
                             activeId === id
-                              ? 'bg-[#F5F5F0] text-slate-900'
-                              : 'text-slate-400 hover:text-slate-900 hover:bg-[#F5F5F0]'
+                              ? "bg-[#F5F5F0] text-slate-900"
+                              : "text-slate-400 hover:text-slate-900 hover:bg-[#F5F5F0]"
                           }`}
                         >
                           {text}

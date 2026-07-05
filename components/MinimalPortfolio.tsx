@@ -5,23 +5,45 @@ import {
   Twitter,
   Instagram,
   Youtube,
+  Github,
   ExternalLink,
   Calendar,
   FileText,
+  Mail,
   X,
   Play,
-  PenLine,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { siteConfig, ProjectMedia } from "../data/projects";
+import { siteConfig, Project, ProjectMedia } from "../data/projects";
 
 const iconMap = {
   Linkedin,
   Twitter,
   Instagram,
   Youtube,
+  Github,
 };
+
+const linkedInUrl =
+  siteConfig.socials.find((s) => s.icon === "Linkedin")?.url ?? "#";
+
+const getThumbnailUrl = (media: ProjectMedia): string | null => {
+  if (media.thumbnail) return media.thumbnail;
+  if (media.type === "image") return media.url;
+  if (media.url.includes("youtube.com") || media.url.includes("youtu.be")) {
+    const videoId = media.url.match(
+      /(?:youtube\.com\/(?:embed\/|watch\?v=)|youtu\.be\/)([^&?/]+)/,
+    )?.[1];
+    return videoId
+      ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
+      : null;
+  }
+  return null;
+};
+
+const isPlayable = (media: ProjectMedia) =>
+  media.type === "video" || media.type === "embed";
 
 const MinimalPortfolio: React.FC = () => {
   const [lightboxMedia, setLightboxMedia] = useState<ProjectMedia | null>(null);
@@ -46,12 +68,199 @@ const MinimalPortfolio: React.FC = () => {
     setLightboxIndex(newIndex);
     setLightboxMedia(lightboxGallery[newIndex]);
   };
+  const buildingProjects = siteConfig.projects.filter(
+    (p) => p.context === "Building",
+  );
+  const workProjects = siteConfig.projects.filter(
+    (p) => p.context !== "Building",
+  );
+
+  const renderProject = (project: Project, index: number) => {
+    const hasMedia = !!project.media && project.media.length > 0;
+    return (
+      <div
+        key={index}
+        className={`group ${hasMedia ? "md:grid md:grid-cols-2 md:gap-8 md:items-start" : ""}`}
+      >
+        {/* Project text */}
+        <div className="flex items-start gap-2">
+          <span className="text-slate-300 mt-0.5 select-none">·</span>
+          <div className="flex-1">
+            {project.url !== "#" ? (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-display text-2xl leading-tight tracking-[-0.01em] font-bold text-slate-900 hover:text-indigo-600 transition-colors inline-flex items-center gap-1.5"
+              >
+                {project.name}
+                {project.isLive && (
+                  <ExternalLink
+                    size={14}
+                    className="opacity-50 group-hover:opacity-100 transition-opacity"
+                  />
+                )}
+              </a>
+            ) : (
+              <span className="font-display text-2xl leading-tight tracking-[-0.01em] font-bold text-slate-900">
+                {project.name}
+              </span>
+            )}
+            {project.context && (
+              <span
+                className={`ml-2 inline-flex items-center gap-1.5 align-middle text-[0.6rem] font-medium uppercase tracking-[0.12em] px-2 py-0.5 rounded-full border ${
+                  project.context === "Acquired"
+                    ? "bg-amber-50 text-amber-700 border-amber-200"
+                    : project.context === "Building"
+                      ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                      : "bg-slate-100 text-slate-600 border-slate-200"
+                }`}
+              >
+                {project.context === "Building" && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-dot" />
+                )}
+                {project.context}
+              </span>
+            )}
+            <span className="text-slate-600 block mt-2 leading-relaxed text-balance">
+              {project.description}
+            </span>
+
+            {/* Highlights */}
+            {project.highlights && project.highlights.length > 0 && (
+              <ul className="mt-3 space-y-1">
+                {project.highlights.map((highlight, i) => (
+                  <li
+                    key={i}
+                    className="text-slate-500 text-sm flex items-start gap-1.5"
+                  >
+                    <span className="text-slate-400 mt-0.5 shrink-0">
+                      &bull;
+                    </span>
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* Tech stack chips */}
+            {project.techStack && project.techStack.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {project.techStack.map((t, i) => (
+                  <span
+                    key={i}
+                    className="font-mono text-[0.65rem] text-slate-600 bg-slate-100 border border-slate-200/70 rounded-full px-2 py-0.5"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Proof media - large cover + thumbnail strip */}
+        {project.media &&
+          project.media.length > 0 &&
+          (() => {
+            const media = project.media!;
+            const cover = media[0];
+            const coverThumb = getThumbnailUrl(cover);
+            const coverContain = cover.fit === "contain";
+            const strip = media.slice(1, 5);
+            const remaining = media.length - 1 - strip.length;
+
+            return (
+              <div className="mt-4 md:mt-0 space-y-2">
+                {/* Cover */}
+                <button
+                  onClick={() => openLightbox(media, 0)}
+                  className={`relative block w-full aspect-[16/10] rounded-xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-md hover:border-slate-300 transition-all group/cover ${coverContain ? "bg-[#FAFAF8]" : ""}`}
+                >
+                  {coverThumb ? (
+                    <img
+                      src={coverThumb}
+                      alt={`${project.name} preview`}
+                      loading="lazy"
+                      className={`w-full h-full transition-transform duration-300 ${coverContain ? "object-contain p-1.5" : "object-cover object-top group-hover/cover:scale-[1.02]"}`}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-slate-200 flex items-center justify-center">
+                      <Play size={28} className="text-slate-400" />
+                    </div>
+                  )}
+                  {isPlayable(cover) && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-slate-900/25 group-hover/cover:bg-slate-900/35 transition-colors">
+                      <span className="flex items-center justify-center w-12 h-12 rounded-full bg-white/90 shadow">
+                        <Play
+                          size={20}
+                          className="text-slate-900 fill-slate-900 ml-0.5"
+                        />
+                      </span>
+                    </div>
+                  )}
+                </button>
+
+                {/* Thumbnail strip */}
+                {strip.length > 0 && (
+                  <div className="flex gap-2">
+                    {strip.map((m, i) => {
+                      const mediaIndex = i + 1;
+                      const thumb = getThumbnailUrl(m);
+                      return (
+                        <button
+                          key={mediaIndex}
+                          onClick={() => openLightbox(media, mediaIndex)}
+                          className="relative w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-md hover:border-slate-300 transition-all group/thumb"
+                        >
+                          {thumb ? (
+                            <img
+                              src={thumb}
+                              alt={`${project.name} ${m.type} ${mediaIndex + 1}`}
+                              loading="lazy"
+                              className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-slate-200 flex items-center justify-center">
+                              <Play size={20} className="text-slate-400" />
+                            </div>
+                          )}
+                          {isPlayable(m) && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-slate-900/30 group-hover/thumb:bg-slate-900/40 transition-colors">
+                              <Play
+                                size={16}
+                                className="text-white fill-white"
+                              />
+                            </div>
+                          )}
+                        </button>
+                      );
+                    })}
+                    {remaining > 0 && (
+                      <button
+                        onClick={() => openLightbox(media, 1 + strip.length)}
+                        className="w-16 h-16 md:w-20 md:h-20 rounded-lg border border-slate-200/80 shadow-sm hover:shadow-md hover:border-slate-300 transition-all bg-slate-100 flex items-center justify-center"
+                      >
+                        <span className="text-sm font-medium text-slate-600">
+                          +{remaining}
+                        </span>
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
+      </div>
+    );
+  };
+
   return (
     <main className="min-h-screen bg-[#FAFAF8]">
       {/* Subtle grain texture overlay */}
       <div className="fixed inset-0 opacity-[0.015] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iMSIvPjwvc3ZnPg==')]" />
 
-      <div className="relative max-w-2xl mx-auto px-6 py-16 md:py-24">
+      <div className="relative max-w-4xl mx-auto px-6 py-16 md:py-24">
         {/* ===== HEADER ===== */}
         <header className="mb-16 animate-fade-in text-center">
           {/* Photo - Centered */}
@@ -63,8 +272,8 @@ const MinimalPortfolio: React.FC = () => {
             />
           </div>
 
-          {/* Name - Editorial serif */}
-          <h1 className="font-serif text-4xl md:text-5xl font-normal text-slate-900 tracking-tight mb-3">
+          {/* Name - Display grotesk */}
+          <h1 className="font-display text-[clamp(2.5rem,7.5vw,4.75rem)] leading-[1.02] font-extrabold text-slate-900 tracking-[-0.02em] mb-4">
             {siteConfig.name}
           </h1>
 
@@ -73,154 +282,76 @@ const MinimalPortfolio: React.FC = () => {
             {siteConfig.tagline}
           </p>
 
-          {/* Headline - concrete positioning + proof hook */}
-          <p className="mt-4 text-slate-600 text-[15px] leading-relaxed max-w-md mx-auto">
-            {siteConfig.headline}
-          </p>
+          {/* Headline - concrete positioning + proof hook, one thought per line */}
+          <div className="mt-4 text-slate-600 text-base leading-relaxed">
+            {siteConfig.headline.split(". ").map((line, i, arr) => (
+              <p key={i}>
+                {line}
+                {i < arr.length - 1 ? "." : ""}
+              </p>
+            ))}
+          </div>
+
+          {/* Primary actions - tuned for recruiters: resume + profiles first */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to={siteConfig.resumeUrl}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-full hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
+            >
+              <FileText size={16} />
+              View Resume
+            </Link>
+            <a
+              href={linkedInUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-slate-700 text-sm font-medium rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 hover:scale-[1.02] active:scale-[0.98] transition-all"
+            >
+              <Linkedin size={16} />
+              LinkedIn
+            </a>
+          </div>
         </header>
 
-        {/* ===== PROJECTS ===== */}
+        {/* ===== PROOF BAND ===== */}
         <section className="mb-16 animate-fade-in animation-delay-100">
-          <h2 className="text-xs font-medium text-slate-500 uppercase tracking-[0.2em] mb-8">
-            Projects
-          </h2>
-
-          <div className="space-y-8">
-            {siteConfig.projects.map((project, index) => (
-              <div key={index} className="group">
-                {/* Project Header */}
-                <div className="flex items-start gap-2 mb-3">
-                  <span className="text-slate-300 mt-0.5 select-none">—</span>
-                  <div className="flex-1">
-                    {project.url !== "#" ? (
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-slate-900 font-medium hover:text-indigo-600 transition-colors inline-flex items-center gap-1.5"
-                      >
-                        {project.name}
-                        {project.isLive && (
-                          <ExternalLink
-                            size={14}
-                            className="opacity-50 group-hover:opacity-100 transition-opacity"
-                          />
-                        )}
-                      </a>
-                    ) : (
-                      <span className="text-slate-900 font-medium">
-                        {project.name}
-                      </span>
-                    )}
-                    {project.context && (
-                      <span className="text-slate-500 text-sm ml-1.5">
-                        {project.context}
-                      </span>
-                    )}
-                    <span className="text-slate-500 block mt-1">
-                      {project.description}
-                    </span>
-
-                    {/* Highlights */}
-                    {project.highlights && project.highlights.length > 0 && (
-                      <ul className="mt-3 space-y-1">
-                        {project.highlights.map((highlight, i) => (
-                          <li
-                            key={i}
-                            className="text-slate-500 text-sm flex items-start gap-1.5"
-                          >
-                            <span className="text-slate-400 mt-0.5 shrink-0">
-                              &bull;
-                            </span>
-                            {highlight}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 border-y border-slate-200/60 py-6">
+            {siteConfig.stats.map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="font-display text-[clamp(1.5rem,3.6vw,2.75rem)] font-bold tracking-[-0.02em] text-slate-900 leading-none">
+                  {stat.value}
                 </div>
-
-                {/* Proof Thumbnails (Images, Videos & Embeds) - max 4 visible */}
-                {project.media &&
-                  project.media.length > 0 &&
-                  (() => {
-                    const maxVisible = 4;
-                    const visibleMedia = project.media.slice(0, maxVisible);
-                    const remaining = project.media.length - maxVisible;
-
-                    return (
-                      <div className="ml-6 flex gap-2">
-                        {visibleMedia.map((media, mediaIndex) => {
-                          const allMedia = project.media!;
-                          const getThumbnailUrl = () => {
-                            if (media.thumbnail) return media.thumbnail;
-                            if (media.type === "image") return media.url;
-                            if (
-                              media.url.includes("youtube.com") ||
-                              media.url.includes("youtu.be")
-                            ) {
-                              const videoId = media.url.match(
-                                /(?:youtube\.com\/(?:embed\/|watch\?v=)|youtu\.be\/)([^&?/]+)/,
-                              )?.[1];
-                              return videoId
-                                ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
-                                : null;
-                            }
-                            return null;
-                          };
-                          const thumbnailUrl = getThumbnailUrl();
-                          const isPlayable =
-                            media.type === "video" || media.type === "embed";
-
-                          return (
-                            <button
-                              key={mediaIndex}
-                              onClick={() => openLightbox(allMedia, mediaIndex)}
-                              className="relative w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-md hover:border-slate-300 transition-all group/thumb"
-                            >
-                              {thumbnailUrl ? (
-                                <img
-                                  src={thumbnailUrl}
-                                  alt={`${project.name} ${media.type} ${mediaIndex + 1}`}
-                                  loading="lazy"
-                                  className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300"
-                                />
-                              ) : (
-                                <div className="w-full h-full bg-slate-200 flex items-center justify-center">
-                                  <Play size={24} className="text-slate-400" />
-                                </div>
-                              )}
-                              {isPlayable && (
-                                <div className="absolute inset-0 flex items-center justify-center bg-slate-900/30 group-hover/thumb:bg-slate-900/40 transition-colors">
-                                  <Play
-                                    size={20}
-                                    className="text-white fill-white"
-                                  />
-                                </div>
-                              )}
-                              {media.type === "image" && (
-                                <div className="absolute inset-0 bg-slate-900/0 group-hover/thumb:bg-slate-900/10 transition-colors" />
-                              )}
-                            </button>
-                          );
-                        })}
-                        {remaining > 0 && (
-                          <button
-                            onClick={() =>
-                              openLightbox(project.media!, maxVisible)
-                            }
-                            className="relative w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-md hover:border-slate-300 transition-all bg-slate-100 flex items-center justify-center"
-                          >
-                            <span className="text-sm font-medium text-slate-600">
-                              +{remaining}
-                            </span>
-                          </button>
-                        )}
-                      </div>
-                    );
-                  })()}
+                <div className="mt-2 text-[0.72rem] text-slate-500 leading-snug text-balance">
+                  {stat.label}
+                </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* ===== BUILDING NOW ===== */}
+        {buildingProjects.length > 0 && (
+          <section className="mb-16 animate-fade-in animation-delay-100">
+            <h2 className="text-xs font-medium text-slate-500 uppercase tracking-[0.2em] mb-8">
+              Building Now
+            </h2>
+            <div className="space-y-12">
+              {buildingProjects.map((project, index) =>
+                renderProject(project, index),
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* ===== SELECTED WORK ===== */}
+        <section className="mb-16 animate-fade-in animation-delay-200">
+          <h2 className="text-xs font-medium text-slate-500 uppercase tracking-[0.2em] mb-8">
+            Selected Work
+          </h2>
+          <div className="space-y-12">
+            {workProjects.map((project, index) =>
+              renderProject(project, index),
+            )}
           </div>
         </section>
 
@@ -241,17 +372,15 @@ const MinimalPortfolio: React.FC = () => {
             Get in Touch
           </h2>
 
-          {/* CTAs */}
+          {/* CTAs - email-first for recruiters, call secondary */}
           <div className="flex flex-wrap gap-3 mb-8">
-            {/* Cal.com - Primary CTA */}
+            {/* Email - Primary CTA */}
             <a
-              href={siteConfig.calComUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:joshuangatewood@gmail.com"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-full hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
             >
-              <Calendar size={16} />
-              Book a Call
+              <Mail size={16} />
+              Email Me
             </a>
 
             {/* Resume - Secondary CTA */}
@@ -263,14 +392,16 @@ const MinimalPortfolio: React.FC = () => {
               View Resume
             </Link>
 
-            {/* Writing Link */}
-            <Link
-              to="/blog"
+            {/* Book a Call - Secondary CTA */}
+            <a
+              href={siteConfig.calComUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-slate-700 text-sm font-medium rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
-              <PenLine size={16} />
-              Writing
-            </Link>
+              <Calendar size={16} />
+              Book a Call
+            </a>
           </div>
 
           {/* Social Links */}
