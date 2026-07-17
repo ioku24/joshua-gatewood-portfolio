@@ -345,9 +345,21 @@ const MinimalPortfolio: React.FC = () => {
           </div>
         </section>
 
+        {/* ===== SELECTED WORK ===== */}
+        <section className="mb-16 animate-fade-in animation-delay-100">
+          <h2 className="text-xs font-medium text-slate-500 uppercase tracking-[0.2em] mb-8">
+            Selected Work
+          </h2>
+          <div className="space-y-12">
+            {workProjects.map((project, index) =>
+              renderProject(project, index),
+            )}
+          </div>
+        </section>
+
         {/* ===== BUILDING NOW ===== */}
         {buildingProjects.length > 0 && (
-          <section className="mb-16 animate-fade-in animation-delay-100">
+          <section className="mb-16 animate-fade-in animation-delay-200">
             <h2 className="text-xs font-medium text-slate-500 uppercase tracking-[0.2em] mb-8">
               Building Now
             </h2>
@@ -358,18 +370,6 @@ const MinimalPortfolio: React.FC = () => {
             </div>
           </section>
         )}
-
-        {/* ===== SELECTED WORK ===== */}
-        <section className="mb-16 animate-fade-in animation-delay-200">
-          <h2 className="text-xs font-medium text-slate-500 uppercase tracking-[0.2em] mb-8">
-            Selected Work
-          </h2>
-          <div className="space-y-12">
-            {workProjects.map((project, index) =>
-              renderProject(project, index),
-            )}
-          </div>
-        </section>
 
         {/* ===== ABOUT ===== */}
         <section className="mb-16 animate-fade-in animation-delay-200">

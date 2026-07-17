@@ -49,18 +49,18 @@ export const siteConfig: SiteConfig = {
   name: "Joshua Gatewood",
   tagline: "AI Engineer",
   headline:
-    "I build autonomous AI systems and full-stack platforms. One was acquired for six figures.",
+    "I build autonomous AI systems and full-stack platforms. One was acquired.",
   photoUrl: "/JG profile photos.jpeg",
   calComUrl: "https://cal.com/joshuagatewood",
   resumeUrl: "/resume",
 
   about:
-    "I'm an AI Engineer at Brinker. I came up through marketing operations, then AI coding tools let me build the systems I used to only spec. Now I ship autonomous AI systems and full-stack platforms, from a field-operations platform acquired for six figures to a content engine I'm building today. I care about systems that actually run in the real world: fact-checked, human-in-the-loop, and measured.",
+    "Aloha, I'm Josh, an AI engineer originally from Hawaii. I love building production-grade systems, and I've shipped autonomous agents and multi-step agentic workflows. Off the clock, you'll find me learning about AI and robotics, or in the gym.",
 
   stats: [
     {
-      value: "6 figures",
-      label: "A field-ops platform, acquired soon after launch",
+      value: "Acquired",
+      label: "A field-ops platform, six weeks after launch",
     },
     { value: "~2 mo", label: "Concept to production on that platform" },
     { value: "#1", label: "Client site ranked first in Perplexity" },
@@ -70,15 +70,13 @@ export const siteConfig: SiteConfig = {
     {
       name: "Personal RAG Knowledge System",
       description:
-        "A retrieval system over my own ~300-chunk Obsidian vault that auto-surfaces the right notes into my AI agents mid-task and stays silent when nothing is relevant. It combines deterministic keyword search with multilingual-e5 vector search (Pinecone), then follows my notes' wiki-links to pull in linked context, with a dependency-free local floor so recall degrades gracefully instead of failing when the vector store is down.",
+        "A retrieval system over my Obsidian vault that surfaces the right notes into my AI agents mid-task — and stays silent when nothing is relevant.",
       url: "#",
       context: "Building",
       highlights: [
-        "Hybrid retrieval: weighted keyword scoring plus dense (multilingual-e5) semantic search, merged and deduped",
-        "Walks the Obsidian wiki-link graph: retrieved notes pull in their 1-hop linked neighbors, so connected context comes along",
-        "Precision-first abstain gate injects context only when the semantic hit is corroborated, so out-of-scope queries stay silent",
-        "Measured like production: Recall@4 ~0.91, MRR 0.80, and 100% correct abstention on out-of-scope queries against a golden-set eval",
-        "Default-deny governance layer that separates personal knowledge from confidential data, verified at zero leakage",
+        "Recall@4 ~0.91, MRR 0.80 against a golden-set eval",
+        "100% correct abstention on out-of-scope queries",
+        "Hybrid keyword + vector retrieval that follows the vault's wiki-links",
       ],
       techStack: [
         "Python",
@@ -94,15 +92,14 @@ export const siteConfig: SiteConfig = {
     {
       name: "UGM Field Ops",
       description:
-        "A field operations platform I built for a commercial construction company, replacing triple manual data entry (paper timesheets, accounting, and spreadsheets) with one offline-capable app. Crews log time from the jobsite, estimates and cost data import automatically, and an AI layer generates cost reports, drafts change orders, and sends a daily briefing. Built from concept to production in about two months, then acquired in a six-figure deal.",
+        "One offline-capable app that replaced a construction company's paper timesheets, spreadsheet cost tracking, and manual re-entry — with an AI layer for cost reports and change orders.",
       url: "#",
       isLive: true,
       context: "Acquired",
       highlights: [
-        "Eliminated roughly 8 hours a week of manual re-entry between the field, accounting, and spreadsheets",
-        "Turned a full day of monthly cost reporting into one upload and one click",
-        "Role-based access and multi-company architecture, offline-capable for remote job sites",
-        "AI layer for cost reports, change-order drafts, and daily project briefings",
+        "Acquired in a six-figure deal six weeks after launch",
+        "Eliminated ~8 hours a week of manual re-entry",
+        "Role-based, multi-company, offline-capable for remote job sites",
       ],
       media: [
         {
@@ -118,13 +115,13 @@ export const siteConfig: SiteConfig = {
     {
       name: "Content Engine",
       description:
-        "A venture-agnostic content and distribution engine I'm building: it researches trends from public sources, ranks and fact-checks them, drafts posts in a defined brand voice, and routes every draft through a human approval gate before publishing and measuring. Built as a reusable core with a swappable per-venture config, so the same pipeline runs any brand by changing configuration, not code.",
+        "A venture-agnostic content and distribution engine: researches trends, fact-checks, drafts in brand voice, and routes every post through human approval.",
       url: "#",
       context: "Building",
       highlights: [
-        "A deliberate, research-backed alternative to multi-agent swarms: one deterministic, fact-checked pipeline with human-in-the-loop",
-        "Runs on the same agent runtime as a second autonomous agent that scouts AI-frontier signal and briefs me daily",
-        "The content-creation half runs daily; multi-channel distribution and a learning loop are in active development",
+        "One deterministic, fact-checked pipeline — not a multi-agent swarm",
+        "Swappable per-venture config: same pipeline, any brand",
+        "Creation runs daily; distribution and learning loop in development",
       ],
       techStack: [
         "autonomous agents",
@@ -137,13 +134,13 @@ export const siteConfig: SiteConfig = {
     {
       name: "Enterprise RAG",
       description:
-        "The retrieval pattern I build for organizations: a system that answers questions from a company's own documents (SOPs, policies, handbooks) with a citation on every claim, and defers instead of guessing when the source isn't there. Embeddings run inside the org's environment for data residency, so sensitive information never leaves it.",
+        "The retrieval pattern I build for organizations: answers from your own documents, a citation on every claim, and abstention instead of guessing.",
       url: "#",
       context: "Building",
       highlights: [
-        "Cite-or-defer answers: every claim links to its source document, and the system abstains rather than hallucinate",
-        "In-boundary embeddings so sensitive data never leaves the organization's environment",
-        "Same eval-first rigor as my personal RAG: retrieval quality is measured before anything ships",
+        "Cite-or-defer: every claim links to its source document",
+        "In-boundary embeddings — sensitive data never leaves your environment",
+        "Eval-first: retrieval quality measured before anything ships",
       ],
       techStack: [
         "RAG",
@@ -158,39 +155,18 @@ export const siteConfig: SiteConfig = {
       ],
     },
     {
-      name: "US Gage",
-      description:
-        "Full digital transformation for a precision thread-gauge manufacturer (whose customers include GE Aerospace and BAE Systems). Website redesign, Google Ads optimization (health score 22 → 50, optimization score 71% → 90%), full analytics infrastructure (GA4 + GTM + GSC), brand strategy, and competitive analysis.",
-      url: "#",
-      context: "Client Work",
-      techStack: [
-        "WordPress",
-        "WooCommerce",
-        "Google Ads",
-        "GA4/GTM",
-        "SEO",
-        "Brand Strategy",
-      ],
-      highlights: [
-        "Google Ads health score 22 → 50 (more than doubled), optimization score 71% → 90%",
-        "6 conversion events configured across GA4, GTM, and Google Ads",
-        "Complete brand repositioning around speed, an uncontested differentiator in market",
-        "E-commerce integration (WooCommerce + Stripe) for direct gauge purchasing",
-      ],
-    },
-    {
       name: "Samco FM",
       description:
-        "Website, iOS app (live on the App Store), and full SEO/AEO strategy for commercial HVAC company. Ranked on Google's first page within a week. #1 in Perplexity, visible in ChatGPT and Grok.",
+        "Website, iOS app (live on the App Store), and full SEO/AEO strategy for a commercial HVAC company.",
       url: "https://samcofm.com",
       appStoreUrl: "https://apps.apple.com/us/app/samco-fm/id6759766613",
       isLive: true,
       context: "Client Work",
       techStack: ["React Native", "iOS", "SEO", "AEO", "Web Development"],
       highlights: [
-        "Built website + iOS app (work orders, QR scanning, GPS tracking), shipped to the App Store",
-        "First page of Google within 1 week",
-        "#1 in Perplexity, visible in ChatGPT and Grok for commercial HVAC queries",
+        "First page of Google within a week",
+        "#1 in Perplexity; visible in ChatGPT and Grok",
+        "Work orders, QR scanning, and GPS tracking in the app",
       ],
       media: [
         { type: "image", url: "/assets/samcofm-site.png" },
@@ -207,17 +183,18 @@ export const siteConfig: SiteConfig = {
       ],
     },
     {
+      name: "US Gage",
+      description:
+        "Full digital transformation for a precision thread-gauge manufacturer supplying GE Aerospace and BAE Systems: website, Google Ads (health score 22 → 50), analytics, and e-commerce.",
+      url: "#",
+      context: "Client Work",
+    },
+    {
       name: "Gauntlet AI",
       description:
-        "Marketing operations for an established AI company. Full-funnel audit, CRM cleanup, content automation, and competitive intelligence.",
+        "Marketing operations for an AI company: full-funnel audit contributing to 2x pipeline growth, 4,400+ CRM issues resolved, 3-5x content output.",
       url: "#",
       context: "Marketing Operations",
-      techStack: ["HubSpot", "Marketing Ops", "Automation"],
-      highlights: [
-        "Full-funnel audit and roadmap that contributed to 2x pipeline growth",
-        "Resolved 4,400+ CRM data issues and set data-hygiene standards",
-        "Built content automation that lifted team output 3-5x",
-      ],
     },
   ],
 
