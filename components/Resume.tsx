@@ -87,9 +87,10 @@ const Resume: React.FC = () => {
             human-in-the-loop agent systems and production-grade RAG, and builds
             the full stack around them, from Postgres and Next.js to a shipped
             iOS app. I came up through marketing operations and taught myself to
-            build with AI; one platform I built was acquired within weeks of
-            launch. I work framework-free and evals-first, and I care about
-            systems that actually run: fact-checked, measured, and reliable.
+            build with AI; one platform I built was acquired for six figures
+            within weeks of launch. I work framework-free and evals-first, and I
+            care about systems that actually run: fact-checked, measured, and
+            reliable.
           </p>
         </header>
 
@@ -181,7 +182,7 @@ const Resume: React.FC = () => {
               </strong>
               .{" "}
               <strong className="text-slate-900 font-medium">
-                Acquired by a company about six weeks after launch.
+                Acquired in a six-figure deal about six weeks after launch.
               </strong>
             </>,
             <>

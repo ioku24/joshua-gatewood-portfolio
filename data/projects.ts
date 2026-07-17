@@ -49,18 +49,18 @@ export const siteConfig: SiteConfig = {
   name: "Joshua Gatewood",
   tagline: "AI Engineer",
   headline:
-    "I build autonomous AI systems and full-stack platforms. One was acquired.",
+    "I build autonomous AI systems and full-stack platforms. One was acquired for six figures.",
   photoUrl: "/JG profile photos.jpeg",
   calComUrl: "https://cal.com/joshuagatewood",
   resumeUrl: "/resume",
 
   about:
-    "I'm an AI Engineer at Brinker. I came up through marketing operations, then AI coding tools let me build the systems I used to only spec. Now I ship autonomous AI systems and full-stack platforms, from a field-operations platform that was acquired to a content engine I'm building today. I care about systems that actually run in the real world: fact-checked, human-in-the-loop, and measured.",
+    "I'm an AI Engineer at Brinker. I came up through marketing operations, then AI coding tools let me build the systems I used to only spec. Now I ship autonomous AI systems and full-stack platforms, from a field-operations platform acquired for six figures to a content engine I'm building today. I care about systems that actually run in the real world: fact-checked, human-in-the-loop, and measured.",
 
   stats: [
     {
-      value: "Acquired",
-      label: "A field-ops platform, bought soon after launch",
+      value: "6 figures",
+      label: "A field-ops platform, acquired soon after launch",
     },
     { value: "~2 mo", label: "Concept to production on that platform" },
     { value: "#1", label: "Client site ranked first in Perplexity" },
@@ -94,7 +94,7 @@ export const siteConfig: SiteConfig = {
     {
       name: "UGM Field Ops",
       description:
-        "A field operations platform I built for a commercial construction company, replacing triple manual data entry (paper timesheets, accounting, and spreadsheets) with one offline-capable app. Crews log time from the jobsite, estimates and cost data import automatically, and an AI layer generates cost reports, drafts change orders, and sends a daily briefing. Built from concept to production in about two months, then acquired by a company.",
+        "A field operations platform I built for a commercial construction company, replacing triple manual data entry (paper timesheets, accounting, and spreadsheets) with one offline-capable app. Crews log time from the jobsite, estimates and cost data import automatically, and an AI layer generates cost reports, drafts change orders, and sends a daily briefing. Built from concept to production in about two months, then acquired in a six-figure deal.",
       url: "#",
       isLive: true,
       context: "Acquired",
