@@ -205,8 +205,16 @@ const Resume: React.FC = () => {
             <>
               Delivered{" "}
               <strong className="text-slate-900 font-medium">Samco FM</strong>{" "}
-              mobile app and SEO/AEO strategy for a commercial HVAC company:
-              service-request tracking, QR equipment scanning, push
+              <a
+                href="https://apps.apple.com/us/app/samco-fm/id6759766613"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-600 hover:text-indigo-800 underline underline-offset-2"
+              >
+                iOS app
+              </a>{" "}
+              (live on the App Store) and SEO/AEO strategy for a commercial HVAC
+              company: service-request tracking, QR equipment scanning, push
               notifications, first-page Google ranking, and #1 in Perplexity.
               (React Native, Expo, Supabase)
             </>,

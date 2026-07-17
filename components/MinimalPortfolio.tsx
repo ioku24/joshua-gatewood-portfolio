@@ -143,6 +143,22 @@ const MinimalPortfolio: React.FC = () => {
               </ul>
             )}
 
+            {/* App Store badge */}
+            {project.appStoreUrl && (
+              <a
+                href={project.appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src="/assets/app-store-badge.svg"
+                  alt="Download on the App Store"
+                  className="h-10"
+                />
+              </a>
+            )}
+
             {/* Tech stack chips */}
             {project.techStack && project.techStack.length > 0 && (
               <div className="mt-3 flex flex-wrap gap-1.5">

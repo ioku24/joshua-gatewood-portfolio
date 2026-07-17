@@ -13,6 +13,7 @@ export interface Project {
   name: string;
   description: string;
   url: string;
+  appStoreUrl?: string; // Link to a shipped iOS app on the App Store
   isLive?: boolean;
   context?: string; // e.g., "at Gauntlet AI"
   techStack?: string[]; // e.g., ["TypeScript", "React"]
@@ -180,13 +181,14 @@ export const siteConfig: SiteConfig = {
     {
       name: "Samco FM",
       description:
-        "Website, mobile app (iOS), and full SEO/AEO strategy for commercial HVAC company. Ranked on Google's first page within a week. #1 in Perplexity, visible in ChatGPT and Grok.",
+        "Website, iOS app (live on the App Store), and full SEO/AEO strategy for commercial HVAC company. Ranked on Google's first page within a week. #1 in Perplexity, visible in ChatGPT and Grok.",
       url: "https://samcofm.com",
+      appStoreUrl: "https://apps.apple.com/us/app/samco-fm/id6759766613",
       isLive: true,
       context: "Client Work",
       techStack: ["React Native", "iOS", "SEO", "AEO", "Web Development"],
       highlights: [
-        "Built website + mobile app (work orders, QR scanning, GPS tracking)",
+        "Built website + iOS app (work orders, QR scanning, GPS tracking), shipped to the App Store",
         "First page of Google within 1 week",
         "#1 in Perplexity, visible in ChatGPT and Grok for commercial HVAC queries",
       ],
