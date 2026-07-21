@@ -49,21 +49,20 @@ export const siteConfig: SiteConfig = {
   name: "Joshua Gatewood",
   tagline: "AI Engineer",
   headline:
-    "I build autonomous AI systems and full-stack platforms. One was acquired.",
-  photoUrl: "/JG profile photos.jpeg",
+    // U+2011 non-breaking hyphen so "full-stack" never splits across lines
+    "I build autonomous AI systems and full‑stack platforms. One was acquired.",
+  photoUrl: "/jg-portrait.webp",
   calComUrl: "https://cal.com/joshuagatewood",
   resumeUrl: "/resume",
 
   about:
     "Aloha, I'm Josh, an AI engineer originally from Hawaii. I love building production-grade systems, and I've shipped autonomous agents and multi-step agentic workflows. Off the clock, you'll find me learning about AI and robotics, or in the gym.",
 
+  // Labels stay short enough to wrap to two lines in a 98px mobile column
   stats: [
-    {
-      value: "Acquired",
-      label: "A field-ops platform, six weeks after launch",
-    },
-    { value: "~2 mo", label: "Concept to production on that platform" },
-    { value: "#1", label: "Client site ranked first in Perplexity" },
+    { value: "Acquired", label: "Six weeks after launch" },
+    { value: "~2 mo", label: "Concept to production" },
+    { value: "#1", label: "Client site in Perplexity" },
   ],
 
   projects: [
@@ -105,11 +104,11 @@ export const siteConfig: SiteConfig = {
         {
           type: "video",
           url: "/assets/ugm-demo.mp4",
-          thumbnail: "/assets/ugm-dashboard.png",
+          thumbnail: "/assets/ugm-dashboard.webp",
         },
-        { type: "image", url: "/assets/ugm-dashboard.png" },
-        { type: "image", url: "/assets/ugm-mobile.png" },
-        { type: "image", url: "/assets/ugm-approvals.png" },
+        { type: "image", url: "/assets/ugm-dashboard.webp" },
+        { type: "image", url: "/assets/ugm-mobile.webp" },
+        { type: "image", url: "/assets/ugm-approvals.webp" },
       ],
     },
     {
@@ -169,17 +168,17 @@ export const siteConfig: SiteConfig = {
         "Work orders, QR scanning, and GPS tracking in the app",
       ],
       media: [
-        { type: "image", url: "/assets/samcofm-site.png" },
-        { type: "image", url: "/assets/samcofm-google.png" },
-        { type: "image", url: "/assets/samco-app-home.png" },
+        { type: "image", url: "/assets/samcofm-site.webp" },
+        { type: "image", url: "/assets/samcofm-google.webp" },
+        { type: "image", url: "/assets/samco-app-home.webp" },
         {
           type: "video",
           url: "/assets/samco-app-demo.mp4",
-          thumbnail: "/assets/samco-app-jobs.png",
+          thumbnail: "/assets/samco-app-jobs.webp",
         },
-        { type: "image", url: "/assets/samcofm-perplexity.png" },
-        { type: "image", url: "/assets/samcofm-grok.png" },
-        { type: "image", url: "/assets/samcofm-chatgpt.png" },
+        { type: "image", url: "/assets/samcofm-perplexity.webp" },
+        { type: "image", url: "/assets/samcofm-grok.webp" },
+        { type: "image", url: "/assets/samcofm-chatgpt.webp" },
       ],
     },
     {

@@ -284,6 +284,10 @@ const MinimalPortfolio: React.FC = () => {
             <img
               src={siteConfig.photoUrl}
               alt={siteConfig.name}
+              width={512}
+              height={512}
+              fetchPriority="high"
+              decoding="async"
               className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover object-top ring-2 ring-slate-200/50 shadow-lg"
             />
           </div>
@@ -298,15 +302,10 @@ const MinimalPortfolio: React.FC = () => {
             {siteConfig.tagline}
           </p>
 
-          {/* Headline - concrete positioning + proof hook, one thought per line */}
-          <div className="mt-4 text-slate-600 text-base leading-relaxed">
-            {siteConfig.headline.split(". ").map((line, i, arr) => (
-              <p key={i}>
-                {line}
-                {i < arr.length - 1 ? "." : ""}
-              </p>
-            ))}
-          </div>
+          {/* Headline - one balanced block; ~38ch cap keeps it to two even lines at every width */}
+          <p className="mt-4 mx-auto max-w-[38ch] text-slate-600 text-base leading-relaxed text-balance">
+            {siteConfig.headline}
+          </p>
 
           {/* Primary actions - tuned for recruiters: resume + profiles first */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

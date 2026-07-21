@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joshua Gatewood | AI Engineer</title>
 
+    <!-- LCP image: discoverable in HTML so it isn't queued behind the JS bundle -->
+    <link rel="preload" as="image" href="/jg-portrait.webp" fetchpriority="high" />
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
@@ -53,12 +56,9 @@
     <!-- AI Agent Discovery -->
     <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site info">
 
-    <!-- Fonts: DM Sans (body) + Cabinet Grotesk (display) + IBM Plex Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800&display=swap" rel="stylesheet">
+    <!-- Fonts: self-hosted in /fonts, declared in index.css. Preload the two on first paint. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/dm-sans-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/cabinet-grotesk-800.woff2" crossorigin>
   </head>
   <body>
     <div id="root"></div>

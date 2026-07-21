@@ -23,7 +23,7 @@
   <rect width="1080" height="640" fill="#FAFAF8"/>
 
   <!-- Title -->
-  <text x="48" y="58" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#0F172A">Autonomous agent, human-in-the-loop</text>
+  <text x="48" y="58" font-family="'Cabinet Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="34" fill="#0F172A">Autonomous agent, human-in-the-loop</text>
   <text x="48" y="90" font-size="17" fill="#64748B">A deterministic pipeline, not a swarm. Every output is reviewed before it ships.</text>
 
   <!-- Connectors -->

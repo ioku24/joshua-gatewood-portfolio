@@ -19,7 +19,7 @@
   <rect width="1080" height="640" fill="#FAFAF8"/>
 
   <!-- Title -->
-  <text x="48" y="58" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#0F172A">Enterprise knowledge retrieval</text>
+  <text x="48" y="58" font-family="'Cabinet Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="34" fill="#0F172A">Enterprise knowledge retrieval</text>
   <text x="48" y="90" font-size="17" fill="#64748B">Answers grounded in an organization's own documents, with citations and data residency.</text>
 
   <!-- Connectors -->

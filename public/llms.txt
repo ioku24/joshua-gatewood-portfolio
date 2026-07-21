@@ -8,12 +8,12 @@ I'm an AI Engineer at Brinker. I started in marketing ops, then picked up AI cod
 
 ## Contact
 
-- Website: https://www.joshuangatewood.com
-- Book a call: https://cal.com/joshuagatewood
-- LinkedIn: https://www.linkedin.com/in/joshuangatewood
-- X/Twitter: https://x.com/joshgatewood
-- Instagram: https://www.instagram.com/joshuangatewood/
-- YouTube: https://www.youtube.com/@joshuagatewood
+- [Website](https://www.joshuangatewood.com)
+- [Book a call](https://cal.com/joshuagatewood)
+- [LinkedIn](https://www.linkedin.com/in/joshuangatewood)
+- [X/Twitter](https://x.com/joshgatewood)
+- [Instagram](https://www.instagram.com/joshuangatewood/)
+- [YouTube](https://www.youtube.com/@joshuagatewood)
 
 ## Projects
 
@@ -26,12 +26,12 @@ I'm an AI Engineer at Brinker. I started in marketing ops, then picked up AI cod
 - Description: An AI system that turns trend signals and a single idea into voice-matched, publish-ready content and handles distribution across channels, with a human-approval queue. It grew out of an earlier multi-agent system Josh built across sales, marketing, and operations; he is now focused on the content and distribution layer.
 
 ### US Gage (Client Work)
-- URL: https://usgage.com
+- [usgage.com](https://usgage.com)
 - Status: Live
 - Description: Full digital transformation for a precision thread-gauge manufacturer (whose customers include GE Aerospace and BAE Systems). Website redesign, Google Ads optimization (health score 22 to 50, optimization score 71% to 90%), full analytics infrastructure (GA4 + GTM + GSC), brand strategy, competitive analysis, and WooCommerce e-commerce integration.
 
 ### Samco FM (Client Work)
-- URL: https://samcofm.com
+- [samcofm.com](https://samcofm.com)
 - Status: Live
 - Description: Website, mobile app (iOS), and full SEO/AEO strategy for commercial HVAC company. Ranked on Google's first page within a week. #1 in Perplexity, visible in ChatGPT and Grok.
 
@@ -45,6 +45,6 @@ AI Engineering, AI Agents, Multi-Agent Systems, Claude API, SaaS Development, Ty
 
 ## Pages
 
-- Home: https://www.joshuangatewood.com/
-- Writing: https://www.joshuangatewood.com/blog
-- Resume: https://www.joshuangatewood.com/resume
+- [Home](https://www.joshuangatewood.com/)
+- [Writing](https://www.joshuangatewood.com/blog)
+- [Resume](https://www.joshuangatewood.com/resume)
