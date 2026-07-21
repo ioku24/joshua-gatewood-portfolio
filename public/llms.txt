@@ -26,8 +26,7 @@ I'm an AI Engineer at Brinker. I started in marketing ops, then picked up AI cod
 - Description: An AI system that turns trend signals and a single idea into voice-matched, publish-ready content and handles distribution across channels, with a human-approval queue. It grew out of an earlier multi-agent system Josh built across sales, marketing, and operations; he is now focused on the content and distribution layer.
 
 ### US Gage (Client Work)
-- [usgage.com](https://usgage.com)
-- Status: Live
+- Status: Completed engagement (redesign not launched publicly)
 - Description: Full digital transformation for a precision thread-gauge manufacturer (whose customers include GE Aerospace and BAE Systems). Website redesign, Google Ads optimization (health score 22 to 50, optimization score 71% to 90%), full analytics infrastructure (GA4 + GTM + GSC), brand strategy, competitive analysis, and WooCommerce e-commerce integration.
 
 ### Samco FM (Client Work)
