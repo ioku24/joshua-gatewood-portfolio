@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 
 const Nav: React.FC = () => {
   const { pathname } = useLocation();
-  const isBlog = pathname.startsWith("/blog");
   const isResume = pathname.startsWith("/resume");
 
   return (
@@ -30,14 +29,8 @@ const Nav: React.FC = () => {
           >
             resume
           </Link>
-          <Link
-            to="/blog"
-            className={`font-mono text-[0.72rem] transition-colors ${
-              isBlog ? "text-slate-900" : "text-slate-500 hover:text-slate-900"
-            }`}
-          >
-            writing
-          </Link>
+          {/* "writing" is unlinked until a second post exists — one post from
+              2026-03-23 promised a practice the site disproved. /blog still works. */}
         </div>
       </div>
     </nav>

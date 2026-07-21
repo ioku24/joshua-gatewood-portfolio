@@ -184,7 +184,7 @@ export const siteConfig: SiteConfig = {
     {
       name: "US Gage",
       description:
-        "Full digital transformation for a precision thread-gauge manufacturer supplying GE Aerospace and BAE Systems: website, Google Ads (health score 22 → 50), analytics, and e-commerce.",
+        "Full digital transformation for a precision thread-gauge manufacturer supplying GE Aerospace and BAE Systems: Google Ads (health score 22 → 50), analytics, and e-commerce.",
       url: "#",
       context: "Client Work",
     },
