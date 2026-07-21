@@ -21,7 +21,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!api/|data/).*)",
+      "source": "/((?!api/|data/|assets/|fonts/).*)",
       "destination": "/index.html"
     }
   ]
