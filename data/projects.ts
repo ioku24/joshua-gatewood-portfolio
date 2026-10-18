@@ -104,14 +104,15 @@ export const siteConfig: SiteConfig = {
     {
       name: "UGM Field Ops",
       description:
-        "One offline-capable app that replaced a construction company's paper timesheets, spreadsheet cost tracking, and manual re-entry — with an AI layer for cost reports and change orders.",
+        "The operations platform a construction company runs on: crew time tracking, project schedules, manpower planning, job-cost reports, change orders, shipping, and daily reports in one offline-capable app, with an AI layer that flags what needs attention.",
       url: "https://ugm-field-ops.vercel.app",
       isLive: true,
       context: "Acquired",
       highlights: [
         "Acquired in a six-figure deal six weeks after launch",
         "Field crews have clocked in on it since October 2026",
-        "Job-cost reports built straight from the company's accounting data",
+        "Job-cost reports tied to the accounting system: drill into a cost figure to see the transactions behind it",
+        "Multi-project schedules drive the manpower plan",
         "Eliminated ~8 hours a week of manual re-entry",
       ],
       media: [
