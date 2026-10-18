@@ -4,7 +4,7 @@
 
 ## About
 
-I'm an AI Engineer at Brinker. I started in marketing ops, then picked up AI coding tools and realized I could build what I used to only spec out. On my own, I built a field-operations platform for a construction company that was acquired, I'm building a content and distribution engine, and I deliver production websites for clients.
+I'm an AI Engineer at Brinker. I started in marketing ops, then picked up AI coding tools and realized I could build what I used to only spec out. On my own, I built a field-operations platform for a construction company that was acquired, I'm building a custom operations platform for a commercial HVAC company, and I deliver production websites for clients.
 
 ## Contact
 
@@ -21,9 +21,9 @@ I'm an AI Engineer at Brinker. I started in marketing ops, then picked up AI cod
 - Status: Acquired
 - Description: Full-stack field operations platform for a construction company. Real-time budget tracking, mobile clock-in/out, foreman approval workflow, AI-powered insights, and offline-first for remote job sites. Acquired by a company about six weeks after launch. Replaced manual data entry that was costing the company $26K-$39K/year in labor.
 
-### Content Engine (In Progress)
+### Samco Ops (In Progress)
 - Status: Building
-- Description: An AI system that turns trend signals and a single idea into voice-matched, publish-ready content and handles distribution across channels, with a human-approval queue. It grew out of an earlier multi-agent system Josh built across sales, marketing, and operations; he is now focused on the content and distribution layer.
+- Description: A custom operations platform for a commercial HVAC company, replacing their off-the-shelf field-service software. Ten core workflows from service request to paid invoice, designed for online invoice payments and QuickBooks sync.
 
 ### US Gage (Client Work)
 - Status: Completed engagement (redesign not launched publicly)

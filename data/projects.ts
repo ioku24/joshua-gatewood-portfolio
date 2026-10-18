@@ -67,6 +67,19 @@ export const siteConfig: SiteConfig = {
 
   projects: [
     {
+      name: "Samco Ops",
+      description:
+        "A custom operations platform for a commercial HVAC company, replacing their off-the-shelf field-service software. One system for work orders, scheduling, invoicing, and payments, built around how their team actually works.",
+      url: "#", // ponytail: unreleased client system, Josh demos it from his own tab
+      context: "Building",
+      highlights: [
+        "Ten core workflows, from service request to paid invoice",
+        "Designed for online invoice payments and QuickBooks sync",
+        "Pairs with the company's iOS app for technicians in the field",
+      ],
+      techStack: ["Next.js", "TypeScript", "Supabase", "Postgres"],
+    },
+    {
       name: "Personal RAG Knowledge System",
       description:
         "A retrieval system over my Obsidian vault that surfaces the right notes into my AI agents mid-task — and stays silent when nothing is relevant.",
@@ -92,7 +105,7 @@ export const siteConfig: SiteConfig = {
       name: "UGM Field Ops",
       description:
         "One offline-capable app that replaced a construction company's paper timesheets, spreadsheet cost tracking, and manual re-entry — with an AI layer for cost reports and change orders.",
-      url: "#",
+      url: "https://ugm-field-ops.vercel.app",
       isLive: true,
       context: "Acquired",
       highlights: [
@@ -110,25 +123,6 @@ export const siteConfig: SiteConfig = {
         { type: "image", url: "/assets/ugm-mobile.webp" },
         { type: "image", url: "/assets/ugm-approvals.webp" },
       ],
-    },
-    {
-      name: "Content Engine",
-      description:
-        "A venture-agnostic content and distribution engine: researches trends, fact-checks, drafts in brand voice, and routes every post through human approval.",
-      url: "#",
-      context: "Building",
-      highlights: [
-        "One deterministic, fact-checked pipeline — not a multi-agent swarm",
-        "Swappable per-venture config: same pipeline, any brand",
-        "Creation runs daily; distribution and learning loop in development",
-      ],
-      techStack: [
-        "autonomous agents",
-        "LLM routing",
-        "fact-check",
-        "Telegram HITL",
-      ],
-      media: [{ type: "image", url: "/assets/agent-loop.svg", fit: "contain" }],
     },
     {
       name: "Enterprise RAG",

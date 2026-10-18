@@ -186,14 +186,12 @@ const Resume: React.FC = () => {
               </strong>
             </>,
             <>
-              Building a{" "}
-              <strong className="text-slate-900 font-medium">
-                content and distribution engine
-              </strong>{" "}
-              that turns trend signals and ideas into voice-matched, published
-              content with a human-approval queue. Evolved from an earlier
-              multi-agent system I built across sales, marketing, and
-              operations. (Claude API, multi-agent)
+              Building{" "}
+              <strong className="text-slate-900 font-medium">Samco Ops</strong>,
+              a custom operations platform for a commercial HVAC company that
+              replaces their off-the-shelf field-service software: ten core
+              workflows from service request to paid invoice. (Next.js,
+              TypeScript, Supabase)
             </>,
             <>
               Led full digital transformation for{" "}

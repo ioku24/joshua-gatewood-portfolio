@@ -1,0 +1,6 @@
+{
+  "commands": {
+    "typecheck": "npx tsc --noEmit -p .",
+    "build": "npm run --silent build"
+  }
+}
