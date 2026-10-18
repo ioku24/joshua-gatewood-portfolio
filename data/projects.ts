@@ -110,8 +110,9 @@ export const siteConfig: SiteConfig = {
       context: "Acquired",
       highlights: [
         "Acquired in a six-figure deal six weeks after launch",
+        "Field crews have clocked in on it since October 2026",
+        "Job-cost reports built straight from the company's accounting data",
         "Eliminated ~8 hours a week of manual re-entry",
-        "Role-based, multi-company, offline-capable for remote job sites",
       ],
       media: [
         {
