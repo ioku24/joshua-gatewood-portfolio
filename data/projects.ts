@@ -116,14 +116,13 @@ export const siteConfig: SiteConfig = {
         "Eliminated ~8 hours a week of manual re-entry",
       ],
       media: [
+        { type: "image", url: "/assets/ugm-dashboard-2026-10.webp" },
+        { type: "image", url: "/assets/ugm-schedule-2026-10.webp" },
         {
           type: "video",
           url: "/assets/ugm-demo.mp4",
           thumbnail: "/assets/ugm-dashboard.webp",
         },
-        { type: "image", url: "/assets/ugm-dashboard.webp" },
-        { type: "image", url: "/assets/ugm-mobile.webp" },
-        { type: "image", url: "/assets/ugm-approvals.webp" },
       ],
     },
     {
