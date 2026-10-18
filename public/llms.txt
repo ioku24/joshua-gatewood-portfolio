@@ -21,6 +21,10 @@ I'm an AI Engineer at Brinker. I started in marketing ops, then picked up AI cod
 - Status: Acquired
 - Description: Full-stack field operations platform for a construction company. Real-time budget tracking, mobile clock-in/out, foreman approval workflow, AI-powered insights, and offline-first for remote job sites. Acquired by a company about six weeks after launch. Replaced manual data entry that was costing the company $26K-$39K/year in labor.
 
+### AI Agents at Brinker (Day Job)
+- Status: Live
+- Description: As the AI engineer for a group of construction and facilities companies, Josh builds agents that each take one office job off people's plates: Submittal Review checks contractor submittals against project specs and sends the engineer a first-pass review; the Knowledge Overseer and filing agent keep one consistent, findable filing system across the companies. The agents read company systems without changing them and cite a source for every answer.
+
 ### Samco Ops (In Progress)
 - Status: Building
 - Description: A custom operations platform for a commercial HVAC company, replacing their off-the-shelf field-service software. Ten core workflows from service request to paid invoice, designed for online invoice payments and QuickBooks sync.

@@ -125,26 +125,15 @@ export const siteConfig: SiteConfig = {
       ],
     },
     {
-      name: "Enterprise RAG",
+      name: "AI Agents at Brinker",
       description:
-        "The retrieval pattern I build for organizations: answers from your own documents, a citation on every claim, and abstention instead of guessing.",
+        "As the AI engineer for a group of construction and facilities companies, I build agents that each take one office job off people's plates. They read company systems without changing them and cite a source for every answer.",
       url: "#",
-      context: "Building",
+      context: "Day Job",
       highlights: [
-        "Cite-or-defer: every claim links to its source document",
-        "In-boundary embeddings — sensitive data never leaves your environment",
-        "Eval-first: retrieval quality measured before anything ships",
-      ],
-      techStack: [
-        "RAG",
-        "vector DB",
-        "embeddings",
-        "reranking",
-        "citations",
-        "evals",
-      ],
-      media: [
-        { type: "image", url: "/assets/enterprise-rag.svg", fit: "contain" },
+        "Submittal Review: checks contractor submittals against project specs and sends the engineer a first-pass review",
+        "Knowledge Overseer and filing agent: one consistent, findable filing system across the companies",
+        "Math runs in code, not the model, and every result is tested and logged",
       ],
     },
     {
