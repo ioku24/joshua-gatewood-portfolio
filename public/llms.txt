@@ -39,8 +39,9 @@ I'm an AI Engineer at Brinker. I started in marketing ops, then picked up AI cod
 - Description: Website, mobile app (iOS), and full SEO/AEO strategy for commercial HVAC company. Ranked on Google's first page within a week. #1 in Perplexity, visible in ChatGPT and Grok.
 
 ### Gauntlet AI (Marketing Operations)
+- [gauntletai.com](https://gauntletai.com/)
 - Status: Past role
-- Description: Marketing operations for an established AI company. Full-funnel audit and roadmap that contributed to 2x pipeline growth, CRM cleanup with 4,400+ data issues resolved, content automation that lifted team output 3-5x, and competitive intelligence.
+- Description: Marketing operations for Gauntlet AI, which trains engineers to become AI-first. Full-funnel audit and roadmap that contributed to 2x pipeline growth, CRM cleanup with 4,400+ data issues resolved, content automation that lifted team output 3-5x, and competitive intelligence.
 
 ## Skills
 

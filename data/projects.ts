@@ -175,8 +175,9 @@ export const siteConfig: SiteConfig = {
     {
       name: "Gauntlet AI",
       description:
-        "Marketing operations for an AI company: full-funnel audit contributing to 2x pipeline growth, 4,400+ CRM issues resolved, 3-5x content output.",
-      url: "#",
+        "Marketing operations for Gauntlet AI, which trains engineers to become AI-first: a full-funnel audit that contributed to 2x pipeline growth, 4,400+ CRM issues resolved, and 3-5x content output.",
+      url: "https://gauntletai.com/",
+      isLive: true,
       context: "Marketing Operations",
     },
   ],
