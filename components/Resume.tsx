@@ -296,7 +296,7 @@ const Resume: React.FC = () => {
         <footer className="mt-16 pt-8 border-t border-slate-200/60 print:hidden">
           <Link
             to="/"
-            className="font-mono text-[0.72rem] text-slate-400 hover:text-slate-900 transition-colors"
+            className="font-mono text-[0.72rem] text-slate-500 hover:text-slate-900 transition-colors"
           >
             ← back to home
           </Link>
