@@ -39,7 +39,7 @@ const BlogList: React.FC = () => {
             style={{ animationDelay: "0s" }}
           >
             <span className="w-[7px] h-[7px] rounded-full bg-green-500 animate-pulse-dot" />
-            <span className="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-slate-400 font-light">
+            <span className="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-slate-500 font-light">
               [build.log], writing in public
             </span>
           </div>
@@ -65,7 +65,7 @@ const BlogList: React.FC = () => {
 
           {/* Stats */}
           <div
-            className="flex items-center gap-3 font-mono text-[0.72rem] text-slate-400 animate-fade-up"
+            className="flex items-center gap-3 font-mono text-[0.72rem] text-slate-500 animate-fade-up"
             style={{ animationDelay: "0.24s", opacity: 0 }}
           >
             <span>
@@ -89,7 +89,7 @@ const BlogList: React.FC = () => {
         {/* Posts */}
         <section className="py-12">
           {posts.length === 0 ? (
-            <p className="text-slate-400 font-mono text-sm">
+            <p className="text-slate-500 font-mono text-sm">
               No posts yet. First one is in the pipeline.
             </p>
           ) : (
@@ -110,11 +110,11 @@ const BlogList: React.FC = () => {
                       <span className="px-2.5 py-0.5 rounded-full bg-[rgba(92,112,128,0.1)] text-[#4A6170] font-medium">
                         {PILLAR_LABELS[(post as any).pillar] || "POST"}
                       </span>
-                      <span className="text-slate-400">
+                      <span className="text-slate-500">
                         {formatDate(post.published_at)}
                       </span>
                       {post.reading_time && (
-                        <span className="text-slate-400">
+                        <span className="text-slate-500">
                           {post.reading_time} min read
                         </span>
                       )}
@@ -146,7 +146,7 @@ const BlogList: React.FC = () => {
           <div className="flex items-center justify-between">
             <Link
               to="/"
-              className="font-mono text-[0.72rem] text-slate-400 hover:text-slate-900 transition-colors"
+              className="font-mono text-[0.72rem] text-slate-500 hover:text-slate-900 transition-colors"
             >
               {siteConfig.name.split(" ")[0].toLowerCase()}gatewood
             </Link>
@@ -155,7 +155,7 @@ const BlogList: React.FC = () => {
                 href="https://x.com/joshgatewood"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-slate-900 transition-colors"
+                className="text-slate-500 hover:text-slate-900 transition-colors"
               >
                 @joshgatewood
               </a>

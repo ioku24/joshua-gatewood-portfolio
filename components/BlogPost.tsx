@@ -126,7 +126,7 @@ const BlogPostPage: React.FC = () => {
         <header className="pt-32 pb-14 max-w-3xl">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 font-mono text-[0.72rem] text-slate-400 hover:text-slate-900 transition-colors mb-10"
+            className="inline-flex items-center gap-2 font-mono text-[0.72rem] text-slate-500 hover:text-slate-900 transition-colors mb-10"
           >
             <span>←</span> back to blog
           </Link>
@@ -138,11 +138,11 @@ const BlogPostPage: React.FC = () => {
             <span className="px-2.5 py-0.5 rounded-full bg-[rgba(92,112,128,0.1)] text-[#4A6170] font-medium">
               {PILLAR_LABELS[(post as any).pillar] || "POST"}
             </span>
-            <span className="text-slate-400">
+            <span className="text-slate-500">
               {formatDate(post.published_at)}
             </span>
             {post.reading_time && (
-              <span className="text-slate-400">
+              <span className="text-slate-500">
                 {post.reading_time} min read
               </span>
             )}
@@ -156,7 +156,7 @@ const BlogPostPage: React.FC = () => {
           </h1>
 
           <div
-            className="font-mono text-[0.72rem] text-slate-400 flex items-center gap-2 animate-fade-up"
+            className="font-mono text-[0.72rem] text-slate-500 flex items-center gap-2 animate-fade-up"
             style={{ opacity: 0, animationDelay: "0.16s" }}
           >
             <span>
@@ -204,7 +204,7 @@ const BlogPostPage: React.FC = () => {
                 className="bg-white border border-slate-200/80 rounded-lg p-5 animate-fade-up"
                 style={{ opacity: 0, animationDelay: "0.3s" }}
               >
-                <div className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-slate-400 mb-3">
+                <div className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-slate-500 mb-3">
                   Share
                 </div>
                 <div className="space-y-2">
@@ -235,7 +235,7 @@ const BlogPostPage: React.FC = () => {
                   className="bg-white border border-slate-200/80 rounded-lg p-5 animate-fade-up"
                   style={{ opacity: 0, animationDelay: "0.36s" }}
                 >
-                  <div className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-slate-400 mb-3">
+                  <div className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-slate-500 mb-3">
                     In this post
                   </div>
                   <ul className="space-y-0.5">
@@ -252,7 +252,7 @@ const BlogPostPage: React.FC = () => {
                           className={`block font-mono text-[0.68rem] py-1.5 px-2 rounded transition-all ${
                             activeId === id
                               ? "bg-[#F5F5F0] text-slate-900"
-                              : "text-slate-400 hover:text-slate-900 hover:bg-[#F5F5F0]"
+                              : "text-slate-500 hover:text-slate-900 hover:bg-[#F5F5F0]"
                           }`}
                         >
                           {text}
@@ -271,11 +271,11 @@ const BlogPostPage: React.FC = () => {
           <div className="flex items-center justify-between">
             <Link
               to="/blog"
-              className="font-mono text-[0.72rem] text-slate-400 hover:text-slate-900 transition-colors"
+              className="font-mono text-[0.72rem] text-slate-500 hover:text-slate-900 transition-colors"
             >
               ← More posts
             </Link>
-            <p className="font-mono text-[0.72rem] text-slate-400" suppressHydrationWarning>
+            <p className="font-mono text-[0.72rem] text-slate-500" suppressHydrationWarning>
               © {new Date().getFullYear()} Joshua Gatewood
             </p>
           </div>
