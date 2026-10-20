@@ -1,8 +1,11 @@
 /**
  * Blog Configuration
  *
- * Posts are served from the static JSON at BLOG_API_URL (see below).
+ * Posts live in data/posts.json. They are imported at build time so prerendered
+ * pages carry the full post text.
  */
+
+import postsJson from "./posts.json";
 
 export interface BlogPost {
   id: string;
@@ -15,8 +18,15 @@ export interface BlogPost {
   reading_time?: number; // minutes
 }
 
-// Blog posts served from static JSON in public/data/posts.json
-export const BLOG_API_URL = "/data/posts.json";
+// ponytail: every post ships in the main bundle (1 post, ~7 KB); split per post if the blog grows past a few dozen.
+export const posts: BlogPost[] = postsJson;
 
-// Fallback posts, used only if the static posts file fails to load.
-export const demoPosts: BlogPost[] = [];
+// Dates format in UTC so the build server and the browser print the same day (hydration must match).
+export const formatPostDate = (
+  dateString: string,
+  options: Intl.DateTimeFormatOptions,
+) =>
+  new Date(dateString).toLocaleDateString("en-US", {
+    ...options,
+    timeZone: "UTC",
+  });

@@ -441,7 +441,7 @@ const MinimalPortfolio: React.FC = () => {
 
         {/* ===== FOOTER ===== */}
         <footer className="pt-8 border-t border-slate-200/60 animate-fade-in animation-delay-400">
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-500" suppressHydrationWarning>
             © {new Date().getFullYear()} {siteConfig.name}
           </p>
         </footer>

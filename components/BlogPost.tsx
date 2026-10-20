@@ -1,10 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import {
-  BlogPost as BlogPostType,
-  BLOG_API_URL,
-  demoPosts,
-} from "../data/blog";
+import { posts, formatPostDate } from "../data/blog";
 
 const PILLAR_LABELS: Record<string, string> = {
   "The Build": "BUILD",
@@ -20,8 +16,7 @@ interface TocItem {
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const [post, setPost] = useState<BlogPostType | null>(null);
-  const [loading, setLoading] = useState(true);
+  const post = posts.find((p) => p.slug === slug) ?? null;
   const [tocItems, setTocItems] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState("");
   const [copied, setCopied] = useState(false);
@@ -29,34 +24,8 @@ const BlogPostPage: React.FC = () => {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const response = await fetch(BLOG_API_URL);
-        if (response.ok) {
-          const data = await response.json();
-          const posts = data.articles || data;
-          const found = posts.find((p: BlogPostType) => p.slug === slug);
-          if (found) {
-            setPost(found);
-          } else {
-            navigate("/blog", { replace: true });
-          }
-        } else {
-          throw new Error("Failed to fetch");
-        }
-      } catch {
-        const found = demoPosts.find((p) => p.slug === slug);
-        if (found) {
-          setPost(found);
-        } else {
-          navigate("/blog", { replace: true });
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchPost();
-  }, [slug, navigate]);
+    if (!post) navigate("/blog", { replace: true });
+  }, [post, navigate]);
 
   // Extract TOC from rendered content
   useEffect(() => {
@@ -110,13 +79,12 @@ const BlogPostPage: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
+  const formatDate = (dateString: string) =>
+    formatPostDate(dateString, {
       year: "numeric",
       month: "long",
       day: "numeric",
     });
-  };
 
   const handleCopyLink = async () => {
     try {
@@ -139,25 +107,6 @@ const BlogPostPage: React.FC = () => {
     const url = encodeURIComponent(window.location.href);
     window.open(`https://x.com/intent/tweet?text=${text}&url=${url}`, "_blank");
   };
-
-  if (loading) {
-    return (
-      <main className="min-h-screen bg-[#FAFAF8]">
-        <div className="max-w-3xl mx-auto px-6 pt-32">
-          <div className="animate-pulse">
-            <div className="h-4 bg-slate-200 rounded w-24 mb-12" />
-            <div className="h-10 bg-slate-200 rounded w-3/4 mb-4" />
-            <div className="h-4 bg-slate-100 rounded w-1/4 mb-12" />
-            <div className="space-y-4">
-              <div className="h-4 bg-slate-100 rounded w-full" />
-              <div className="h-4 bg-slate-100 rounded w-full" />
-              <div className="h-4 bg-slate-100 rounded w-2/3" />
-            </div>
-          </div>
-        </div>
-      </main>
-    );
-  }
 
   if (!post) return null;
 
@@ -326,7 +275,7 @@ const BlogPostPage: React.FC = () => {
             >
               ← More posts
             </Link>
-            <p className="font-mono text-[0.72rem] text-slate-400">
+            <p className="font-mono text-[0.72rem] text-slate-400" suppressHydrationWarning>
               © {new Date().getFullYear()} Joshua Gatewood
             </p>
           </div>

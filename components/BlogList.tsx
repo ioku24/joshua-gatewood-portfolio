@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { BlogPost, BLOG_API_URL, demoPosts } from "../data/blog";
+import { posts, formatPostDate } from "../data/blog";
 import { siteConfig } from "../data/projects";
 
 const PILLAR_LABELS: Record<string, string> = {
@@ -10,36 +10,16 @@ const PILLAR_LABELS: Record<string, string> = {
 };
 
 const BlogList: React.FC = () => {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch(BLOG_API_URL);
-        if (!response.ok) throw new Error("Failed to fetch posts");
-        const data = await response.json();
-        setPosts(data.articles || data);
-      } catch {
-        setPosts(demoPosts);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchPosts();
-  }, []);
-
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
+  const formatDate = (dateString: string) =>
+    formatPostDate(dateString, {
       year: "numeric",
       month: "short",
       day: "numeric",
     });
-  };
 
   const postCount = posts.length;
   const latestDate = posts[0]?.published_at
-    ? new Date(posts[0].published_at).toLocaleDateString("en-US", {
+    ? formatPostDate(posts[0].published_at, {
         month: "short",
         year: "numeric",
       })
@@ -108,21 +88,7 @@ const BlogList: React.FC = () => {
 
         {/* Posts */}
         <section className="py-12">
-          {loading ? (
-            <div className="space-y-8">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="animate-pulse py-6">
-                  <div className="flex gap-3 mb-3">
-                    <div className="h-4 w-16 bg-slate-200 rounded-full" />
-                    <div className="h-4 w-24 bg-slate-100 rounded" />
-                  </div>
-                  <div className="h-6 bg-slate-200 rounded w-3/4 mb-3" />
-                  <div className="h-4 bg-slate-100 rounded w-full mb-2" />
-                  <div className="h-4 bg-slate-100 rounded w-2/3" />
-                </div>
-              ))}
-            </div>
-          ) : posts.length === 0 ? (
+          {posts.length === 0 ? (
             <p className="text-slate-400 font-mono text-sm">
               No posts yet. First one is in the pipeline.
             </p>
