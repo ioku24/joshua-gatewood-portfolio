@@ -1,6 +1,6 @@
 /**
- * Per-route <head> values. prerender.mjs writes them into each built page;
- * components/RouteHead.tsx applies them again on in-app navigation.
+ * Per-route <head> values. prerender.mjs writes them into each built page and builds
+ * sitemap.xml from this list; components/RouteHead.tsx applies them on in-app navigation.
  */
 
 import { posts } from "./blog";
@@ -12,6 +12,8 @@ export interface RouteMeta {
   title: string;
   description: string;
   type?: "article";
+  headline?: string; // posts only: title without the site suffix
+  published?: string; // posts only: ISO date, used for the sitemap and article markup
 }
 
 export const routeMeta: RouteMeta[] = [
@@ -39,5 +41,7 @@ export const routeMeta: RouteMeta[] = [
     title: `${p.title} | Joshua Gatewood`,
     description: p.excerpt,
     type: "article" as const,
+    headline: p.title,
+    published: p.published_at,
   })),
 ];

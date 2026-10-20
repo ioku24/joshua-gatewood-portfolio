@@ -21,7 +21,24 @@ function replaceOnce(html, pattern, replacement, label) {
   return html.replace(new RegExp(pattern), () => replacement); // function form: "$" in page text stays literal
 }
 
-function setHead(html, { path, title, description, type }) {
+// BlogPosting markup so search and AI answer engines can attribute each post to its author and date.
+function articleJsonLd({ path, headline, description, published }) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline,
+    description,
+    datePublished: published,
+    url: `${SITE}${path}`,
+    mainEntityOfPage: `${SITE}${path}`,
+    image: `${SITE}/og-card.jpg`,
+    author: { "@type": "Person", name: "Joshua Gatewood", url: `${SITE}/` },
+  };
+  // "<" escaped so text in a post can never close the script tag early.
+  return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`;
+}
+
+function setHead(html, { path, title, description, type, headline, published }) {
   const url = `${SITE}${path}`;
   const t = esc(title);
   const d = esc(description);
@@ -35,6 +52,7 @@ function setHead(html, { path, title, description, type }) {
     html = replaceOnce(html, `<meta property="${ns}:description" content="[^"]*">`, `<meta property="${ns}:description" content="${d}">`, `${ns}:description`);
   }
   if (type) html = replaceOnce(html, '<meta property="og:type" content="[^"]*">', `<meta property="og:type" content="${type}">`, "og:type");
+  if (type === "article") html = replaceOnce(html, "</head>", `${articleJsonLd({ path, headline, description, published })}\n  </head>`, "</head>");
   // The portrait preload is the home page's LCP image; other pages don't show it.
   return replaceOnce(html, '\\s*<!-- LCP image[^>]*-->\\s*<link rel="preload" as="image" href="/jg-portrait.webp"[^>]*>', "", "portrait preload");
 }
@@ -55,5 +73,12 @@ for (const route of routes) {
   fs.writeFileSync(`dist/${route.file}`, html);
   console.log(`prerendered ${route.path} -> dist/${route.file} (${body.length} chars)`);
 }
+
+// Generated from the same route list, so a new post can't be left out of the sitemap.
+const urls = routes
+  .map((r) => `  <url>\n    <loc>${SITE}${r.path}</loc>${r.published ? `\n    <lastmod>${r.published.slice(0, 10)}</lastmod>` : ""}\n  </url>`)
+  .join("\n");
+fs.writeFileSync("dist/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
+console.log(`sitemap.xml: ${routes.length} urls`);
 
 fs.rmSync("dist-ssr", { recursive: true, force: true });
