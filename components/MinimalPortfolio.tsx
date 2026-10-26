@@ -16,6 +16,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { siteConfig, Project, ProjectMedia } from "../data/projects";
+import { posts } from "../data/blog";
 
 const iconMap = {
   Linkedin,
@@ -440,10 +441,20 @@ const MinimalPortfolio: React.FC = () => {
         </section>
 
         {/* ===== FOOTER ===== */}
-        <footer className="pt-8 border-t border-slate-200/60 animate-fade-in animation-delay-400">
+        <footer className="pt-8 border-t border-slate-200/60 animate-fade-in animation-delay-400 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
           <p className="text-sm text-slate-500" suppressHydrationWarning>
             © {new Date().getFullYear()} {siteConfig.name}
           </p>
+          {/* Crawlable path to the blog: without it Google only finds posts through the sitemap.
+              The nav "writing" link stays off until a second post exists (see Nav.tsx). */}
+          {posts[0] && (
+            <Link
+              to={`/blog/${posts[0].slug}`}
+              className="text-sm text-slate-500 hover:text-slate-900 underline underline-offset-4 decoration-slate-300 transition-colors"
+            >
+              From the blog: {posts[0].title}
+            </Link>
+          )}
         </footer>
       </div>
 
