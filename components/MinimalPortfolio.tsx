@@ -445,8 +445,7 @@ const MinimalPortfolio: React.FC = () => {
           <p className="text-sm text-slate-500" suppressHydrationWarning>
             © {new Date().getFullYear()} {siteConfig.name}
           </p>
-          {/* Crawlable path to the blog: without it Google only finds posts through the sitemap.
-              The nav "writing" link stays off until a second post exists (see Nav.tsx). */}
+          {/* Crawlable path straight to the newest post, beside the nav "writing" link to /blog. */}
           {posts[0] && (
             <Link
               to={`/blog/${posts[0].slug}`}
